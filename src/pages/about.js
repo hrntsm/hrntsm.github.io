@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
         </p>
         <MarkerHeader>Profile</MarkerHeader>
         <p>
-          Fleelance<br/>
+          Freelance<br/>
           Live in Tokyo<br/>
         </p>
         <MarkerHeader>Interest</MarkerHeader>
@@ -66,7 +66,7 @@ const IndexPage = ({ data }) => {
         <a href={"https://www.food4rhino.com/app/mise"}>
           <img src={"https://static.food4rhino.com/s3fs-public/users-files/hironrgkr/app/kiyaputiya.png"} alt="MISE" />
         </a>
-        <p>Mise analysis beam and output stress, deformation.<br/>
+        <p>Miseは、梁理論にもとづいて梁の応力と変形、建築学会基準による許容応力度計算を行います。<br/>
           <a href={"https://www.food4rhino.com/app/mise"}>
               more information
           </a>
@@ -76,9 +76,8 @@ const IndexPage = ({ data }) => {
           <img src={"https://pbs.twimg.com/media/EbcCYv0U4AI3yrY?format=jpg&name=medium"} alt={"STEVIA"}/>
         </a>
         <p>
-          STEVIA is structure visualizer.<br/>
-          It read ST-Bridge file(.stb) which similar to IFC and display its model.<br/>
-          You can easily check frames and present structure frame!!<br/>
+          建築構造BIMデータのST-Bridgeのビューアー。<br/>
+          VRにも対応しVRMを読み込むことでアバターを使って建築を見ることができる建築構造系唯一のVRM対応ソフトです。（自分調べ）<br/>
           <a href={"https://github.com/hrntsm/STEVIA-Stb2U/wiki"}>
             more information
           </a>
@@ -89,6 +88,9 @@ const IndexPage = ({ data }) => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen>
         </iframe><br/>
+        <p>
+          RhinoInsideをUnityで使うための導入についてのハンズオンのアーカイブです。
+        </p>
         <MarkerHeader>Contact</MarkerHeader>
         <p>
           <a href="https://twitter.com/hiron_rgkr">Twitter DM</a><br/>
