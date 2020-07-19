@@ -35,7 +35,7 @@ const NavLink = styled(Link)`
   }
 `
 
-const GitHubLink = styled.a`
+const ExternalLink = styled.a`
   color: black;
   margin-left: 15px;
   text-decoration: none;
@@ -79,18 +79,18 @@ const Header = ({ siteTitle }) => (
         <HomeLink to="/">{siteTitle}</HomeLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/diary">Diary</NavLink>
-        <GitHubLink href="https://rgkr-memo.blogspot.com/">
+        <ExternalLink href="https://rgkr-memo.blogspot.com/">
           Blog
-        </GitHubLink>
-        <GitHubLink href="https://qiita.com/hiron_rgkr">
+        </ExternalLink>
+        <ExternalLink href="https://qiita.com/hiron_rgkr">
           Qiita
-        </GitHubLink>
-        <GitHubLink href="https://github.com/hrntsm">
+        </ExternalLink>
+        <ExternalLink href="https://github.com/hrntsm">
           GitHub
-        </GitHubLink>
-        <GitHubLink href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA">
+        </ExternalLink>
+        <ExternalLink href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA">
           Youtube
-        </GitHubLink>
+        </ExternalLink>
       </p>
     </Content>
   </SiteHeader>
