@@ -88,6 +88,9 @@ const Header = ({ siteTitle }) => (
         <GitHubLink href="https://github.com/hrntsm">
           GitHub
         </GitHubLink>
+        <GitHubLink href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA">
+          Youtube
+        </GitHubLink>
       </p>
     </Content>
   </SiteHeader>
