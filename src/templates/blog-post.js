@@ -78,7 +78,6 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
-        description
       }
       fields {
         readingTime {
