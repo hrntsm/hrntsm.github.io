@@ -22,9 +22,9 @@ const MarkerHeader = styled.h3`
   border-radius: 1em 0 1em 0;
   background-image: linear-gradient(
     -100deg,
-    rgba(209, 245, 255, 0.15),
-    rgba(209, 245, 255, 1.0) 100%,
-    rgba(209, 245, 255, 0.45)
+    rgba(209, 255, 209, 0.15),
+    rgba(209, 255, 209, 0.8) 100%,
+    rgba(209, 255, 209, 0.25)
   );
 `
 
@@ -36,33 +36,21 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Diary" />
+      <SEO title="Links" />
       <Content>
-        <h1>Diary</h1>
-        {data.allMarkdownRemark.edges
-          .filter(({ node }) => {
-            const rawDate = node.frontmatter.rawDate
-            const date = new Date(rawDate)
-            return date < new Date()
-          })
-          .map(({ node }) => (
-            <div key={node.id}>
-              <Link
-                to={node.frontmatter.path}
-                css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}
-              >
-                <MarkerHeader>{node.frontmatter.title} </MarkerHeader>
-                <div>
-                  <ArticleDate>{node.frontmatter.date}</ArticleDate>
-                  <ReadingTime> - {node.fields.readingTime.text}</ReadingTime>
-                </div>
-                <p>{node.frontmatter.description || node.excerpt}</p>
-              </Link>
-            </div>
-          ))}
+        <h1>Links</h1>
+        <a href="https://rgkr-memo.blogspot.com/">
+          <MarkerHeader>Blogger</MarkerHeader>
+        </a><br/><br/>
+        <a href="https://qiita.com/hiron_rgkr">
+          <MarkerHeader>Qiita</MarkerHeader>
+        </a><br/><br/>
+        <a href="https://github.com/hrntsm">
+          <MarkerHeader>GitHub</MarkerHeader>
+        </a><br/><br/>
+        <a href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA">
+          <MarkerHeader>Youtube Channel</MarkerHeader>
+        </a>
       </Content>
     </Layout>
   )

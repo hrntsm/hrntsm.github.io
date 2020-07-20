@@ -79,18 +79,7 @@ const Header = ({ siteTitle }) => (
         <HomeLink to="/">{siteTitle}</HomeLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/diary">Diary</NavLink>
-        <ExternalLink href="https://rgkr-memo.blogspot.com/">
-          Blog
-        </ExternalLink>
-        <ExternalLink href="https://qiita.com/hiron_rgkr">
-          Qiita
-        </ExternalLink>
-        <ExternalLink href="https://github.com/hrntsm">
-          GitHub
-        </ExternalLink>
-        <ExternalLink href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA">
-          Youtube
-        </ExternalLink>
+        <NavLink to="/links">Links</NavLink>
       </p>
     </Content>
   </SiteHeader>

@@ -58,6 +58,7 @@ exports.createPages = ({ graphql, actions }) => {
       .forEach(({ node }) => {
         createPage({
           path: node.frontmatter.path,
+          description: node.frontmatter.description,
           component: blogPostTemplate,
           slug: node.fields.slug,
           context: {},

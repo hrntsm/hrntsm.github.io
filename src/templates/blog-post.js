@@ -15,9 +15,9 @@ const MarkedHeader = styled.h1`
   border-radius: 1em 0 1em 0;
   background-image: linear-gradient(
     -100deg,
-    rgba(255, 250, 150, 0.15),
-    rgba(255, 250, 150, 0.8) 100%,
-    rgba(255, 250, 150, 0.25)
+    rgba(209, 245, 255, 0.15),
+    rgba(209, 245, 255, 1.0) 100%,
+    rgba(209, 245, 255, 0.45)
   );
 `
 
@@ -33,8 +33,8 @@ const MarkdownContent = styled.div`
     position: relative;
 
     background-image: linear-gradient(
-      rgba(255, 250, 150, 0.8),
-      rgba(255, 250, 150, 0.8)
+      rgba(209, 245, 255, 0.3),
+      rgba(209, 245, 255, 1.0)
     );
     background-repeat: no-repeat;
     background-size: 100% 0.2em;
@@ -78,6 +78,7 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
+        description
       }
       fields {
         readingTime {
