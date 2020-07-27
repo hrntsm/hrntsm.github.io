@@ -90,6 +90,7 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             rawDate: date
             path
+            tags
           }
           fields {
             slug
