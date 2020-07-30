@@ -61,7 +61,7 @@ export default ({ data }) => {
       <Content>
         <MarkedHeader>{post.frontmatter.title}</MarkedHeader>
         <HeaderDate>
-          {post.frontmatter.date} - {post.fields.readingTime.text} - Tags: {post.frontmatter.tags}
+          {post.frontmatter.date} - {post.fields.readingTime.text} - Tags: {post.frontmatter.tags + ""}
         </HeaderDate>
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </Content>

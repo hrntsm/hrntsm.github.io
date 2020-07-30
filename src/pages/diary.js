@@ -17,6 +17,11 @@ const ArticleDate = styled.h5`
   color: #606060;
 `
 
+const TagsHeader = styled.h4`
+  display: inline;
+  color: #606060;
+`
+
 const MarkerHeader = styled.h3`
   display: inline;
   border-radius: 1em 0 1em 0;
@@ -39,6 +44,17 @@ const IndexPage = ({ data }) => {
       <SEO title="Diary" />
       <Content>
         <h1>Diary</h1>
+        <TagsHeader>
+          <Link
+            to={"/tags"}
+            css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}
+          >
+            All Tags Page
+          </Link>
+        </TagsHeader><br/><br/>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {
             const rawDate = node.frontmatter.rawDate
