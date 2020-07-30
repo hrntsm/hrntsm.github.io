@@ -58,6 +58,7 @@ const IndexPage = ({ data }) => {
                 <div>
                   <ArticleDate>{node.frontmatter.date}</ArticleDate>
                   <ReadingTime> - {node.fields.readingTime.text}</ReadingTime>
+                  <ArticleDate> - Tags: {node.frontmatter.tags + ""}</ArticleDate>
                 </div>
                 <p>{node.excerpt}</p>
               </Link>

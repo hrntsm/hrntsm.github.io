@@ -12,11 +12,6 @@ const Content = styled.div`
   padding: 1.45rem 1.0875rem;
 `
 
-const ArticleDate = styled.h5`
-  display: inline;
-  color: #606060;
-`
-
 const MarkerHeader = styled.h3`
   display: inline;
   border-radius: 1em 0 1em 0;
@@ -28,27 +23,41 @@ const MarkerHeader = styled.h3`
   );
 `
 
-const ReadingTime = styled.h5`
-  display: inline;
-  color: #606060;
-`
-
 const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Links" />
       <Content>
         <h1>Links</h1>
-        <a href="https://rgkr-memo.blogspot.com/">
+        <a href="https://rgkr-memo.blogspot.com/"
+           css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
           <MarkerHeader>Blogger</MarkerHeader>
-        </a><br/><br/>
-        <a href="https://qiita.com/hiron_rgkr">
+        </a>
+        <br/><br/>
+        <a href="https://qiita.com/hiron_rgkr"
+           css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
           <MarkerHeader>Qiita</MarkerHeader>
-        </a><br/><br/>
-        <a href="https://github.com/hrntsm">
+        </a>
+        <br/><br/>
+        <a href="https://github.com/hrntsm"
+           css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
           <MarkerHeader>GitHub</MarkerHeader>
-        </a><br/><br/>
-        <a href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA">
+        </a>
+        <br/><br/>
+        <a href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA"
+           css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
           <MarkerHeader>Youtube Channel</MarkerHeader>
         </a>
       </Content>
