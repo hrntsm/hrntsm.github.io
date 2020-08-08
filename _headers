@@ -146,15 +146,6 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/it-is-hard-to-get-up-isnt-it/page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/do-copy-yourself
-  Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </framework-376edee25eb5f5cd8260.js>; rel=preload; as=script
-  Link: </app-7aa48d791ed5c07d12a8.js>; rel=preload; as=script
-  Link: </commons-66501348bad84b563f0a.js>; rel=preload; as=script
-  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/do-copy-yourself/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/bet-on-what-you-excited
   Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -164,6 +155,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/bet-on-what-you-excited/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/do-copy-yourself
+  Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-376edee25eb5f5cd8260.js>; rel=preload; as=script
+  Link: </app-7aa48d791ed5c07d12a8.js>; rel=preload; as=script
+  Link: </commons-66501348bad84b563f0a.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/do-copy-yourself/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/vr-psychological-hurdles.
   Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -227,6 +227,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/talking-each-other-is-very-stimulating/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/intro-for-in-n-time-after-m-years
+  Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-376edee25eb5f5cd8260.js>; rel=preload; as=script
+  Link: </app-7aa48d791ed5c07d12a8.js>; rel=preload; as=script
+  Link: </commons-66501348bad84b563f0a.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/intro-for-in-n-time-after-m-years/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags/archicad/
   Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -299,6 +308,15 @@
   Link: </component---src-templates-tags-js-ea31e1c099c1f9c73227.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/tags/rhino-compute/page-data.json>; rel=preload; as=fetch; crossorigin
+/tags/rhino-inside/
+  Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-376edee25eb5f5cd8260.js>; rel=preload; as=script
+  Link: </app-7aa48d791ed5c07d12a8.js>; rel=preload; as=script
+  Link: </commons-66501348bad84b563f0a.js>; rel=preload; as=script
+  Link: </component---src-templates-tags-js-ea31e1c099c1f9c73227.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/tags/rhino-inside/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags/taec/
   Link: </webpack-runtime-4526f0e801cb22583b74.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
