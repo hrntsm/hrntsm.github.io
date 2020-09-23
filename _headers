@@ -632,6 +632,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/realization_of_human_rights/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/go_to_yakiniku
+  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/go_to_yakiniku/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags//
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
