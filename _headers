@@ -137,15 +137,6 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/strong-and-heavy-history-of-spring/page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/do-copy-yourself
-  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
-  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
-  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
-  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/do-copy-yourself/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/it-is-hard-to-get-up-isnt-it
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -155,6 +146,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/it-is-hard-to-get-up-isnt-it/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/do-copy-yourself
+  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/do-copy-yourself/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/bet-on-what-you-excited
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -173,15 +173,6 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/vr-psychological-hurdles./page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/nostalgia-of-schooldays
-  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
-  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
-  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
-  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/nostalgia-of-schooldays/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/want-to-be-full-of-english
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -191,7 +182,7 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/want-to-be-full-of-english/page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/read-doc-with-great-care
+/diary/nostalgia-of-schooldays
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
   Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
@@ -199,7 +190,7 @@
   Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/read-doc-with-great-care/page-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/nostalgia-of-schooldays/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/super-necessary-to-keep-studying
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -560,15 +551,6 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/only_thing_i_never_allow_is_boolean/page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/eventually_the_software_has_to_come_with_it
-  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
-  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
-  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
-  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/eventually_the_software_has_to_come_with_it/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/the_hospitality_of_handwriting
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -578,6 +560,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/the_hospitality_of_handwriting/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/eventually_the_software_has_to_come_with_it
+  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/eventually_the_software_has_to_come_with_it/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/arigyazo
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -605,6 +596,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/our_aprivoise./page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/read-doc-with-great-care
+  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/read-doc-with-great-care/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/choco_mint_ice_ice_ice
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -695,6 +695,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/what_doesnt_work_let_it_mature/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/happy_to_do_so
+  Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/happy_to_do_so/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags//
   Link: </webpack-runtime-d8475c473a097c2d2ea1.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
