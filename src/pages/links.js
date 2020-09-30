@@ -29,6 +29,14 @@ const IndexPage = ({ data }) => {
       <SEO title="Links" />
       <Content>
         <h1>Links</h1>
+        <a href="https://zenn.dev/hrntsm"
+           css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
+          <MarkerHeader>zenn.dev</MarkerHeader>
+        </a>
+        <br/><br/>
         <a href="https://rgkr-memo.blogspot.com/"
            css={css`
                   text-decoration: none;
