@@ -290,15 +290,6 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/real-time-attack-on-life/page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/please-never-change-stone-assignments
-  Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
-  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
-  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
-  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/please-never-change-stone-assignments/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/rules-for-healthy-and-happy-data
   Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -308,6 +299,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/rules-for-healthy-and-happy-data/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/please-never-change-stone-assignments
+  Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/please-never-change-stone-assignments/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/less-is-faster
   Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -731,15 +731,6 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/are_you_really_happy_about_that/page-data.json>; rel=preload; as=fetch; crossorigin
-/diary/high_end_features_keep_us_alive
-  Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
-  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
-  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
-  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/diary/high_end_features_keep_us_alive/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/a_game_with_a_lot_of_flavor
   Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -749,6 +740,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/a_game_with_a_lot_of_flavor/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/high_end_features_keep_us_alive
+  Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/high_end_features_keep_us_alive/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/even_uncle_is_an_idle_jump
   Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
