@@ -965,6 +965,15 @@
   Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/diary/a_simple_job/page-data.json>; rel=preload; as=fetch; crossorigin
+/diary/very_convenient_to_do_gyazo
+  Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-blog-post-js-68e1b4946f5c4bfc8a1c.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/diary/very_convenient_to_do_gyazo/page-data.json>; rel=preload; as=fetch; crossorigin
 /diary/fluffy_and_fluffy
   Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
@@ -1100,6 +1109,15 @@
   Link: </component---src-templates-tags-js-ea31e1c099c1f9c73227.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/tags/gatsby-js/page-data.json>; rel=preload; as=fetch; crossorigin
+/tags/git/
+  Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </framework-781d8c3da2b97ab386a4.js>; rel=preload; as=script
+  Link: </app-7c01994791c6b4bd5882.js>; rel=preload; as=script
+  Link: </commons-41dd400380e34cfd5623.js>; rel=preload; as=script
+  Link: </component---src-templates-tags-js-ea31e1c099c1f9c73227.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/tags/git/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags/github/
   Link: </webpack-runtime-81a858f6bb4183c62ed2.js>; rel=preload; as=script
   Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
