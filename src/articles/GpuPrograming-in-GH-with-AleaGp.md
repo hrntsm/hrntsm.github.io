@@ -20,7 +20,7 @@ GPU プログラミングが面白そうだったので、Grasshopper で実装�
 
 Alea が使えるようになったら、Grasshopper での実装します。上で紹介したサイトでは例えば
 
-```
+```cs
 Gpu.Default.for(0, 100, i => hogehoge)
 ```
 
@@ -28,7 +28,7 @@ Gpu.Default.for(0, 100, i => hogehoge)
 
 入力を計算したい値のリストとして、SolveInstance を以下のようにしました。GH の入力はリストですが、並列計算は配列でないとできないため、20 行目で入力されたリストを配列に変換しています。その後 GpuExtension.Average メソッドを使用して GPU で計算して値を返しています。12 行目で GpuManaged のアトリビュートをつけていますが、これは Alea 側で GPU のメモリの管理を自動で行ってくれる設定で、これをつけると速度が上がります。
 
-```
+```cs
 using System;
 using System.Collections.Generic;
 
