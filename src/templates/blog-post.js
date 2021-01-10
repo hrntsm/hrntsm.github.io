@@ -84,6 +84,8 @@ export const pageQuery = graphql`
         readingTime {
           text
         }
+        slug
+        collection
       }
     }
   }

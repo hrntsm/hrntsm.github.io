@@ -41,9 +41,9 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Diary" />
+      <SEO title="Article" />
       <Content>
-        <h1>Diary</h1>
+        <h1>Article</h1>
         <TagsHeader>
           <Link
             to={"/tags"}
@@ -52,11 +52,11 @@ const IndexPage = ({ data }) => {
                   color: inherit;
                 `}
           >
-            All Diary Tags Page
+            All Article Tags Page
           </Link>
         </TagsHeader><br/><br/>
         <hr></hr>
-        <p>日々のメモやポエムです。</p>
+        <p>技術記事です。"構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。</p>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {
@@ -99,7 +99,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { eq: false } }, fields: {collection : { eq: "diary"} } }
+      filter: { frontmatter: { draft: { eq: false } }, fields: {collection : { eq: "article"} } }
     ) {
       totalCount
       edges {

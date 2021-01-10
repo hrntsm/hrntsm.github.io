@@ -2,14 +2,23 @@ const path = require(`path`)
 const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
+    
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
+        node,
+        name: `slug`,
+        value: slug,
+    })
+
+    const parent = getNode(node.parent)
+    createNodeField({
+        node,
+        name: `collection`,
+        value: parent.sourceInstanceName,
     })
   }
 }
@@ -33,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
             fields {
               slug
+              collection
             }
           }
         }
