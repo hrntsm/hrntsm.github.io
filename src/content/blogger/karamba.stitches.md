@@ -1,9 +1,9 @@
 ---
 title: 'stitchesコンポーネントを使用したトラスの作成'
-date: 2015-11-03T15:23:00.001+09:00
+date: "2015-11-03"
 draft: false
-aliases: [ "/2015/11/karamba.stitches.html" ]
-tags : [karamba, grasshopper]
+path: "/diary/karamba.stitches"
+tags : ["karamba", "grasshopper"]
 ---
 
 　今回はkarambaのstitchesコンポーネントの使用法についてです。このコンポーネントは名前の通り縫う機能を持っています。設定した要素群同士をつなげる機能を持っています。  

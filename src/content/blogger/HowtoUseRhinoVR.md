@@ -1,9 +1,9 @@
 ---
 title: 'RhinoVRの使い方'
-date: 2019-01-06T22:06:00.001+09:00
+date: "2019-01-06"
 draft: false
-aliases: [ "/2019/01/HowtoUseRhinoVR.html" ]
-tags : [VR, rhinoceros]
+path: "/diary/HowtoUseRhinoVR"
+tags : ["VR", "rhinoceros"]
 ---
 
 　2019年1月現在、公式によって開発公開されているRhinocerosのVR対応化のプラグインの導入法、使い方について説明します。  

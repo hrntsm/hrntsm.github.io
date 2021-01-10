@@ -1,9 +1,9 @@
 ---
 title: 'AnalyzeThⅠとAnalyzeThⅡの違い'
-date: 2015-08-23T11:23:00.000+09:00
+date: "2015-08-23"
 draft: false
-aliases: [ "/2015/08/analyzethanalyzeth.html" ]
-tags : [karamba, grasshopper]
+path: "/diary/analyzethanalyzeth"
+tags : ["karamba", "grasshopper"]
 ---
 
 　Karambaには、静的線形解析を行うコンポーネントが２つあります。AnalyzeThⅠとAnalyzeThⅡの二つです。二つの違いについて検証します。  

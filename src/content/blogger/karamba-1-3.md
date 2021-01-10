@@ -1,9 +1,9 @@
 ---
 title: 'karamba 1.3 の新機能について'
-date: 2018-04-11T08:34:00.003+09:00
+date: "2018-04-11"
 draft: false
-aliases: [ "/2018/04/karamba-1-3.html" ]
-tags : [karamba]
+path: "/diary/karamba-1-3"
+tags : ["karamba"]
 ---
 
 　karambaが1.2から1.3へのマイナーアップデートが進行中です。  

@@ -1,9 +1,9 @@
 ---
 title: 'Arduino と Firefly で加速度を取得'
-date: 2015-09-05T23:54:00.001+09:00
+date: "2015-09-05"
 draft: false
-aliases: [ "/2015/09/aruduino-firefly.html" ]
-tags : [grasshopper, Firefly, Arduino]
+path: "/diary/aruduino-firefly"
+tags : ["grasshopper", "Firefly", "Arduino"]
 ---
 
 　以前の記事で　ゾーベックの超軽量構造：スマートシェル というものを取り上げました。シェル形状の最適化を行いましたが、実際のシェルの状況をどのように取得するかが問題でした。ひずみゲージや加速度計などの機器を使えば状態の取得は可能ですが、あまり身近なものではなく、かつ高価です。  

@@ -1,9 +1,9 @@
 ---
 title: 'ST-Bridgeからデータを取得してモデルを表示するgrasshopperコンポーネントの公開'
-date: 2019-10-06T15:39:00.001+09:00
+date: "2019-10-06"
 draft: false
-aliases: [ "/2019/10/ReleaseStbHopper.html" ]
-tags : [grasshopper, C#, rhinoceros]
+path: "/diary/ReleaseStbHopper"
+tags : ["grasshopper", "C#", "rhinoceros"]
 ---
 
 　Grasshopperで建築構造設計の一貫計算ソフトとBIMの連携等に使用されているST-Bridgeデータを読み込むコンポーネント ”HoaryFox” を作成したので公開します。  

@@ -1,9 +1,9 @@
 ---
 title: 'C#とgrasshopperで Hello World! を表示'
-date: 2017-05-28T15:38:00.000+09:00
+date: "2017-05-28"
 draft: false
-aliases: [ "/2017/05/CS-grasshopper-HelloWorldComponent.html" ]
-tags : [grasshopper, C#]
+path: "/diary/CS-grasshopper-HelloWorldComponent"
+tags : ["grasshopper", "C#"]
 ---
 
 　grasshopperのコンポーネントのカスタム方法についての記事です。コンポーネントにボタンを設置し、ボタンを押すとウインドウズフォームから出力されるウインドウに定番の「HelloWorld」を出力するコンポーネントを作成します。  

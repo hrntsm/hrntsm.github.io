@@ -1,9 +1,9 @@
 ---
 title: 'grasshopperとC# を使ってH形鋼を出力する'
-date: 2016-12-24T14:49:00.002+09:00
+date: "2016-12-24"
 draft: false
-aliases: [ "/2016/12/CS-make-I-shape-Steel.html" ]
-tags : [grasshopper, C#]
+path: "/diary/CS-make-I-shape-Steel"
+tags : ["grasshopper", "C#"]
 ---
 
 　[前回の記事](http://rgkr-memo.blogspot.jp/2016/11/SimpleBeam-Component-in-CS.html)では、単純梁の計算をするコンポーネントを作成しました。その際はすべてのパラメーターが手入力だったので、今回はH形鋼を対象にして、解析に必要なパラメーターを計算し、出力するコンポーネントの作成を行います。

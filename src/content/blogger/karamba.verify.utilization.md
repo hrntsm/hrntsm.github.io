@@ -1,9 +1,9 @@
 ---
 title: 'karambaのutilizationの検証'
-date: 2015-12-05T18:06:00.001+09:00
+date: "2015-12-05"
 draft: false
-aliases: [ "/2015/12/karamba.verify.utilization.html" ]
-tags : [karamba]
+path: "/diary/karamba.verify.utilization"
+tags : ["karamba"]
 ---
 
 　karambaで単純梁をモデル化し、Axial Stress と Utilizationの振る舞いについて検証します。梁の中央に集中荷重をかけ、発生する応力から検証していきます。  

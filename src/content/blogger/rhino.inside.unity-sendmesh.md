@@ -1,9 +1,9 @@
 ---
 title: 'RhinoInside UnityでRhinoへメッシュを送るやり方'
-date: 2020-03-05T23:41:00.001+09:00
+date: "2020-03-05"
 draft: false
-aliases: [ "/2020/03/rhino.inside.unity-sendmesh.html" ]
-tags : [Unity, RhinoInside, C#, rhinoceros]
+path: "/diary/rhino.inside.unity-sendmesh"
+tags : ["Unity", "RhinoInside", "C#", "rhinoceros"]
 ---
 
 　Rhino.Inside.UnityでUnityからRhinoにメッシュを送る部分を作成したので、送り方を説明します。なお作った結果として、メッシュはデータ量が多いからか動作が非常に重くなるので、リアルタイムでメッシュのやり取りをしない限りはFBXなどを介して送ったほうがよさそうです。  

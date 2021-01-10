@@ -1,9 +1,9 @@
 ---
 title: 'karambaの初期設定'
-date: 2015-11-21T19:51:00.001+09:00
+date: "2015-11-21"
 draft: false
-aliases: [ "/2015/11/karamba.Initial.setting.html" ]
-tags : [karamba]
+path: "/diary/karamba.Initial.setting"
+tags : ["karamba"]
 ---
 
 　karambaの初期設定の変更法について説明します。karambaの初期設定は、karamba.ini　というファイルに記述されています。データの場所は、デフォルトでは  

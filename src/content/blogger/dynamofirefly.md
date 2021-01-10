@@ -1,9 +1,9 @@
 ---
 title: 'DynamoでもFirefly'
-date: 2015-09-26T23:01:00.002+09:00
+date: "2015-09-26"
 draft: false
-aliases: [ "/2015/09/dynamofirefly.html" ]
-tags : [BIM, Dynamo, Firefly]
+path: "/diary/dynamofirefly"
+tags : ["BIM", "Dynamo", "Firefly"]
 ---
 
 　今回の記事では、これまで使用してきたrhino + grasshopper　ではなく、Dynamoを使用します。  

@@ -1,9 +1,9 @@
 ---
 title: 'Mise のリリースのお知らせ'
-date: 2019-03-01T21:26:00.001+09:00
+date: "2019-03-01"
 draft: false
-aliases: [ "/2019/03/ReleaseMise.html" ]
-tags : [grasshopper, Mise, C#]
+path: "/diary/ReleaseMise"
+tags : ["grasshopper", "Mise", "C#"]
 ---
 
 　これまでに動画やこのblogで紹介してきた単純梁の計算を行うコンポーネントをFood4Rhinoでリリースしました。  

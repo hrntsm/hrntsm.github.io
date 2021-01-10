@@ -1,9 +1,9 @@
 ---
 title: 'karambaの要素分割の出力法'
-date: 2018-02-22T00:12:00.003+09:00
+date: "2018-02-22"
 draft: false
-aliases: [ "/2018/02/karamba-ConfirmationOfTheElementDivision.html" ]
-tags : [karamba]
+path: "/diary/karamba-ConfirmationOfTheElementDivision"
+tags : ["karamba"]
 ---
 
 　karambaでの要素の分割について確認したので簡単ですがまとめます。  

@@ -1,9 +1,9 @@
 ---
 title: 'karambaの単位'
-date: 2015-06-11T23:26:00.001+09:00
+date: "2015-06-11"
 draft: false
-aliases: [ "/2015/06/karamba.html" ]
-tags : [karamba, rhinoceros]
+path: "/diary/karamba"
+tags : ["karamba", "rhinoceros"]
 ---
 
 Karambaの単位系は、メートル系とフィート系のどちらかを選択できますが、ここでは、SI基本単位系としてモデリングしていきます。ここで、rhinoceros上や、Grasshoppher上で単位系を変更しても、Karambaの単位は変更されないので注意が必要です。  

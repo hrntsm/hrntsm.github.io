@@ -1,9 +1,9 @@
 ---
 title: 'BESOBeam（旧FFF）コンポーネントについて'
-date: 2015-08-31T00:09:00.001+09:00
+date: "2015-08-31"
 draft: false
-aliases: [ "/2015/08/besobeamfff.html" ]
-tags : [karamba, grasshopper]
+path: "/diary/besobeamfff"
+tags : ["karamba", "grasshopper"]
 ---
 
 karambaのBESOBeam（旧FFF）コンポーネントの使用法について説明します。  

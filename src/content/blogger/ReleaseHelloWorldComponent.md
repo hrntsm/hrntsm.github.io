@@ -1,9 +1,9 @@
 ---
 title: '単質点系の応答解析コンポーネントの公開'
-date: 2018-10-07T14:38:00.000+09:00
+date: "2018-10-07"
 draft: false
-aliases: [ "/2018/10/ReleaseHelloWorldComponent.html" ]
-tags : [grasshopper, C#]
+path: "/diary/ReleaseHelloWorldComponent"
+tags : ["grasshopper", "C#"]
 ---
 
 　前記事で公開した[単純梁の解析コンポーネント](https://rgkr-memo.blogspot.com/2018/07/blog-post.html)に続き、単質点系の応答解析のコンポーネントをまとめたので、同様に[Github](https://github.com/hiro-n-rgkr/1dofResponseAnalysis/releases)で公開しました。  

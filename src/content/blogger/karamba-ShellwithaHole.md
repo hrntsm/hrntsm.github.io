@@ -1,9 +1,9 @@
 ---
 title: '孔の空いたシェル要素の解析'
-date: 2018-02-25T20:18:00.000+09:00
+date: "2018-02-25"
 draft: false
-aliases: [ "/2018/02/karamba-ShellwithaHole.html" ]
-tags : [karamba, grasshopper]
+path: "/diary/karamba-ShellwithaHole"
+tags : ["karamba", "grasshopper"]
 ---
 
 　板に孔があくと応力がどうなるか気になっていたので、karambaを使用して孔の開いたシェルの解析を行いたいと思います。  

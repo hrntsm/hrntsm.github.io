@@ -1,9 +1,9 @@
 ---
 title: 'ランダムに柱梁が入ったような構造を解析'
-date: 2017-09-17T15:15:00.001+09:00
+date: "2017-09-17"
 draft: false
-aliases: [ "/2017/09/Karamba-RandomRigidFrame.html" ]
-tags : [karamba]
+path: "/diary/Karamba-RandomRigidFrame"
+tags : ["karamba"]
 ---
 
 　GA Japan 147号に記載の夏野ビルのようなランダムに柱梁が入っているようなモデルを作成しKarambaで応力解析してみます。  

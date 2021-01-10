@@ -1,9 +1,9 @@
 ---
 title: 'karambaで鉄骨造オフィスの設計にチャレンジ'
-date: 2016-02-13T14:47:00.003+09:00
+date: "2016-02-13"
 draft: false
-aliases: [ "/2016/02/Design-Steel-Frame-Building-in-karamba.html" ]
-tags : [karamba, 設計]
+path: "/diary/Design-Steel-Frame-Building-in-karamba"
+tags : ["karamba", "設計"]
 ---
 
 　これまでの記事で、karambaの各コンポーネントに関して検証してきたので、今回はそれらをもとに簡単な鉄骨造オフィスの設計にチャレンジします。  

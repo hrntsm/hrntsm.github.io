@@ -1,8 +1,8 @@
 ---
 title: 'はじめの意気込み'
-date: 2015-05-12T22:35:00.000+09:00
+date: "2015-05-12"
 draft: false
-aliases: [ "/2015/05/blog-post.html" ]
+path: "/diary/blog-post"
 ---
 
 　建築設計の分野において、RhinoとGrasshopperによるデジタルデザインが最近目立つようになってきました。  

@@ -1,9 +1,9 @@
 ---
 title: '自作のHelloWorldコンポーネントの作り方'
-date: 2018-10-07T15:16:00.001+09:00
+date: "2018-10-07"
 draft: false
-aliases: [ "/2018/10/HowtoMakeGHComponent.html" ]
-tags : [grasshopper, C#]
+path: "/diary/HowtoMakeGHComponent"
+tags : ["grasshopper", "C#"]
 ---
 
 　[C#とgrasshopperで Hello World! を表示](https://rgkr-memo.blogspot.com/2017/05/CS-grasshopper-HelloWorldComponent.html)　の記事で説明したコンポーネントについて、整理してこちらも[Github](https://github.com/hrntsm/HelloWorldGH/releases)上で公開しました。

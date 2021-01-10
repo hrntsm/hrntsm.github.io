@@ -1,9 +1,9 @@
 ---
 title: 'karamba ver1.2 のアップデート内容'
-date: 2016-11-03T23:10:00.000+09:00
+date: "2016-11-03"
 draft: false
-aliases: [ "/2016/11/karamba-12.html" ]
-tags : [karamba, grasshopper]
+path: "/diary/karamba-12"
+tags : ["karamba", "grasshopper"]
 ---
 
 久しぶりの更新となるので、この間の期間にkarambaがどう変わった確認します。  

@@ -1,9 +1,9 @@
 ---
 title: 'RhinoInside Unity の公式サンプルで遊ぶ'
-date: 2020-02-29T15:31:00.002+09:00
+date: "2020-02-29"
 draft: false
-aliases: [ "/2020/02/rhiniinsideunity.samplecheck.html" ]
-tags : [Unity, grasshopper, RhinoInside, C#, rhinoceros]
+path: "/diary/rhiniinsideunity.samplecheck"
+tags : ["Unity", "grasshopper", "RhinoInside", "C#", "rhinoceros"]
 ---
 
 　公式のRhinoInside Unityをちょっといじって遊んでみます。最終的には以下のようなものを目指します。  

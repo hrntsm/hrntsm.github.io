@@ -1,9 +1,9 @@
 ---
 title: 'Alea GPU を使って GrasshopperでGPU並列プログラミング'
-date: 2020-04-30T22:42:00.004+09:00
+date: "2020-04-30"
 draft: false
-aliases: [ "/2020/04/GpuPrograming-in-GH-with-AleaGp.html" ]
-tags : [grasshopper, C#]
+path: "/diary/GpuPrograming-in-GH-with-AleaGp"
+tags : ["grasshopper", "C#"]
 ---
 
 GPUプログラミングが面白そうだったので、Grasshopperで実装して動作の感じを確認してみました。実装した方法について説明していきます。

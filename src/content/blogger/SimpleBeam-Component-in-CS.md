@@ -1,9 +1,9 @@
 ---
 title: 'C# で 単純梁を計算するコンポーネントを作成'
-date: 2016-11-09T23:08:00.000+09:00
+date: "2016-11-09"
 draft: false
-aliases: [ "/2016/11/SimpleBeam-Component-in-CS.html" ]
-tags : [grasshopper, C#]
+path: "/diary/SimpleBeam-Component-in-CS"
+tags : ["grasshopper", "C#"]
 ---
 
 　今回はgrasshopperで動作する コンポーネントをC#を用いて作成する方法についての記事です。food4rhino などでダウンロードするデータに必ず含まれている"アイツ"を作成してみます。

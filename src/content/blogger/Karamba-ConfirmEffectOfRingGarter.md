@@ -1,9 +1,9 @@
 ---
 title: 'karambaを利用してリングガーターの効果を確認する'
-date: 2017-01-15T23:47:00.002+09:00
+date: "2017-01-15"
 draft: false
-aliases: [ "/2017/01/Karamba-ConfirmEffectOfRingGarter.html" ]
-tags : [karamba, grasshopper]
+path: "/diary/Karamba-ConfirmEffectOfRingGarter"
+tags : ["karamba", "grasshopper"]
 ---
 
  新建築2017年１月号に掲載のキャノピーが非常にかっこよかったので、調べたところリングガーターの効果を期待しているということでした。  

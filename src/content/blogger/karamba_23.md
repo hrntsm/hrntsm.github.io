@@ -1,9 +1,9 @@
 ---
 title: 'karambaのシェル要素について'
-date: 2015-06-23T00:27:00.000+09:00
+date: "2015-06-23"
 draft: false
-aliases: [ "/2015/06/karamba_23.html" ]
-tags : [karamba]
+path: "/diary/karamba_23"
+tags : ["karamba"]
 ---
 
 Karambaのシェル要素のモデル化についてです。  
