@@ -1,23 +1,18 @@
 ---
-title: 'karambaの初期設定'
+title: "karambaの初期設定"
 date: "2015-11-21"
 draft: false
 path: "/articles/karamba.Initial.setting"
-article-tags : ["karamba"]
+article-tags: ["karamba"]
 ---
 
-　karambaの初期設定の変更法について説明します。karambaの初期設定は、karamba.ini　というファイルに記述されています。データの場所は、デフォルトでは  
+karamba の初期設定の変更法について説明します。karamba の初期設定は、karamba.ini 　というファイルに記述されています。データの場所は、デフォルトでは
 
-　"rhinoがインストールされているフォルダ \\Plug-ins\\Karamba\\karamba.ini"
+"rhino がインストールされているフォルダ \\Plug-ins\\Karamba\\karamba.ini"
 
 となっていると思います。編集はテキストエディタで行います。では開いて見ましょう。
 
-  
-  
-
-　開くと始めに以下のようなことが書かれていると思います。ここから先は、内容を確認しながら何の設定なのかみていきます。
-
-  
+開くと始めに以下のようなことが書かれていると思います。ここから先は、内容を確認しながら何の設定なのかみていきます。
 
 #---
 
@@ -63,7 +58,7 @@ article-tags : ["karamba"]
 
 \# - colors are named following the C# naming convention ()
 
-\# - for properties not found here default values will be chosen 
+\# - for properties not found here default values will be chosen
 
 \# - strings need to be enclosed in '"'
 
@@ -71,43 +66,39 @@ article-tags : ["karamba"]
 
 #---
 
-  
-
 内容は、以下のようになっています。
-
-  
 
 ・このファイルでは、文頭が”＃”または”；”の行はコメント（読み込まない）行になる
 
-・数字のフォーマットはC＃にならう
+・数字のフォーマットは C＃にならう
 
-　たとえば
+たとえば
 
-　小数点以下2位ちょうどで表示したい場合
+小数点以下 2 位ちょうどで表示したい場合
 
-          "{0:0.00}";    123.4567 -> "123.46"
+"{0:0.00}";    123.4567 -> "123.46"
 
-          "{0:0.00}";    123.4   　 -> "123.40"
+"{0:0.00}";    123.4   　 -> "123.40"
 
-　最大で小数点以下2位としたい場合
+最大で小数点以下 2 位としたい場合
 
-          "{0:0.##}";    123.4567 -> "123.46"
+"{0:0.##}";    123.4567 -> "123.46"
 
-          "{0:0.##}";    123.4　    -> "123.4"
+"{0:0.##}";    123.4 　    -> "123.4"
 
-          "{0:0.##}";    123.0  　  -> "123"# 
+"{0:0.##}";    123.0   　  -> "123"#
 
-　結果の右揃えや左揃えにしたい場合
+結果の右揃えや左揃えにしたい場合
 
-          "{0,10:0.0}";  123.4567 -> "     123.5"
+"{0,10:0.0}";  123.4567 -> "     123.5"
 
-          "{0,-10:0.0}"; 123.4567 -> "123.5     "
+"{0,-10:0.0}"; 123.4567 -> "123.5     "
 
-   パーセントで結果を表示する場合
+パーセントで結果を表示する場合
 
-          "%";             0.1    -> "10%"
+"%";             0.1    -> "10%"
 
-・色はC#での名前にならう
+・色は C#での名前にならう
 
 ・ここで設定しなかったものは、プログラム上でのデフォルト設定になる
 
@@ -115,9 +106,7 @@ article-tags : ["karamba"]
 
 ・値や設定の名前は、大文字、小文字の区別がある
 
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -127,21 +116,15 @@ article-tags : ["karamba"]
 
 #---
 
-  
-
 UnitsSytem = "SI"
 
 \# UnitsSytem = "imperial"
 
-  
+これは単位系の設定です。始めに、karamba は grasshopper とは単位が関連付けられているわけではないので注意しましょうとなっています。その下の内容が単位の設定です。現在私の設定では SI 単位系となっているため、UnitsSytem 　は”SI”のほうが選択されており、”imperial”はコメント行として読み込まれないようになっています。
 
-　これは単位系の設定です。始めに、karambaはgrasshopperとは単位が関連付けられているわけではないので注意しましょうとなっています。その下の内容が単位の設定です。現在私の設定ではSI単位系となっているため、UnitsSytem　は”SI”のほうが選択されており、”imperial”はコメント行として読み込まれないようになっています。
+では次の段落へ
 
-　では次の段落へ
-
-  
-
-#--- 
+#---
 
 \# default path of the license directory
 
@@ -149,15 +132,11 @@ UnitsSytem = "SI"
 
 #---
 
-\# license\_path = "C:\\Program Files (x86)\\Rhinoceros 4.0\\Plug-ins\\Grasshopper\\Karamba\\License"
+\# license_path = "C:\\Program Files (x86)\\Rhinoceros 4.0\\Plug-ins\\Grasshopper\\Karamba\\License"
 
-  
+ここは、karamba のライセンスファイルの参照先についてです。基本は直接参照されるので、コメント行になっている  license_path はコメントのままにしておきます。参照がうまくいかなかった場合に使用しましょう。
 
-　ここは、karambaのライセンスファイルの参照先についてです。基本は直接参照されるので、コメント行になっている license\_path はコメントのままにしておきます。参照がうまくいかなかった場合に使用しましょう。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -167,18 +146,14 @@ UnitsSytem = "SI"
 
 #---
 
-legend\_stress\_number\_fmt = "{0,9:0.00e+00}"
+legend_stress_number_fmt = "{0,9:0.00e+00}"
 
-legend\_strain\_number\_fmt = "{0,9:0.00e+00}"
+legend_strain_number_fmt = "{0,9:0.00e+00}"
 
-legend\_utilization\_number\_fmt = "{0,9:0.0}%"
+legend_utilization_number_fmt = "{0,9:0.0}%"
 
-  
-
-　ここではModelView-componetの出力であるLegend Tの出力数値の形式を指定する箇所です。最初の{0,9:は表示の文字の位置を調節します。そのあとの部分は、stress(応力)とstrain(ひずみ)は小数点以下２桁まで表示した指数表記、utilization(使用率)は小数点以下１桁まで表示するパーセント表記となっています。  
+ここでは ModelView-componet の出力である Legend T の出力数値の形式を指定する箇所です。最初の{0,9:は表示の文字の位置を調節します。そのあとの部分は、stress(応力)と strain(ひずみ)は小数点以下２桁まで表示した指数表記、utilization(使用率)は小数点以下１桁まで表示するパーセント表記となっています。  
 　では次の段落へ
-
-  
 
 #---
 
@@ -186,15 +161,11 @@ legend\_utilization\_number\_fmt = "{0,9:0.0}%"
 
 #---
 
-legend\_num\_colors = 16
+legend_num_colors = 16
 
-  
+ここでは、応力とひずみの値を色のコンターで表示する際の、階調の色数を設定しています。初期設定は 16 色となっています。
 
-　ここでは、応力とひずみの値を色のコンターで表示する際の、階調の色数を設定しています。初期設定は16色となっています。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -202,15 +173,11 @@ legend\_num\_colors = 16
 
 #---
 
-center\_color\_range\_on\_zero = true
+center_color_range_on_zero = true
 
-  
+ここでは先程に続き、出力時の色のコンターの中央値の設定です。ブーリアン形式で記述し、true であれば最大値、最小値に関わらず色の中央が 0 となるように色の設定をします。初期設定は true となっています。余談ですが、なぜかここのカラーのつづりだけイギリス英語(colour)です。
 
-　ここでは先程に続き、出力時の色のコンターの中央値の設定です。ブーリアン形式で記述し、trueであれば最大値、最小値に関わらず色の中央が 0 となるように色の設定をします。初期設定は true となっています。余談ですが、なぜかここのカラーのつづりだけイギリス英語(colour)です。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -224,39 +191,34 @@ center\_color\_range\_on\_zero = true
 
 #---
 
-legend\_colors = yellow|red|white|blue|LimeGreen
+legend_colors = yellow|red|white|blue|LimeGreen
 
-resultant\_disp\_legend\_colors = yellow|white|magenta|LimeGreen
+resultant_disp_legend_colors = yellow|white|magenta|LimeGreen
 
-thickness\_legend\_colors = Wheat|white|Gold|Plum
+thickness_legend_colors = Wheat|white|Gold|Plum
 
-beam\_stress\_legend\_colors = yellow|red|(255,255,255)|blue|LimeGreen
+beam_stress_legend_colors = yellow|red|(255,255,255)|blue|LimeGreen
 
-beam\_utilization\_legend\_colors = yellow|red|white|blue|LimeGreen
+beam_utilization_legend_colors = yellow|red|white|blue|LimeGreen
 
-shell\_utilization\_legend\_colors = yellow|red|white|blue|LimeGreen
+shell_utilization_legend_colors = yellow|red|white|blue|LimeGreen
 
-shell\_sig1\_legend\_colors = yellow|red|white|blue|LimeGreen
+shell_sig1_legend_colors = yellow|red|white|blue|LimeGreen
 
-shell\_sig2\_legend\_colors = yellow|red|white|blue|LimeGreen
+shell_sig2_legend_colors = yellow|red|white|blue|LimeGreen
 
-shell\_sigV\_legend\_colors = yellow|red|white|(0,0,255)|LimeGreen
+shell_sigV_legend_colors = yellow|red|white|(0,0,255)|LimeGreen
 
-  
-
-　ここでは結果をコンターで表示する際の色を設定します。色は、C#においてデフォルトで設定されている色の名前、またはRGB(赤,緑,青)で設定することができます。最初の色が一番下の色、最後の色が一番上の色となり、コンターには含まれない色になります。コンター上で表示されるのは最初と最後の色を抜いた範囲で設定されます。  
-　設定する色は表示順に、凡例のコンター、変位のコンター、板厚のコンター、梁要素の応力のコンター、梁要素の使用率のコンター、シェル要素の使用率のコンター、シェル要素の主応力1のコンター、シェル要素の主応力2のコンター、シェル要素のフォンミーゼス応力のコンター、となっています。  
+ここでは結果をコンターで表示する際の色を設定します。色は、C#においてデフォルトで設定されている色の名前、または RGB(赤,緑,青)で設定することができます。最初の色が一番下の色、最後の色が一番上の色となり、コンターには含まれない色になります。コンター上で表示されるのは最初と最後の色を抜いた範囲で設定されます。  
+　設定する色は表示順に、凡例のコンター、変位のコンター、板厚のコンター、梁要素の応力のコンター、梁要素の使用率のコンター、シェル要素の使用率のコンター、シェル要素の主応力 1 のコンター、シェル要素の主応力 2 のコンター、シェル要素のフォンミーゼス応力のコンター、となっています。  
 　例えば変位のコンターの箇所を  
-　　　resultant\_disp\_legend\_colors = white|blue|lightBlue|LimeGreen|yellow|red|white  
-と変えると、下図のようにMi○asのようなコンターとすることができます。私はこちらの色合いのほうがなじみがあるので、結果が見てわかりやすく安心感があります。また、上で述べたように、最初と最後に設定した色（ここではWhite）がコンターに含まれていないこともわかります。  
-  
+　　　 resultant_disp_legend_colors = white|blue|lightBlue|LimeGreen|yellow|red|white  
+と変えると、下図のように Mi○as のようなコンターとすることができます。私はこちらの色合いのほうがなじみがあるので、結果が見てわかりやすく安心感があります。また、上で述べたように、最初と最後に設定した色（ここでは White）がコンターに含まれていないこともわかります。
 
 [![](http://1.bp.blogspot.com/-ovC2iDsrtig/VlBLVMZsP-I/AAAAAAAABAQ/jbD_SF9wBRk/s640/%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2582%25B3%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC.JPG)](http://1.bp.blogspot.com/-ovC2iDsrtig/VlBLVMZsP-I/AAAAAAAABAQ/jbD_SF9wBRk/s1600/%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2582%25B3%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC.JPG)
 
-　  
-　では次の段落へ
-
   
+　では次の段落へ
 
 #---
 
@@ -264,17 +226,13 @@ shell\_sigV\_legend\_colors = yellow|red|white|(0,0,255)|LimeGreen
 
 #---
 
-beam\_cross\_section\_color = Blue
+beam_cross_section_color = Blue
 
-shell\_cross\_section\_color = LightBlue
+shell_cross_section_color = LightBlue
 
-  
+ここではデフォルトの断面の色を設定します。初期設定では、梁要素は青色、シェル要素は水色となっています。
 
-　ここではデフォルトの断面の色を設定します。初期設定では、梁要素は青色、シェル要素は水色となっています。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -282,25 +240,21 @@ shell\_cross\_section\_color = LightBlue
 
 #---
 
-crosec\_force\_color\_Nx = LightSalmon
+crosec_force_color_Nx = LightSalmon
 
-crosec\_force\_color\_Vy = LightGreen
+crosec_force_color_Vy = LightGreen
 
-crosec\_force\_color\_Vz = LightSkyBlue
+crosec_force_color_Vz = LightSkyBlue
 
-crosec\_force\_color\_Mx = Red
+crosec_force_color_Mx = Red
 
-crosec\_force\_color\_My = SeaGreen
+crosec_force_color_My = SeaGreen
 
-crosec\_force\_color\_Mz = CadetBlue
+crosec_force_color_Mz = CadetBlue
 
-  
+ここでは梁要素の断面力を図示する際の色の設定をします。設定の順番は、軸力 Nx、せん断 Vy、せん断 Vz、ねじり Mx、曲げ My、曲げ Mz 　です。
 
-　ここでは梁要素の断面力を図示する際の色の設定をします。設定の順番は、軸力Nx、せん断Vy、せん断Vz、ねじりMx、曲げMy、曲げMz　です。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -308,17 +262,13 @@ crosec\_force\_color\_Mz = CadetBlue
 
 #---
 
-crosec\_number\_fmt = "{0:f}"
+crosec_number_fmt = "{0:f}"
 
-crosec\_number\_color = "Black"
+crosec_number_color = "Black"
 
-  
+ここでは断面力の出力の値の数字のフォーマットと、色を設定しています。初期設定は、値は小数点以下２桁までで黒色の文字で出力です。
 
-　ここでは断面力の出力の値の数字のフォーマットと、色を設定しています。初期設定は、値は小数点以下２桁までで黒色の文字で出力です。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -326,19 +276,15 @@ crosec\_number\_color = "Black"
 
 #---
 
-elemID\_text\_height = 20
+elemID_text_height = 20
 
-elemID\_text\_offset = 20
+elemID_text_offset = 20
 
-elemID\_text\_color = "Black"
+elemID_text_color = "Black"
 
-  
+ここでは要素の ID を表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ 20、オフセット 20、黒色となっています。
 
-　ここでは要素のIDを表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ20、オフセット20、黒色となっています。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -346,19 +292,15 @@ elemID\_text\_color = "Black"
 
 #---
 
-crosec\_text\_height = 20
+crosec_text_height = 20
 
-crosec\_text\_offset =-20
+crosec_text_offset =-20
 
-crosec\_text\_color = "Black"
+crosec_text_color = "Black"
 
-  
+ここでは断面の名前を表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ 20、オフセット-20、黒色となっています。
 
-　ここでは断面の名前を表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ20、オフセット-20、黒色となっています。  
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -366,19 +308,15 @@ crosec\_text\_color = "Black"
 
 #---
 
-material\_text\_height = 20
+material_text_height = 20
 
-material\_text\_offset =-20
+material_text_offset =-20
 
-material\_text\_color = "Black"
+material_text_color = "Black"
 
-  
+ここでは材料名を表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ 20、オフセット-20、黒色となっています。
 
-　ここでは材料名を表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ20、オフセット-20、黒色となっています。  
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -386,19 +324,15 @@ material\_text\_color = "Black"
 
 #---
 
-node\_text\_height = 20
+node_text_height = 20
 
-node\_text\_offset =-20
+node_text_offset =-20
 
-node\_text\_color = "Black"
+node_text_color = "Black"
 
-  
-
-　ここでは節点のタグを表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ20、オフセット-20、黒色となっています。
+ここでは節点のタグを表示するときの文字の高さとオフセットする距離、色を設定します。初期設定は高さ 20、オフセット-20、黒色となっています。
 
 では次の段落へ
-
-  
 
 #---
 
@@ -406,25 +340,17 @@ node\_text\_color = "Black"
 
 #---
 
-NII\_text\_height = 20
+NII_text_height = 20
 
-NII\_text\_offset =-20
+NII_text_offset =-20
 
-NII\_text\_color = "Black"
+NII_text_color = "Black"
 
-NII\_number\_fmt = "{0:f}"
+NII_number_fmt = "{0:f}"
 
-  
+ここでは AnalyzeTHⅡ で解析したときの結果を表示するときの文字の高さとオフセットする距離、色、数字のフォーマットを設定します。初期設定は高さ 20、オフセット-20、黒色、小数点以下 2 位まで表示となっています。
 
-  
-
-  
-
-　ここではAnalyzeTHⅡで解析したときの結果を表示するときの文字の高さとオフセットする距離、色、数字のフォーマットを設定します。初期設定は高さ20、オフセット-20、黒色、小数点以下2位まで表示となっています。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -432,15 +358,11 @@ NII\_number\_fmt = "{0:f}"
 
 #---
 
-maximum\_ncrosec=500
+maximum_ncrosec=500
 
-  
+ここではメッシュ表示するための梁要素断面の最大数を設定しています。初期設定では 500 となっています。
 
-　ここではメッシュ表示するための梁要素断面の最大数を設定しています。初期設定では500となっています。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -448,15 +370,11 @@ maximum\_ncrosec=500
 
 #---
 
-circular\_cross\_sections\_n\_faces\_factor=6
+circular_cross_sections_n_faces_factor=6
 
-  
+ここでは円形の断面を表示するために、円を多角形に置換する際の多角形の角数を設定しています。初期設定では、6 となっています。
 
-　ここでは円形の断面を表示するために、円を多角形に置換する際の多角形の角数を設定しています。初期設定では、6となっています。
-
-　では次の段落へ
-
-  
+では次の段落へ
 
 #---
 
@@ -464,16 +382,12 @@ circular\_cross\_sections\_n\_faces\_factor=6
 
 #---
 
-maximum\_mesh\_lines\_per\_element=500
+maximum_mesh_lines_per_element=500
 
-  
+ここではメッシュで応力や荷重や力の流れを線表示する際の線の最大分割数
 
-　ここではメッシュで応力や荷重や力の流れを線表示する際の線の最大分割数
-
-を設定しています。初期設定では、500となっています。  
+を設定しています。初期設定では、500 となっています。  
 　では次の段落へ
-
-  
 
 #---
 
@@ -481,12 +395,8 @@ maximum\_mesh\_lines\_per\_element=500
 
 #---
 
-annotation\_offset=20
+annotation_offset=20
 
-  
+ここでは符号と注記間の間隔を設定します。初期設定では 20 となっています。
 
-　ここでは符号と注記間の間隔を設定します。初期設定では20となっています。
-
-  
-
-　初期設定の項目は以上となります。結構細かく設定していくことができるようですね。これらを変更して、自分の使いやすいkarambaとしていきましょう。
+初期設定の項目は以上となります。結構細かく設定していくことができるようですね。これらを変更して、自分の使いやすい karamba としていきましょう。

@@ -1,47 +1,100 @@
 ---
-title: 'RhinoInside を使ってリアルタイムで人の動きのFEM解析をやってみる'
+title: "RhinoInside を使ってリアルタイムで人の動きのFEM解析をやってみる"
 date: "2020-03-09"
 draft: false
 path: "/articles/Rhino.Inside.Unity-withFEM"
-article-tags : ["karamba", "Unity", "VR", "RhinoInside", "C#"]
+article-tags: ["karamba", "Unity", "VR", "RhinoInside", "C#"]
 ---
 
-　バーチャルモーションキャプチャーとRhino.Inside.Unityを使って以下の動画のような形で人型に対するリアルタイムでのFEM解析をやってみます。
+バーチャルモーションキャプチャーと Rhino.Inside.Unity を使って以下の動画のような形で人型に対するリアルタイムでの FEM 解析をやってみます。
 
 [![](https://1.bp.blogspot.com/-X7Wmy3d32-c/XmW2fkPcgWI/AAAAAAAAB0g/3LxrkN8GmLUOFBorIu-ZTqh_WuhJhyoDQCLcBGAsYHQ/s320/VMCmoment.gif)](https://1.bp.blogspot.com/-X7Wmy3d32-c/XmW2fkPcgWI/AAAAAAAAB0g/3LxrkN8GmLUOFBorIu-ZTqh_WuhJhyoDQCLcBGAsYHQ/s1600/VMCmoment.gif)
 
-  
-
-  
-　大きな流れとしては、以下の形です。  
-  
+大きな流れとしては、以下の形です。
 
 1.  [バーチャルモーションキャプチャー](https://sh-akira.github.io/VirtualMotionCapture/)で機器からの情報を取得
-2.  [EVMC4U](https://github.com/gpsnmeajp/EasyVirtualMotionCaptureForUnity)を使ってバーチャルモーションキャプチャーからの情報をUnityに取得する
-3.  Rhino.Inside.Unityで各ボーンの情報をRhinoに送る
-4.  karambaでFEM解析
+2.  [EVMC4U](https://github.com/gpsnmeajp/EasyVirtualMotionCaptureForUnity)を使ってバーチャルモーションキャプチャーからの情報を Unity に取得する
+3.  Rhino.Inside.Unity で各ボーンの情報を Rhino に送る
+4.  karamba で FEM 解析
 
-　バーチャルモーションキャプチャー（以下ばもきゃ）とEVMC4Uについての詳細は、上記のリンクから各ソフトのHPでのそれぞれの説明を確認してください。  
-　上記の動画ではVIVEとVIVEトラッカーを3つ使って頭、両手、腰、両足をトラッキングしながら撮影しています。
+バーチャルモーションキャプチャー（以下ばもきゃ）と EVMC4U についての詳細は、上記のリンクから各ソフトの HP でのそれぞれの説明を確認してください。  
+　上記の動画では VIVE と VIVE トラッカーを 3 つ使って頭、両手、腰、両足をトラッキングしながら撮影しています。
 
-  
+ばもきゃと EVMC4U の接続については、[EVMC4U の wiki](https://github.com/gpsnmeajp/EasyVirtualMotionCaptureForUnity/wiki)を参照してください。
 
-　ばもきゃとEVMC4Uの接続については、[EVMC4Uのwiki](https://github.com/gpsnmeajp/EasyVirtualMotionCaptureForUnity/wiki)を参照してください。
+ばもきゃとのやり取りでハマった箇所としては、ばもきゃと EVMC4U は OSC で情報のやり取りをしていますが、送られているボーン位置の情報はローカル座標で送らている点です。最初はグローバルの座標で送られていると思いそのまま座標を Rhino に送ろうとしていましたが、ローカル座標のためボーンが意味不明な位置になってしまい結構悩みました。
 
-　ばもきゃとのやり取りでハマった箇所としては、ばもきゃとEVMC4UはOSCで情報のやり取りをしていますが、送られているボーン位置の情報はローカル座標で送らている点です。最初はグローバルの座標で送られていると思いそのまま座標をRhinoに送ろうとしていましたが、ローカル座標のためボーンが意味不明な位置になってしまい結構悩みました。  
-  
-　ここから今回のために変更した個所の説明をします。  
-　EVMC4Uを使える段階にするとExternalReceiver.csを使って情報をばもきゃから受信する形になっていると思います。ここにRhinoへボーン情報を送信用の部分を以下の18行目からの個所のように追記しています。ExternalReceiver.cs全体でいうと576行目くらいから始まる private void BoneSynchronizeSingle の個所になります。
+ここから今回のために変更した個所の説明をします。  
+　 EVMC4U を使える段階にすると ExternalReceiver.cs を使って情報をばもきゃから受信する形になっていると思います。ここに Rhino へボーン情報を送信用の部分を以下の 18 行目からの個所のように追記しています。ExternalReceiver.cs 全体でいうと 576 行目くらいから始まる  private void BoneSynchronizeSingle の個所になります。
 
-  
+```cs
+private void BoneSynchronizeSingle(Transform t, ref HumanBodyBones bone, ref Vector3 pos, ref Quaternion rot, bool posFilter, bool rotFilter)
+{
+    BoneFilter = Mathf.Clamp(BoneFilter, 0f, 1f);
 
-  
+    //ボーン位置同期が有効か
+    if (BonePositionSynchronize)
+    {
+        //ボーン位置フィルタが有効か
+        if (posFilter)
+        {
+            bonePosFilter[(int)bone] = (bonePosFilter[(int)bone] * BoneFilter) + pos * (1.0f - BoneFilter);
+            t.localPosition = bonePosFilter[(int)bone];
+        }
+        else
+        {
+            t.localPosition = pos;
+        }
+        // ここを追記
+    　　string boneName = bone.ToString();
+	if (boneName == "Neck" ||
+		boneName == "Head" ||
+		boneName == "Hips" ||
+		boneName == "Spine" ||
+		boneName == "Chest" ||
+		boneName == "LeftUpperArm" ||
+		boneName == "RightUpperArm" ||
+		boneName == "LeftLowerArm" ||
+		boneName == "RightLowerArm" ||
+		boneName == "LeftHand" ||
+		boneName == "RightHand" ||
+		boneName == "LeftUpperLeg" ||
+		boneName == "RightUpperLeg" ||
+		boneName == "LeftLowerLeg" ||
+		boneName == "RightLowerLeg" ||
+		boneName == "LeftFoot" ||
+		boneName == "RightFoot" ||
+		boneName == "LeftToes" ||
+		boneName == "RightToes")
+	{
+		GrasshopperInUnity.SendBonePosition(boneName, t.position);
+	}
+    }
+// 省略
+}
+```
 
-　ここではばもきゃから受信したボーンの各点の座標を各ボーンに適用しているので、その値を取得し対象のボーンの名前とポジションを GrasshopperInUnity.SendBonePosition の引数として入力します。途中の長い if文は今回必要なボーンだけを設定するように場合分けしているだけなので、必要に応じて修正してください。  
-  
-　次にGrasshopperInUnityについてです。ここでは参考として[Rhino.Inside.Unityのサンプル2](https://github.com/mcneel/rhino.inside/tree/master/Unity/Sample2)を使用しているので、そこからの追記箇所についての説明になります。追記したものは以下です。  
-  
-　最初の動作だった場合(\_firstRunがTrue)は、grasshopperを起動させ、Unityをいったんポーズの状態にします。ポーズにする理由は、grasshopperを起動後、.ghファイルを選択し開くまでの間はUnityが止まっていないとRhino.Inside.Unityでの送り先がなくエラーになってしまうからです。  
-　6行目以降はボーンの座標をargsにセットしてgrasshopper側で受け取れるようにしています。  
-　これで各ボーンの頂点データがgrasshopper側で受け取れるようになったので、あとはその点を使って骨組みを作りkarambaで解析します。  
+ここではばもきゃから受信したボーンの各点の座標を各ボーンに適用しているので、その値を取得し対象のボーンの名前とポジションを GrasshopperInUnity.SendBonePosition の引数として入力します。途中の長い if 文は今回必要なボーンだけを設定するように場合分けしているだけなので、必要に応じて修正してください。
+
+次に GrasshopperInUnity についてです。ここでは参考として[Rhino.Inside.Unity のサンプル 2](https://github.com/mcneel/rhino.inside/tree/master/Unity/Sample2)を使用しているので、そこからの追記箇所についての説明になります。追記したものは以下です。
+
+```cs
+public static void SendBonePosition(string boneName, Vector3 pos){
+  if (_firstRun) {
+    ShowGrasshopperWindow();
+    UnityEditor.EditorApplication.isPaused = true;
+  }
+  if (boneName != null) {
+    var pt = pos.ToRhino();
+    using (var args = new Rhino.Runtime.NamedParametersEventArgs()) {
+      args.Set("point", new Rhino.Geometry.Point(pt));
+      Rhino.Runtime.HostUtils.ExecuteNamedCallback(boneName, args);
+    }
+  }
+}
+```
+
+最初の動作だった場合(\_firstRun が True)は、grasshopper を起動させ、Unity をいったんポーズの状態にします。ポーズにする理由は、grasshopper を起動後、.gh ファイルを選択し開くまでの間は Unity が止まっていないと Rhino.Inside.Unity での送り先がなくエラーになってしまうからです。  
+　 6 行目以降はボーンの座標を args にセットして grasshopper 側で受け取れるようにしています。  
+　これで各ボーンの頂点データが grasshopper 側で受け取れるようになったので、あとはその点を使って骨組みを作り karamba で解析します。  
 　一連の説明は以上ですが、冒頭の動画のようにこの動作は非常に重いので、もう少し高速化できたら楽しそうなのですが、それは今後の課題です。
