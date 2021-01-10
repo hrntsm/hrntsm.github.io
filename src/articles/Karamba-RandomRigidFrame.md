@@ -1,0 +1,47 @@
+---
+title: 'ランダムに柱梁が入ったような構造を解析'
+date: "2017-09-17"
+draft: false
+path: "/articles/Karamba-RandomRigidFrame"
+tags : ["karamba"]
+---
+
+　GA Japan 147号に記載の夏野ビルのようなランダムに柱梁が入っているようなモデルを作成しKarambaで応力解析してみます。  
+  
+
+[![](https://1.bp.blogspot.com/-n7BQmma49SE/Wb4ALd-XrqI/AAAAAAAABb0/yfKn1RDNa2EV_cw0fwXPOiWiuaDgdtN0wCLcBGAs/s640/twitter.PNG)](https://1.bp.blogspot.com/-n7BQmma49SE/Wb4ALd-XrqI/AAAAAAAABb0/yfKn1RDNa2EV_cw0fwXPOiWiuaDgdtN0wCLcBGAs/s1600/twitter.PNG)
+
+  
+  
+　架構は柱勝ちを想定して柱は下から上まで通っているとします。柱間隔と梁配置をランダムにして作成してみます。初めに柱の作成です。  
+　作り方は柱脚の点を作成し、LineSDLコンポーネントで立ち上げます。今回は形のモデル化を目的にしているので、縦横の比率を1:2としてZ方向に30、Y方向に15の範囲で作成します。  
+　柱脚の点はRandomコンポーネントを使用して作成しConstructDomainコンポーネントで点を作成する範囲を決めています。最初の点は原点に来るためにランダムとは別に設定しています。  
+　作成した数値をNumberコンポーネントで一体化しSortListコンポーネントで順番を揃えConstructPointコンポーネントで柱脚となる点を作成し、LineSDLコンポーネントで柱となる線を作成しています。  
+
+[![](https://4.bp.blogspot.com/-SlQVwGqksts/Wb4Dxs5XvBI/AAAAAAAABcA/MY2RkjdIGggjQmOvryk-GhhTi09BgtKxQCLcBGAs/s640/%25E6%259F%25B1%25E3%2581%25AE%25E4%25BD%259C%25E6%2588%2590.PNG)](https://4.bp.blogspot.com/-SlQVwGqksts/Wb4Dxs5XvBI/AAAAAAAABcA/MY2RkjdIGggjQmOvryk-GhhTi09BgtKxQCLcBGAs/s1600/%25E6%259F%25B1%25E3%2581%25AE%25E4%25BD%259C%25E6%2588%2590.PNG)
+
+  
+　次に梁のとりつく点を作成します。作成法は先程作成した柱のラインを各柱ごとにDivideCirveコンポーネントで異なる分割数にしその点を梁を取り付けるとすることを考えます。  
+　まず梁をかけるために隣接する柱が分割数を等しくしなければならないため、以下のようにListItemコンポーネントを使用して1本1本をLineコンポーネントに入れていきます。  
+
+[![](https://4.bp.blogspot.com/-zeRs6vHK6jw/Wb4GF0sI1RI/AAAAAAAABcM/2C-HwiDr7GAUgaP4AI-s4kWkgg8BsC1JACLcBGAs/s640/%25E6%259F%25B1%25E3%2581%25AE%25E5%258F%2596%25E3%2582%258A%25E5%2587%25BA%25E3%2581%2597.PNG)](https://4.bp.blogspot.com/-zeRs6vHK6jw/Wb4GF0sI1RI/AAAAAAAABcM/2C-HwiDr7GAUgaP4AI-s4kWkgg8BsC1JACLcBGAs/s1600/%25E6%259F%25B1%25E3%2581%25AE%25E5%258F%2596%25E3%2582%258A%25E5%2587%25BA%25E3%2581%2597.PNG)
+
+  
+　取り出した柱に対してDivideCirveコンポーネントで分割していきます。ここでは分割数は最大10とし、隣接する梁の数と同じにならないよう適当な値を入れていきます。例として以下に一番端の柱についての部分を示しています。  
+　隣接する柱ごとにまとめ同一の分割数にすることで梁が水平にかかるようにしています。  
+
+[![](https://4.bp.blogspot.com/-0s4BxAyNX4I/Wb4KF6lZqiI/AAAAAAAABcY/-ctFTdmvMUw_eBmypi0fo20np3ltRzi3wCLcBGAs/s640/%25E6%25A2%2581%25E3%2581%25AE%25E4%25BD%259C%25E6%2588%2590.PNG)](https://4.bp.blogspot.com/-0s4BxAyNX4I/Wb4KF6lZqiI/AAAAAAAABcY/-ctFTdmvMUw_eBmypi0fo20np3ltRzi3wCLcBGAs/s1600/%25E6%25A2%2581%25E3%2581%25AE%25E4%25BD%259C%25E6%2588%2590.PNG)
+
+  
+　これで柱梁の線のモデル化ができたので、Karambaに取り込んでいきます。ここで、柱のラインは分割点で分けていないので、そのままKarambaに取り込むと梁の位置で節点が切られないためモデル化がうまくいきません。  
+　今回はKarambaの機能である以下の Line-Line InterSectionコンポーネントを使用します。このコンポーネントを使用することで、与えられたラインとラインから交点とそれからなるラインを出力してくれます。交点で要素分割するということです。これを使うことで柱が梁との交点で分割されるので、Karambaでモデル化できるようになります。  
+
+[![](https://2.bp.blogspot.com/-Rw8Vq689uT8/Wb4NvjTsEXI/AAAAAAAABck/K38UELjxY90hlwwI_VdXImkaFTX32v5HQCLcBGAs/s400/%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25A9%25E3%2582%25AF%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3.PNG)](https://2.bp.blogspot.com/-Rw8Vq689uT8/Wb4NvjTsEXI/AAAAAAAABck/K38UELjxY90hlwwI_VdXImkaFTX32v5HQCLcBGAs/s1600/%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25A9%25E3%2582%25AF%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3.PNG)
+
+  
+　あとはKaramba側で設定します。ここでは柱脚位置にピン支点、荷重は水平に0.2gかけて解析を行っています。曲げモーメント図を以下には出していますが、やはり単スパン箇所は曲げが大きく入っており、最上部では逆せん断のようになっていることがわかります。  
+
+[![](https://1.bp.blogspot.com/-3AktbMZluQ4/Wb4PK2mfs-I/AAAAAAAABcw/I8dP2_-Pamgpumiyu-3bcq4BoM0fn0kIwCLcBGAs/s640/karamba.PNG)](https://1.bp.blogspot.com/-3AktbMZluQ4/Wb4PK2mfs-I/AAAAAAAABcw/I8dP2_-Pamgpumiyu-3bcq4BoM0fn0kIwCLcBGAs/s1600/karamba.PNG)
+
+  
+　あとは最初にランダムに設定した柱間隔のseedの値を変更と梁間隔を自分の感覚で設定してあげることでランダムに柱梁が入ったような構造が解析できます。開口があるから梁を抜きたいなどは出力される梁のListを適宜CullIndexコンポーネント等で抜いてあげれば対応できると思います。
