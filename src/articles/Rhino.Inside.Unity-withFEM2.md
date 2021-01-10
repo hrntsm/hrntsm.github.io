@@ -3,7 +3,7 @@ title: 'RhinoInside を使ってリアルタイムで人の動きのFEM解析を
 date: "2020-03-22"
 draft: false
 path: "/articles/Rhino.Inside.Unity-withFEM2"
-tags : ["karamba", "Unity", "VR", "RhinoInside", "C#"]
+article-tags : ["karamba", "Unity", "VR", "RhinoInside", "C#"]
 ---
 
 　[前回の記事](https://rgkr-memo.blogspot.com/2020/03/Rhino.Inside.Unity-withFEM.html)で、RhinoInside を使った人の動きのFEM解析をやりましたが、速度が全然出ずちょっと実用に耐えられなかったので、原因を調べて改善したので、その内容についてです。  

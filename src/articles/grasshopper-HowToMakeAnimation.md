@@ -3,7 +3,7 @@ title: 'grasshopperからアニメーションの出力法'
 date: "2017-04-02"
 draft: false
 path: "/articles/grasshopper-HowToMakeAnimation"
-tags : ["grasshopper"]
+article-tags : ["grasshopper"]
 ---
 
 　number slider を使用してパラスタした結果を動画に出力する方法について、久しぶりにやろうとしたら忘れていたので、[以前の記事](https://rgkr-memo.blogspot.jp/2017/01/Karamba-ConfirmEffectOfRingGarter.html)で作成したものを例にまとめます。  

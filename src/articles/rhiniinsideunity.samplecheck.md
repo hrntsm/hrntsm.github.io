@@ -3,7 +3,7 @@ title: 'RhinoInside Unity の公式サンプルで遊ぶ'
 date: "2020-02-29"
 draft: false
 path: "/articles/rhiniinsideunity.samplecheck"
-tags : ["Unity", "grasshopper", "RhinoInside", "C#", "rhinoceros"]
+article-tags : ["Unity", "grasshopper", "RhinoInside", "C#", "rhinoceros"]
 ---
 
 　公式のRhinoInside Unityをちょっといじって遊んでみます。最終的には以下のようなものを目指します。  

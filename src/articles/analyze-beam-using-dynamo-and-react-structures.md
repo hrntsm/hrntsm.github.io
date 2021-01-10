@@ -3,7 +3,7 @@ title: 'DynamoとReact Structures を使った単純梁の解析'
 date: "2016-01-24"
 draft: false
 path: "/articles/analyze-beam-using-dynamo-and-react-structures"
-tags : ["BIM", "Dynamo", "ReactStructures"]
+article-tags : ["BIM", "Dynamo", "ReactStructures"]
 ---
 
 　AutodeskのDynamo BIMと最近開発されているReactStructuresを使用して単純梁のモデル化から解析までの一連の解説を行います。  

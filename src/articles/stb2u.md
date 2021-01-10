@@ -3,7 +3,7 @@ title: 'st-bridgeのunity読み込みツール「Stb2U」について'
 date: "2020-02-05"
 draft: false
 path: "/articles/stb2u"
-tags : ["Unity", "C#"]
+article-tags : ["Unity", "C#"]
 ---
 
 　Unityで建築構造設計の一貫計算ソフトとBIMの連携等に使用されているST-Bridgeデータを読み込むアセットを作成したので公開します。  

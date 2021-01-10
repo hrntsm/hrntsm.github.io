@@ -3,7 +3,7 @@ title: 'karambaの要素分割の出力法'
 date: "2018-02-22"
 draft: false
 path: "/articles/karamba-ConfirmationOfTheElementDivision"
-tags : ["karamba"]
+article-tags : ["karamba"]
 ---
 
 #### いつも参考にさせてもらってます。 単純なスラブモデルで4辺それぞれ異なる境界条件を設定するのは簡単で...

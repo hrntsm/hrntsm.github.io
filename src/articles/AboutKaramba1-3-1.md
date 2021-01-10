@@ -3,7 +3,7 @@ title: 'karamba1.3.1の新機能について'
 date: "2019-01-12"
 draft: false
 path: "/articles/AboutKaramba1-3-1"
-tags : ["karamba"]
+article-tags : ["karamba"]
 ---
 
 　2019/01時点でのkaramba 1.3.1 の新機能について公式のページを確認しましたので以下にまとめます。1.2から1.3での大きな変更は材料非線形への対応で、そのため多くのコンポーネントが変更になっています。1.2から1.3の変更点は[こちらで](https://rgkr-memo.blogspot.com/2018/04/karamba-1-3.html)  

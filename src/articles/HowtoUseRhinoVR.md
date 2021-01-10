@@ -3,7 +3,7 @@ title: 'RhinoVRの使い方'
 date: "2019-01-06"
 draft: false
 path: "/articles/HowtoUseRhinoVR"
-tags : ["VR", "rhinoceros"]
+article-tags : ["VR", "rhinoceros"]
 ---
 
 　2019年1月現在、公式によって開発公開されているRhinocerosのVR対応化のプラグインの導入法、使い方について説明します。  
