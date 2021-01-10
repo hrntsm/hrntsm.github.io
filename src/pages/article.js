@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => {
                 <div>
                   <ArticleDate>{node.frontmatter.date}</ArticleDate>
                   <ReadingTime> - {node.fields.readingTime.text}</ReadingTime>
-                  <ArticleDate> - Tags: {node.frontmatter.tags + ""}</ArticleDate>
+                  <ArticleDate> - Tags: {node.frontmatter.article_tags + ""}</ArticleDate>
                 </div>
                 <p>{node.excerpt}</p>
               </Link>
@@ -110,7 +110,7 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             rawDate: date
             path
-            tags
+            article_tags
           }
           fields {
             collection
