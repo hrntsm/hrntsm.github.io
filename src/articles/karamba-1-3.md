@@ -3,7 +3,7 @@ title: "karamba 1.3 の新機能について"
 date: "2018-04-11"
 draft: false
 path: "/articles/karamba-1-3"
-article-tags: ["Karamba"]
+article-tags: ["Karamba", "構造とデジタル"]
 ---
 
 karamba が 1.2 から 1.3 へのマイナーアップデートが進行中です。  

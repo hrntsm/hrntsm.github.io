@@ -3,7 +3,7 @@ title: "StitchesとOctopusを使用した最適化"
 date: "2015-11-10"
 draft: false
 path: "/articles/karamba.how.to.use.octopus"
-article-tags: ["Karamba", "Grasshopper", "Octopus"]
+article-tags: ["Karamba", "Grasshopper", "Octopus", "構造とデジタル"]
 ---
 
 今回は[stitches コンポーネントを使用したトラスの作成](http://rgkr-memo.blogspot.jp/2015/11/karamba.stitches.html)の記事で作成したモデルに対して最適化を行います。また、最適化にあたっては grasshopper のプラグイン Octopus を使用します。

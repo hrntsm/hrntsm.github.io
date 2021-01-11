@@ -3,7 +3,7 @@ title: "BESOBeam（旧FFF）コンポーネントについて"
 date: "2015-08-31"
 draft: false
 path: "/articles/besobeamfff"
-article-tags: ["Karamba", "Grasshopper"]
+article-tags: ["Karamba", "Grasshopper", "構造とデジタル"]
 ---
 
 karamba の BESOBeam（旧 FFF）コンポーネントの使用法について説明します。

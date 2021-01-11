@@ -3,7 +3,7 @@ title: "Mise のリリースのお知らせ"
 date: "2019-03-01"
 draft: false
 path: "/articles/ReleaseMise"
-article-tags: ["Grasshopper", "Mice", "CSharp"]
+article-tags: ["Grasshopper", "Mice", "CSharp", "構造とデジタル"]
 ---
 
 これまでに動画やこの blog で紹介してきた単純梁の計算を行うコンポーネントを Food4Rhino でリリースしました。

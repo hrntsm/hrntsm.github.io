@@ -3,7 +3,7 @@ title: "karamba での簡単なトラスのモデルを作成"
 date: "2016-01-16"
 draft: false
 path: "/articles/karamba-how-to-make-simple-truss"
-article-tags: ["Karamba"]
+article-tags: ["Karamba", "構造とデジタル"]
 ---
 
 簡単なトラスのモデルの作成法を１から説明していきたいと思います。  

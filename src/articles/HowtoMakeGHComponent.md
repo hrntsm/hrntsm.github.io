@@ -3,7 +3,7 @@ title: "自作のHelloWorldコンポーネントの作り方"
 date: "2018-10-07"
 draft: false
 path: "/articles/HowtoMakeGHComponent"
-article-tags: ["Grasshopper", "CSharp"]
+article-tags: ["Grasshopper", "CSharp", "構造とデジタル"]
 ---
 
 [C#と grasshopper で Hello World! を表示](./CS-grasshopper-HelloWorldComponent)　の記事で説明したコンポーネントについて、整理してこちらも[Github](https://github.com/hrntsm/HelloWorldGH/releases)上で公開しました。

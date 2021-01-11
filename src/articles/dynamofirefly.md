@@ -3,7 +3,7 @@ title: "DynamoでもFirefly"
 date: "2015-09-26"
 draft: false
 path: "/articles/dynamofirefly"
-article-tags: ["BIM", "Dynamo", "Firefly"]
+article-tags: ["BIM", "Dynamo", "Firefly", "構造とデジタル"]
 ---
 
 今回の記事では、これまで使用してきた rhino + grasshopper 　ではなく、Dynamo を使用します。  

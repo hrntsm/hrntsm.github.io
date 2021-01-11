@@ -3,7 +3,7 @@ title: "grasshopperとC# を使ってH形鋼を出力する"
 date: "2016-12-24"
 draft: false
 path: "/articles/CS-make-I-shape-Steel"
-article-tags: ["Grasshopper", "CSharp"]
+article-tags: ["Grasshopper", "CSharp", "構造とデジタル"]
 ---
 
 以前の記事では、単純梁の計算をするコンポーネントを作成しました。その際はすべてのパラメーターが手入力だったので、今回は H 形鋼を対象にして、解析に必要なパラメーターを計算し、出力するコンポーネントの作成を行います。

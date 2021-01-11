@@ -3,7 +3,7 @@ title: "UDPを使ってUnityにghのMeshを送る方法"
 date: "2019-04-21"
 draft: false
 path: "/articles/MethodToSendSurfaceToUnityUsingUDP"
-article-tags: ["Unity", "Grasshopper", "CSharp"]
+article-tags: ["Unity", "Grasshopper", "CSharp", "構造とデジタル"]
 ---
 
 UDP で通信ができる gHowl というコンポーネントを使用して、ゲームエンジンの Unity と grasshopper を接続する方法について説明します。今回が初の Unity 関連の記事です。

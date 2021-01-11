@@ -3,7 +3,7 @@ title: "karambaで鉄骨造オフィスの設計にチャレンジ"
 date: "2016-02-13"
 draft: false
 path: "/articles/Design-Steel-Frame-Building-in-karamba"
-article-tags: ["karamba", "StructureDesign"]
+article-tags: ["karamba", "StructureDesign", "構造とデジタル"]
 ---
 
 これまでの記事で、karamba の各コンポーネントに関して検証してきたので、今回はそれらをもとに簡単な鉄骨造オフィスの設計にチャレンジします。

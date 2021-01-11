@@ -3,7 +3,7 @@ title: "RhinoInside UnityでRhinoへメッシュを送るやり方"
 date: "2020-03-05"
 draft: false
 path: "/articles/rhino.inside.unity-sendmesh"
-article-tags: ["Unity", "RhinoInside", "CSharp", "Rhinoceros"]
+article-tags: ["Unity", "RhinoInside", "CSharp", "Rhinoceros", "構造とデジタル"]
 ---
 
 Rhino.Inside.Unity で Unity から Rhino にメッシュを送る部分を作成したので、送り方を説明します。なお作った結果として、メッシュはデータ量が多いからか動作が非常に重くなるので、リアルタイムでメッシュのやり取りをしない限りは FBX などを介して送ったほうがよさそうです。
