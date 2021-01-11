@@ -3,7 +3,7 @@ title: "karambaの要素分割の出力法"
 date: "2018-02-22"
 draft: false
 path: "/articles/karamba-ConfirmationOfTheElementDivision"
-article-tags: ["karamba"]
+article-tags: ["Karamba"]
 ---
 
 karamba での要素の分割について確認したので簡単ですがまとめます。

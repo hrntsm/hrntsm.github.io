@@ -2,7 +2,7 @@
 title: "はじめの意気込み"
 date: "2015-05-12"
 draft: false
-path: "/articles/blog-post"
+path: "/articles/first-impression"
 ---
 
 建築設計の分野において、Rhino と Grasshopper によるデジタルデザインが最近目立つようになってきました。  

@@ -3,7 +3,7 @@ title: "karambaの初期設定"
 date: "2015-11-21"
 draft: false
 path: "/articles/karamba.Initial.setting"
-article-tags: ["karamba"]
+article-tags: ["Karamba"]
 ---
 
 karamba の初期設定の変更法について説明します。karamba の初期設定は、karamba.ini 　というファイルに記述されています。データの場所は、デフォルトでは

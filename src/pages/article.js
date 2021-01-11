@@ -41,11 +41,11 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Article" />
+      <SEO title="Technical Article" />
       <Content>
-        <h1>Article</h1>
+        <h1>Technical Article</h1>
         <hr></hr>
-        <p>技術記事です。"構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。</p>
+        <p>技術記事です。<br />"構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。</p>
         <hr></hr>
         <TagsHeader>
           <Link
@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => {
                   color: inherit;
                 `}
           >
-            All Article Tags Page(WIP)
+            All Article Tags Page
           </Link>
         </TagsHeader><br/><br/>
         <hr></hr>

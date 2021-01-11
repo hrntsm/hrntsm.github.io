@@ -3,7 +3,7 @@ title: "コンポーネントへのアイコンのつけ方"
 date: "2017-07-27"
 draft: false
 path: "/articles/CS-IconSetting"
-article-tags: ["grasshopper", "C#"]
+article-tags: ["Grasshopper", "CSharp"]
 ---
 
 grasshopper のコンポーネントの中身を作ってきましたが、外観については変えてきませんでしたので、今回はアイコンをつけてみます。だんだんとちゃんとしてコンポーネントらしくなってきました。

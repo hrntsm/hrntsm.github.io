@@ -3,7 +3,7 @@ title: "karambaのシェル要素について"
 date: "2015-06-23"
 draft: false
 path: "/articles/karamba_23"
-article-tags: ["karamba"]
+article-tags: ["Karamba"]
 ---
 
 Karamba のシェル要素のモデル化についてです。  

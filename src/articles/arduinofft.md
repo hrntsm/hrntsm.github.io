@@ -3,7 +3,7 @@ title: "arduinoで取得した波形をFFTする"
 date: "2015-10-12"
 draft: false
 path: "/articles/arduinofft"
-article-tags: ["grasshopper", "Firefly", "python", "Arduino"]
+article-tags: ["Grasshopper", "Firefly", "Python", "Arduino"]
 ---
 
 以前の[ゾーベックの超軽量構造：スマートシェル](https://www.blogger.com/blogger.g?blogID=5019394844200843185#editor/target=post;postID=3457209235338823749;onPublishedMenu=allposts;onClosedMenu=allposts;postNum=7;src=postname)、[Arduino と Firefly で加速度を取得](http://rgkr-memo.blogspot.jp/2015/09/aruduino-firefly.html) 、に続く記事になります。  

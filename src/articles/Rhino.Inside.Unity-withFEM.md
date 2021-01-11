@@ -3,7 +3,7 @@ title: "RhinoInside を使ってリアルタイムで人の動きのFEM解析を
 date: "2020-03-09"
 draft: false
 path: "/articles/Rhino.Inside.Unity-withFEM"
-article-tags: ["karamba", "Unity", "VR", "RhinoInside", "C#"]
+article-tags: ["Karamba", "Unity", "VR", "RhinoInside", "CSharp"]
 ---
 
 バーチャルモーションキャプチャーと Rhino.Inside.Unity を使って以下の動画のような形で人型に対するリアルタイムでの FEM 解析をやってみます。

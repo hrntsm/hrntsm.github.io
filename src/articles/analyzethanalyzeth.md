@@ -3,7 +3,7 @@ title: "AnalyzeThⅠとAnalyzeThⅡの違い"
 date: "2015-08-23"
 draft: false
 path: "/articles/analyzethanalyzeth"
-article-tags: ["karamba", "grasshopper"]
+article-tags: ["Karamba", "Grasshopper"]
 ---
 
 Karamba には、静的線形解析を行うコンポーネントが２つあります。AnalyzeThⅠ と AnalyzeThⅡ の二つです。二つの違いについて検証します。  

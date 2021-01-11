@@ -3,7 +3,7 @@ title: "ST-Bridgeからデータを取得してモデルを表示するgrasshopp
 date: "2019-10-06"
 draft: false
 path: "/articles/ReleaseStbHopper"
-article-tags: ["grasshopper", "C#", "rhinoceros"]
+article-tags: ["Grasshopper", "CSharp", "Rhinoceros"]
 ---
 
 Grasshopper で建築構造設計の一貫計算ソフトと BIM の連携等に使用されている ST-Bridge データを読み込むコンポーネント ”HoaryFox” を作成したので公開します。  
@@ -15,23 +15,23 @@ Grasshopper で建築構造設計の一貫計算ソフトと BIM の連携等に
 
 [https://www.building-smart.or.jp/meeting/buildall/structural-design/](https://www.building-smart.or.jp/meeting/buildall/structural-design/)
 
-**コンポーネントの構成と使い方**
+## コンポーネントの構成と使い方
 
 ドキュメントページを作成したのでそちらをご確認ください。
 
 [ HoaryFox ドキュメントページ](http://hrntsm.github.io/hoaryfox/)
 
-**ダウンロードについて**
+## ダウンロードについて
 
 [food4rhino](https://www.food4rhino.com/app/hoaryfox) にてダウンロードできます
 
 中身が気になる方は同じく[Github のリポジトリ](https://github.com/hrntsm/HoaryFox)を参照ください。
 
-**Karamba との連携**
+## Karamba との連携
 
 実験的な機能として ST-Bridge ファイルの構造解析コンポーネント Karamba への入出力をサポートしています。興味のある方は上記ドキュメントページを参照してください。
 
-**VR 表示**
+## VR 表示
 
 本コンポーネントと RhinoVR と連携することで構造架構を簡単に VR で確認することができます。
 

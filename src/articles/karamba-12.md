@@ -3,7 +3,7 @@ title: "karamba ver1.2 のアップデート内容"
 date: "2016-11-03"
 draft: false
 path: "/articles/karamba-12"
-article-tags: ["karamba", "grasshopper"]
+article-tags: ["Karamba", "Grasshopper"]
 ---
 
 久しぶりの更新となるので、この間の期間に karamba がどう変わった確認します。  

@@ -3,7 +3,7 @@ title: "単質点系の応答解析コンポーネントの公開"
 date: "2018-10-07"
 draft: false
 path: "/articles/ReleaseHelloWorldComponent"
-article-tags: ["grasshopper", "C#"]
+article-tags: ["Grasshopper", "CSharp"]
 ---
 
 前記事で公開した[単純梁の解析コンポーネント](https://rgkr-memo.blogspot.com/2018/07/blog-post.html)に続き、単質点系の応答解析のコンポーネントをまとめたので、同様に[Github](https://github.com/hrntsm/mice)で公開しました。

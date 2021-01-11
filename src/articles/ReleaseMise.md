@@ -3,7 +3,7 @@ title: "Mise のリリースのお知らせ"
 date: "2019-03-01"
 draft: false
 path: "/articles/ReleaseMise"
-article-tags: ["grasshopper", "Mice", "C#"]
+article-tags: ["Grasshopper", "Mice", "CSharp"]
 ---
 
 これまでに動画やこの blog で紹介してきた単純梁の計算を行うコンポーネントを Food4Rhino でリリースしました。
@@ -13,25 +13,25 @@ article-tags: ["grasshopper", "Mice", "C#"]
 作成したコンポーネント名は「Mice」です。基本的にはこれまで作成してきたものから、出力関係を強化したものになっています。ダウンロードは  [food4rhino](https://www.food4rhino.com/app/mice)  からどうぞ。  
 　機能はこれまでに紹介してきた物と同様に以下のようになっています。
 
-対象
+## 対象
 
 - 片端ピン、他端ピンローラー支点の単純梁
 - 片持ち梁
 
-対応形状
+## 対応形状
 
 - H 型
 - L 型
 - 角型
 
-対応荷重形状
+## 対応荷重形状
 
 - 片持ち梁の先端集中荷重
 - 単純梁の中央集中荷重
 - 単純梁の台形等分布荷重
 - 任意のモーメント入力
 
-出力
+## 出力
 
 - 曲げモーメント分布の図化出力と数値の出力
 - 部材断面の図化出力
@@ -40,9 +40,11 @@ article-tags: ["grasshopper", "Mice", "C#"]
 
 これまで同様に [github](https://github.com/hiro-n-rgkr/BeamAnalysis) 側にもアップしているので、中身が気になる方はそちらを参照してください。
 
-2019/03/16 追記 --------------
+---
 
-[food4rhino](https://www.food4rhino.com/app/mise)  に Ver 1.0.1 公開しました。主な変更点は以下です。
+## 2019/03/16 追記 --------------
+
+[food4rhino](https://www.food4rhino.com/app/mice)  に Ver 1.0.1 公開しました。主な変更点は以下です。
 
 ・反力と荷重が表示されるようになりました。ただしモーメントの反力は出力していないので、片持ち梁は少し変に感じます。
 
@@ -52,7 +54,7 @@ article-tags: ["grasshopper", "Mice", "C#"]
 
 [![](https://1.bp.blogspot.com/-whMUgDnMlIE/XIzvEwk8R_I/AAAAAAAABmk/VMn7-hmvZO8R4Ydy9M1cwNVYbKGe3E4YgCLcBGAs/s1600/%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2597%25E3%2583%2581%25E3%2583%25A3.PNG)](https://1.bp.blogspot.com/-whMUgDnMlIE/XIzvEwk8R_I/AAAAAAAABmk/VMn7-hmvZO8R4Ydy9M1cwNVYbKGe3E4YgCLcBGAs/s1600/%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2597%25E3%2583%2581%25E3%2583%25A3.PNG)
 
-・サブカテゴリ BeamAnalysis 内 のコンポーネントの説明がすべて "Stress Analysis of the Beam"だったので、それぞれの内容に合わせて修正しました。
+・サブカテゴリ BeamAnalysis 内のコンポーネントの説明がすべて "Stress Analysis of the Beam"だったので、それぞれの内容に合わせて修正しました。
 
 [![](https://4.bp.blogspot.com/-7S49Hyeu6eU/XIz-m1M92dI/AAAAAAAABnQ/3kainY9zZ3EtxD2HBSIMyUcRRr9bZiXsACLcBGAs/s320/%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2597%25E3%2583%2581%25E3%2583%25A3.PNG)](https://4.bp.blogspot.com/-7S49Hyeu6eU/XIz-m1M92dI/AAAAAAAABnQ/3kainY9zZ3EtxD2HBSIMyUcRRr9bZiXsACLcBGAs/s1600/%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2597%25E3%2583%2581%25E3%2583%25A3.PNG)
 

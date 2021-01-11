@@ -3,7 +3,7 @@ title: "簡単な時刻歴応答解析コンポーネントの開発"
 date: "2017-07-17"
 draft: false
 path: "/articles/CS-MakeNewmarkBetaComponent"
-article-tags: ["grasshopper", "C#"]
+article-tags: ["Grasshopper", "CSharp"]
 ---
 
 これまでのコンポーネント作成を踏まえて、単質点系の時刻歴応答解析を行うコンポーネントを作成します。グラスホッパーのパラスタしやすい特性を活かせば、時間のかかる時刻歴のパラスタが簡単になるのでは？と思って作成しましたが、単質点、弾性なので、疑似速度応答スペクトル作ったほうが早いですね。非線形、多質点化はまたそのうち実装します。
