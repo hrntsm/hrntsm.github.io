@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => {
                   color: inherit;
                 `}
           >
-            All Article Tags Page
+            All Article Tags Page(WIP)
           </Link>
         </TagsHeader><br/><br/>
         <hr></hr>
