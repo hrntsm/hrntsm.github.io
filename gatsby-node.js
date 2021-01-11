@@ -71,7 +71,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.tagsGroup.group
       .forEach(tag => {
         createPage({
-          path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+          path: `/diary-tags/${_.kebabCase(tag.fieldValue)}/`,
           component: tagTemplate,
           context: {
             tag: tag.fieldValue,

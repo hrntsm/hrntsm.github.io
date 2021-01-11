@@ -12,7 +12,7 @@ import kebabCase from "lodash/kebabCase"
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
 
-const TagsPage = ({
+const DiaryTagsPage = ({
                     data: {
                       allMarkdownRemark: { group },
                       site: {
@@ -21,14 +21,14 @@ const TagsPage = ({
                     },
                   }) => (
   <Layout>
-    <SEO title="Tags" />
+    <SEO title="Diary Tags" />
     <div>
       <div>
-        <h1>Tags</h1>
+        <h1>Diary Tags</h1>
         <ul>
           {group.map(tag => (
             <li key={tag.fieldValue}>
-              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+              <Link to={`/diary-tags/${kebabCase(tag.fieldValue)}/`}>
                 {tag.fieldValue} ({tag.totalCount})
               </Link>
             </li>
@@ -39,7 +39,7 @@ const TagsPage = ({
   </Layout>
 )
 
-TagsPage.propTypes = {
+DiaryTagsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       group: PropTypes.arrayOf(
@@ -57,7 +57,7 @@ TagsPage.propTypes = {
   }),
 }
 
-export default TagsPage
+export default DiaryTagsPage
 
 export const pageQuery = graphql`
     query {

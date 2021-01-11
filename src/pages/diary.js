@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => {
         <h1>Diary</h1>
         <TagsHeader>
           <Link
-            to={"/tags"}
+            to={"/diary-tags"}
             css={css`
                   text-decoration: none;
                   color: inherit;
