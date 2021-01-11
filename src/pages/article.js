@@ -17,7 +17,7 @@ const ArticleDate = styled.h5`
   color: #606060;
 `
 
-const TagsHeader = styled.h4`
+const TagsHeader = styled.h3`
   display: inline;
   color: #606060;
 `
@@ -44,9 +44,12 @@ const IndexPage = ({ data }) => {
       <SEO title="Article" />
       <Content>
         <h1>Article</h1>
+        <hr></hr>
+        <p>技術記事です。"構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。</p>
+        <hr></hr>
         <TagsHeader>
           <Link
-            to={"/tags"}
+            to={"/article-tags"}
             css={css`
                   text-decoration: none;
                   color: inherit;
@@ -55,8 +58,6 @@ const IndexPage = ({ data }) => {
             All Article Tags Page
           </Link>
         </TagsHeader><br/><br/>
-        <hr></hr>
-        <p>技術記事です。"構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。</p>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {

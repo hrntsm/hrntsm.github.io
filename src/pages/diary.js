@@ -17,7 +17,7 @@ const ArticleDate = styled.h5`
   color: #606060;
 `
 
-const TagsHeader = styled.h4`
+const TagsHeader = styled.h3`
   display: inline;
   color: #606060;
 `
@@ -44,6 +44,9 @@ const IndexPage = ({ data }) => {
       <SEO title="Diary" />
       <Content>
         <h1>Diary</h1>
+        <hr></hr>
+        <p>日々のメモやポエムです。</p>
+        <hr></hr>
         <TagsHeader>
           <Link
             to={"/diary-tags"}
@@ -55,8 +58,6 @@ const IndexPage = ({ data }) => {
             All Diary Tags Page
           </Link>
         </TagsHeader><br/><br/>
-        <hr></hr>
-        <p>日々のメモやポエムです。</p>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {
