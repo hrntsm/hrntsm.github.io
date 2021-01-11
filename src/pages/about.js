@@ -43,11 +43,6 @@ const IndexPage = ({ data }) => {
           ちょっと間違った建築の未来を探してます。<br/>
           Looking for the future of architecture that is slightly out from the norm.
         </p>
-        <MarkerHeader>Profile</MarkerHeader>
-        <p>
-          Freelance<br/>
-          Live in Tokyo<br/>
-        </p>
         <MarkerHeader>Interest</MarkerHeader>
         <p>
           Connect between structure, geometry and XR.
@@ -57,17 +52,16 @@ const IndexPage = ({ data }) => {
           C#、Python<br/>
           Unity、Rhinoceros、Grasshopper<br/>
           Creating VR content<br/>
-          Operating Vtuber <br/>
-          一級建築士
+          Operating Vtuber
         </p>
         <MarkerHeader>Works</MarkerHeader>
         <h4>Software</h4>
-        <h5>MISE (Grasshopper Component)</h5>
-        <a href={"https://www.food4rhino.com/app/mise"}>
+        <h5>MICE (Grasshopper Component)</h5>
+        <a href={"https://www.food4rhino.com/app/mice"}>
           <img src={"https://static.food4rhino.com/s3fs-public/users-files/hironrgkr/app/kiyaputiya.png"} alt="MISE" />
         </a>
-        <p>Miseは、梁理論にもとづいて梁の応力と変形、建築学会基準による許容応力度計算を行います。<br/>
-          <a href={"https://www.food4rhino.com/app/mise"}>
+        <p>Miceは、梁理論にもとづいて梁の応力と変形、建築学会基準による許容応力度計算を行います。<br/>
+          <a href={"https://www.food4rhino.com/app/mice"}>
               more information
           </a>
         </p>
@@ -90,16 +84,6 @@ const IndexPage = ({ data }) => {
         </iframe><br/>
         <p>
           RhinoInsideをUnityで使うための導入についてのハンズオンのアーカイブです。
-        </p>
-        <MarkerHeader>Contact</MarkerHeader>
-        <p>
-          <a href="https://twitter.com/hiron_rgkr">Twitter DM</a><br/>
-          or Mail: contact(a)hrntsm.com (change (a) to @)
-        </p>
-        <MarkerHeader>History</MarkerHeader>
-        <p>
-          2020~ フリーランス<br/>
-          ~2019 組織設計事務所 構造設計部勤務
         </p>
       </Content>
     </Layout>
