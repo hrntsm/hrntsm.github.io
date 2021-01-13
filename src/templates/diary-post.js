@@ -3,6 +3,14 @@ import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  HatenaShareButton,
+  HatenaIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'react-share';
 
 const Content = styled.div`
   margin: 0 auto;
@@ -52,6 +60,8 @@ const MarkdownContent = styled.div`
 
 export default ({ data }) => {
   const post = data.markdownRemark
+  const url = "https://hrntsm.github.io" + post.frontmatter.path
+  const title = post.frontmatter.title
   return (
     <Layout>
       <SEO
@@ -64,6 +74,19 @@ export default ({ data }) => {
           {post.frontmatter.date} - {post.fields.readingTime.text} - Tags: {post.frontmatter.tags + ""}
         </HeaderDate>
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div>
+          <FacebookShareButton url={url}>
+            <FacebookIcon size={36} round />
+          </FacebookShareButton>
+
+          <HatenaShareButton title={title} url={url} >
+            <HatenaIcon size={36} round />
+          </HatenaShareButton>
+
+          <TwitterShareButton title={title} via="hiron_rgkr" url={url} >
+            <TwitterIcon size={36} round />
+          </TwitterShareButton>
+        </div>
       </Content>
     </Layout>
   )
