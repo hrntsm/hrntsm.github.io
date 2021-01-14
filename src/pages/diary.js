@@ -5,6 +5,17 @@ import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  HatenaShareButton,
+  HatenaIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'react-share';
+
+const ogpurl = "https://hrntsm.github.io/diary"
+const ogptitle = "備忘録たち"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -41,7 +52,10 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Diary" />
+      <SEO
+       title="備忘録たち"
+       description="日々のメモやポエムです。"
+      />
       <Content>
         <h1>Diary</h1>
         <hr></hr>
@@ -58,6 +72,20 @@ const IndexPage = ({ data }) => {
             All Diary Tags Page
           </Link>
         </TagsHeader><br/><br/>
+        <hr></hr>
+        <div>
+          <FacebookShareButton url={ogpurl}>
+            <FacebookIcon size={36} round />
+          </FacebookShareButton>
+ 
+          <HatenaShareButton title={ogptitle} url={ogpurl} >
+            <HatenaIcon size={36} round />
+          </HatenaShareButton>
+ 
+          <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={ogpurl} >
+            <TwitterIcon size={36} round />
+          </TwitterShareButton>
+       </div>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {

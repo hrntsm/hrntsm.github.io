@@ -2,8 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `hiron`,
     subtitle: `Structure and Computational Engineer`,
-    description: `hiron's portfolio site. This site built with Gatsbyjs.`,
+    description: `hiron のポートフォリオサイトです。`,
     author: `@hiron`,
+    image: `./twittercard/image.png`
   },
   plugins: [
     {

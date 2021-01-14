@@ -9,7 +9,6 @@ import SEO from "../components/seo"
 import kebabCase from "lodash/kebabCase"
 
 // Components
-import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
 
 const DiaryTagsPage = ({
@@ -21,7 +20,7 @@ const DiaryTagsPage = ({
                     },
                   }) => (
   <Layout>
-    <SEO title="Diary Tags" />
+    <SEO title="Diary Tags"  />
     <div>
       <div>
         <h1>Diary Tags</h1>
