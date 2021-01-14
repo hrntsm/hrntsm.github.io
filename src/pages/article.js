@@ -5,6 +5,14 @@ import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  HatenaShareButton,
+  HatenaIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'react-share'
 
 const Content = styled.div`
   margin: 0 auto;
@@ -37,13 +45,18 @@ const ReadingTime = styled.h5`
   display: inline;
   color: #606060;
 `
+const ogpurl = "https://hrntsm.github.io/article"
+const ogptitle = "Technical Articles"
 
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Technical Article" />
+      <SEO
+       title="Technical Articles"
+       description="技術記事です。構造とデジタル というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。"
+      />
       <Content>
-        <h1>Technical Article</h1>
+        <h1>Technical Articles</h1>
         <hr></hr>
         <p>技術記事です。<br />"構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。</p>
         <hr></hr>
@@ -58,6 +71,20 @@ const IndexPage = ({ data }) => {
             All Article Tags Page
           </Link>
         </TagsHeader><br/><br/>
+        <hr></hr>
+        <div>
+          <FacebookShareButton url={ogpurl}>
+            <FacebookIcon size={36} round />
+          </FacebookShareButton>
+ 
+          <HatenaShareButton title={ogptitle} url={ogpurl} >
+            <HatenaIcon size={36} round />
+          </HatenaShareButton>
+ 
+          <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={ogpurl} >
+            <TwitterIcon size={36} round />
+          </TwitterShareButton>
+       </div>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {

@@ -1,17 +1,22 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
 // Utilities
 import kebabCase from "lodash/kebabCase"
-
 // Components
-import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  HatenaShareButton,
+  HatenaIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'react-share';
 
+const url = "https://hrntsm.github.io/article-tags"
+const ogptitle = "技術記事 タグ一覧"
 const ArticleTagsPage = ({
                     data: {
                       allMarkdownRemark: { group },
@@ -21,7 +26,10 @@ const ArticleTagsPage = ({
                     },
                   }) => (
   <Layout>
-    <SEO title="Article Tags" />
+    <SEO
+      title="Article Tags"
+      description={"aaaaaaaaaaa"}
+    />
     <div>
       <div>
         <h1>Article Tags</h1>
@@ -35,6 +43,19 @@ const ArticleTagsPage = ({
           ))}
         </ul>
       </div>
+    </div>
+    <div>
+      <FacebookShareButton url={url}>
+        <FacebookIcon size={36} round />
+      </FacebookShareButton>
+
+      <HatenaShareButton title={ogptitle} url={url} >
+        <HatenaIcon size={36} round />
+      </HatenaShareButton>
+
+      <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={url} >
+        <TwitterIcon size={36} round />
+      </TwitterShareButton>
     </div>
   </Layout>
 )

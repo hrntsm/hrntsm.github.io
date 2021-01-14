@@ -41,7 +41,11 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: "title",
+        },
+        {
+          property: `og:image`,
+          content: site.siteMetadata.image, 
         },
         {
           property: `og:description`,
@@ -50,6 +54,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          name: `twitter:image`,
+          content: site.siteMetadata.image,
         },
         {
           name: `twitter:card`,
@@ -82,7 +90,7 @@ function SEO({ description, lang, meta, keywords, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `jp`,
+  lang: `ja`,
   meta: [],
   keywords: [],
 }
