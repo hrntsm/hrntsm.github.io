@@ -15,7 +15,7 @@ import {
   TwitterIcon,
 } from 'react-share';
 
-const url = "https://hrntsm.github.io/article-tags"
+const url = "https://hiron.dev/article-tags/"
 const ogptitle = "技術記事 タグ一覧"
 const ArticleTagsPage = ({
                     data: {
@@ -28,7 +28,6 @@ const ArticleTagsPage = ({
   <Layout>
     <SEO
       title="Article Tags"
-      description={"aaaaaaaaaaa"}
     />
     <div>
       <div>

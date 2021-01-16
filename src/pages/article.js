@@ -45,7 +45,7 @@ const ReadingTime = styled.h5`
   display: inline;
   color: #606060;
 `
-const ogpurl = "https://hrntsm.github.io/article"
+const ogpurl = "https://hiron.dev/article/"
 const ogptitle = "Technical Articles"
 
 const IndexPage = ({ data }) => {

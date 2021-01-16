@@ -14,7 +14,7 @@ import {
   TwitterIcon,
 } from 'react-share';
 
-const ogpurl = "https://hrntsm.github.io/diary"
+const ogpurl = "https://hrntsm.github.io/diary/"
 const ogptitle = "備忘録たち"
 
 const Content = styled.div`

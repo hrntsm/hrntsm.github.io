@@ -60,7 +60,7 @@ const MarkdownContent = styled.div`
 
 export default ({ data }) => {
   const post = data.markdownRemark
-  const url = "https://hrntsm.github.io" + post.frontmatter.path
+  const url = "https://hiron.dev" + post.frontmatter.path
   const title = post.frontmatter.title
   return (
     <Layout>
