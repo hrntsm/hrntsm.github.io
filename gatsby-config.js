@@ -4,7 +4,7 @@ module.exports = {
     subtitle: `Structure and Computational Engineer`,
     description: `hiron のポートフォリオサイトです。`,
     author: `@hiron`,
-    image: `https://hrntsm.github.io/icons/icon-256x256.png`
+    image: `https://hiron.dev/icons/icon-256x256.png`
   },
   plugins: [
     {
