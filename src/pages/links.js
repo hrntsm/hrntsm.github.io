@@ -37,14 +37,6 @@ const IndexPage = ({ data }) => {
           <MarkerHeader>zenn.dev</MarkerHeader>
         </a>
         <br/><br/>
-        <a href="https://rgkr-memo.blogspot.com/"
-           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
-          <MarkerHeader>Blogger</MarkerHeader>
-        </a>
-        <br/><br/>
         <a href="https://qiita.com/hiron_rgkr"
            css={css`
                   text-decoration: none;
