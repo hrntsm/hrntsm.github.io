@@ -44,11 +44,13 @@ Illustrator の SDK は C++なので、Rhino.Inside 側の操作は C#で、Illu
 
 もう一点がビルド時に Tutrial.rc で、
 
-> fatal error RC1015: cannot open include file 'afxres.h'
+```
+fatal error RC1015: cannot open include file 'afxres.h'
+```
 
 というエラーが出たので、以下のように書き換えましたが C++よくわからないので、これが最適な対応かはよくわからないです。
 
-```C++
+```cpp
 //#include "afxres.h"
 #include <windows.h>
 #define IDC_STATIC -1
@@ -88,7 +90,7 @@ Rhino.Inside さわるまで私はこのソフトのこと知らなかったん�
 使用する際は、BricsCAD Application Store で[「Rhino/Grasshopper Connection for BricsCAD BIM」](https://www.bricsys.com/applications/a/?rhino/grasshopper-connection-for-bricscad-bim-a1353-al2360)としてダウンロードしてそのまま使えるので、これについては VS で自分でビルドして環境整備していません。
 自分で構築するときは mcneel ではなく[Bricsys の github](https://github.com/Bricsys/rhino.inside-bricscad)に置いてあるので、自分で中身を確認しながらでもやることができます。
 
-![RiBricks.gif](https://hiron.dev/image/qiita/RI_BricksCAD.gif)
+![RiBricks.gif](https://hiron.dev/image/qiita/RI_BricsCAD.gif)
 
 ### Rhino.Inside ConsoleApps
 
