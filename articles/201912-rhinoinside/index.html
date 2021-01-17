@@ -38,13 +38,11 @@
 つまづいた点として Rhino.Inside.Illustrator.Plugin のターゲットが最初 WindowsSDK ver8 とかになっているので、自分の環境に合わせてリターゲットする必要がありました。
 （私の試した環境は WindowsSDK ver10.0.17763.0）</p>
 <p>もう一点がビルド時に Tutrial.rc で、</p>
-<blockquote>
-<p>fatal error RC1015: cannot open include file 'afxres.h'</p>
-</blockquote>
+<div class="gatsby-highlight" data-language="text"><pre style="counter-reset: linenumber NaN" class="language-text line-numbers"><code class="language-text">fatal error RC1015: cannot open include file &#39;afxres.h&#39;</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <p>というエラーが出たので、以下のように書き換えましたが C++よくわからないので、これが最適な対応かはよくわからないです。</p>
-<div class="gatsby-highlight" data-language="c++"><pre style="counter-reset: linenumber NaN" class="language-c++ line-numbers"><code class="language-c++">//#include &quot;afxres.h&quot;
-#include &lt;windows.h&gt;
-#define IDC_STATIC -1</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="cpp"><pre style="counter-reset: linenumber NaN" class="language-cpp line-numbers"><code class="language-cpp"><span class="token comment">//#include "afxres.h"</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;windows.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> IDC_STATIC -1</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span></span></pre></div>
 <p>動作は以下のような感じです。
 オブジェクトのフィルターに Rhino があるのでそれから Rhino.Inside を起動します。
 そうするとカーブを選択してくださいと出るので、カーブを選ぶとそれが Illustrator に表示されます。
@@ -71,7 +69,7 @@
 <p>Rhino.Inside さわるまで私はこのソフトのこと知らなかったんですが、AutoCAD 互換 CAD ソフトです。少しさわった感じ CAD データの保存も dwg でできて UI も AutoCAD に非常に近いものでした。また BricsCAD の Rhino.Inside については BricsCAD を作っている Bricsys が開発していて驚きました。</p>
 <p>使用する際は、BricsCAD Application Store で<a href="https://www.bricsys.com/applications/a/?rhino/grasshopper-connection-for-bricscad-bim-a1353-al2360">「Rhino/Grasshopper Connection for BricsCAD BIM」</a>としてダウンロードしてそのまま使えるので、これについては VS で自分でビルドして環境整備していません。
 自分で構築するときは mcneel ではなく<a href="https://github.com/Bricsys/rhino.inside-bricscad">Bricsys の github</a>に置いてあるので、自分で中身を確認しながらでもやることができます。</p>
-<p><img src="https://hiron.dev/image/qiita/RI_BricksCAD.gif" alt="RiBricks.gif"></p>
+<p><img src="https://hiron.dev/image/qiita/RI_BricsCAD.gif" alt="RiBricks.gif"></p>
 <h3>Rhino.Inside ConsoleApps</h3>
 <p>コンソールから Rhino.Inside を動かす例が示されています。
 ソフト連携ではなくまず Rhino.Inside のみを動かすことを確認したいときはこれを参照するといいと思います。
