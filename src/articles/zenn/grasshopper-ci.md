@@ -2,7 +2,7 @@
 title: "GitHub Actions で Grasshopper コンポーネントをビルドする"
 date: "2020-12-01"
 draft: false
-path: "/articles/graahopper-ci"
+path: "/articles/grasshopper-ci"
 article-tags: ["Grasshopper", "GitHub", "CI", "Zenn"]
 ---
 
