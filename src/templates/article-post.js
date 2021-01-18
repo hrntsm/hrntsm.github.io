@@ -67,6 +67,7 @@ export default ({ data }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        keywords={post.frontmatter.article_tags}
       />
       <Content>
         <MarkedHeader>{post.frontmatter.title}</MarkedHeader>
