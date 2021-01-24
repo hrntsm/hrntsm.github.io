@@ -1,15 +1,15 @@
 ---
-title: "karamba1.3.1の新機能について"
+title: "Karamba3D 1.3.1の新機能について"
 date: "2019-01-12"
 draft: false
 path: "/articles/AboutKaramba1-3-1"
-article-tags: ["Karamba", "構造とデジタル"]
+article-tags: ["Karamba3D", "構造とデジタル"]
 ---
 
-2019/01 時点での karamba 1.3.1 の新機能について公式のページを確認しましたので以下にまとめます。1.2 から 1.3 での大きな変更は材料非線形への対応で、そのため多くのコンポーネントが変更になっています。1.2 から 1.3 の変更点は[こちらで](https://rgkr-memo.blogspot.com/2018/04/karamba-1-3.html)  
+2019/01 時点での Karamba3D 1.3.1 の新機能について公式のページを確認しましたので以下にまとめます。1.2 から 1.3 での大きな変更は材料非線形への対応で、そのため多くのコンポーネントが変更になっています。1.2 から 1.3 の変更点は[こちらで](../karamba-1-3)  
 　翻訳が間違っている可能性もあるので、詳細は[公式の原文](https://www.grasshopper3d.com/group/karamba3d/page/new-features-and-bug-fixes)を確認してください。
 
-**Karmba3D 1.3.1 のわかっているバグ:**
+## Karmba3D 1.3.1 のわかっているバグ
 
 - Optimize Reinforcement コンポーネントでの Mass の出力がシェルに等分布荷重がかけられている際間違っている。この際、コンクリート断面は補強分までが計算されている。
 - Optimize Reinforcement コンポーネントの Mass の出力で 10 倍の大きさの値が返される
@@ -18,7 +18,7 @@ article-tags: ["Karamba", "構造とデジタル"]
 - Material Selection コンポーネントはアメリカの鋼材タイプを選択すると剛性と強度が０の材料を返す
 - Optimize Cross Section コンポーネントは要素のアクティブかどうかのステータスを無視します。非アクティブの要素が含まれても、アクティブと同様に剛性を考慮します。
 
-**Karmba3D 1.3.1 の新機能とバグ修正:**
+## Karmba3D 1.3.1 の新機能とバグ修正
 
 - マニュアルのアップデート
 - Rhino5 64bit 版と Rhino6 で並行して開発

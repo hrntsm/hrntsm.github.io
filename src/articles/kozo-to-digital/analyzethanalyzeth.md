@@ -3,11 +3,11 @@ title: "AnalyzeThⅠとAnalyzeThⅡの違い"
 date: "2015-08-23"
 draft: false
 path: "/articles/analyzethanalyzeth"
-article-tags: ["Karamba", "Grasshopper", "構造とデジタル"]
+article-tags: ["Karamba3D", "Grasshopper", "構造とデジタル"]
 ---
 
-Karamba には、静的線形解析を行うコンポーネントが２つあります。AnalyzeThⅠ と AnalyzeThⅡ の二つです。二つの違いについて検証します。  
-　 Karamba にはホームページから、マニュアルをダウンロードできますが、日本語に翻訳されているのは ver １.0.5 までです。ですが、静的解析が二つになったのは Karamba の ver1.1.0 からなので、英語のマニュアルを確認しました
+Karamba3D には、静的線形解析を行うコンポーネントが2つあります。AnalyzeThⅠ と AnalyzeThⅡ の二つです。二つの違いについて検証します。  
+　 Karamba3D にはホームページから、マニュアルをダウンロードできますが、日本語に翻訳されているのは ver １.0.5 までです。ですが、静的解析が二つになったのは Karamba3D の ver1.1.0 からなので、英語のマニュアルを確認しました
 
 結果を要約すると、要素に入る軸力によって発生する剛性の変化を ThⅡ では考慮して解析を行うようです。検証するために、単純梁に対して、一端に圧縮力をかけたモデルを作成します。AssembleModel コンポーネントから、ThⅠ と ThⅡ に同一のモデルを入力します。図中の上が ThⅠ、下が ThⅡ です。結果をみると、圧縮力による剛性の低下が考慮されており、変位が 0.047 から 0.048 に増加していることが確認できます。
 
@@ -19,7 +19,7 @@ _「The structural system buckles under the given loads」(この構造システ
 
 [![](http://3.bp.blogspot.com/-xUXjHBLlKR4/VdSfHzDD86I/AAAAAAAAA0g/qpqJoBpNuRY/s400/%25E5%25BA%25A7%25E5%25B1%2588%25E3%2582%2592%25E8%25A1%25A8%25E7%25A4%25BA.JPG)](http://3.bp.blogspot.com/-xUXjHBLlKR4/VdSfHzDD86I/AAAAAAAAA0g/qpqJoBpNuRY/s1600/%25E5%25BA%25A7%25E5%25B1%2588%25E3%2582%2592%25E8%25A1%25A8%25E7%25A4%25BA.JPG)
 
-なお Karamba が作られているのは、ヨーロッパなのでこの THⅡ の判断は欧州構造基準（ユーロコード）に基づいて判断されています。
+なお Karamba3D が作られているのは、ヨーロッパなのでこの THⅡ の判断は欧州構造基準（ユーロコード）に基づいて判断されています。
 
 以下、「Karamba_1_1_0_Manual」 の 「6.5.2. Analyze Th. II」の該当箇所の翻訳を掲載
 
