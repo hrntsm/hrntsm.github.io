@@ -4,7 +4,8 @@ module.exports = {
     subtitle: `Structure and Computational Engineer`,
     description: `hiron のポートフォリオサイトです。`,
     author: `@hiron`,
-    image: `https://hiron.dev/icons/icon-256x256.png`
+    image: `https://hiron.dev/icons/icon-256x256.png`,
+    siteUrl: `https://hiron.dev`
   },
   plugins: [
     {
@@ -15,6 +16,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
