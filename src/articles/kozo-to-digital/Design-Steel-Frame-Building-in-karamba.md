@@ -1,18 +1,18 @@
 ---
-title: "karambaで鉄骨造オフィスの設計にチャレンジ"
+title: "Karamba3D で鉄骨造オフィスの断面最適化による設計にチャレンジ"
 date: "2016-02-13"
 draft: false
 path: "/articles/Design-Steel-Frame-Building-in-karamba"
-article-tags: ["karamba", "StructureDesign", "構造とデジタル"]
+article-tags: ["Karamba3D", "StructureDesign", "構造とデジタル"]
 ---
 
-これまでの記事で、karamba の各コンポーネントに関して検証してきたので、今回はそれらをもとに簡単な鉄骨造オフィスの設計にチャレンジします。
+これまでの記事で、Karamba3D の各コンポーネントに関して検証してきたので、今回はそれらをもとに簡単な鉄骨造オフィスの設計にチャレンジします。
 
 では、対象とする建物は以下のようなものを考えます。
 
 - RC に関する断面検定機能はないので、構造形式は鉄骨造  
 　　- 鉄骨は断面検定をするといっても、座屈を考慮した fc、fb の低減はないので、設計というよりかは、構造形式が成り立っているかの確認、基本計画のようなものを考える。  
-　　- grasshopper の特徴をいかし、断面は最適化を使用して決定  
+　　- Grasshopper の特徴をいかし、断面は最適化を使用して決定  
 　　- 一般的な建物を考え、鉄骨造 7 階建、オフィスビル を想定  
 　　- 平面形状は、12m x 24m 　となる長方形の形状  
 　　- 短手は 1 スパン、長手は 4 スパンのラーメンとし、事務所空間には柱は落とさない  
@@ -21,8 +21,12 @@ article-tags: ["karamba", "StructureDesign", "構造とデジタル"]
 
 [![](https://2.bp.blogspot.com/-n3NxJVYJPP8/Vrda8jp_1zI/AAAAAAAABMo/oCgjLGJL4Ik/s640/%25E3%2582%25B5%25E3%2583%25A0%25E3%2583%258D%25E3%2582%25A4%25E3%2583%25AB.JPG)](https://2.bp.blogspot.com/-n3NxJVYJPP8/Vrda8jp_1zI/AAAAAAAABMo/oCgjLGJL4Ik/s1600/%25E3%2582%25B5%25E3%2583%25A0%25E3%2583%258D%25E3%2582%25A4%25E3%2583%25AB.JPG)
 
-karamba を使用する前に、まずはビルのモデル化を行います。方針としては、1F をモデル化して、それを Move コンポーネントで回数分だけコピーしていく形とします。  
-　１ F は長手の梁を Line SDL コンポーネントで 1 本のラインとして作成し、それを Move コンポーネントで短手の長さ分だけ移動した先に複製します。短手の梁は、長手の梁を DivideCurve コンポーネントでスパン分だけ分割した点を作成し、それをつなげることで作成します。長手の梁は 1 本のラインでは karamba に取り込む際節点がうまく設けられないので、Shatter コンポーネントで分割したラインとしています。
+Karamba3D を使用する前に、まずはビルのモデル化を行います。
+方針としては、1F をモデル化して、それを Move コンポーネントで回数分だけコピーしていく形とします。  
+
+1F は長手の梁を Line SDL コンポーネントで 1 本のラインとして作成し、それを Move コンポーネントで短手の長さ分だけ移動した先に複製します。  
+短手の梁は、長手の梁を DivideCurve コンポーネントでスパン分だけ分割した点を作成し、それをつなげることで作成します。  
+長手の梁は 1 本のラインでは Karamba3D に取り込む際、節点がうまく設けられないので、Shatter コンポーネントで分割したラインとしています。  
 
 [![](https://1.bp.blogspot.com/-nKPuc3WbrLs/Vriy6cWaqkI/AAAAAAAABM4/IaBSf-TQtRA/s640/1%25E9%259A%258E%25E3%2581%25AE%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%25E5%258C%2596.JPG)](https://1.bp.blogspot.com/-nKPuc3WbrLs/Vriy6cWaqkI/AAAAAAAABM4/IaBSf-TQtRA/s1600/1%25E9%259A%258E%25E3%2581%25AE%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%25E5%258C%2596.JPG)
 
@@ -38,12 +42,12 @@ karamba を使用する前に、まずはビルのモデル化を行います。
 
 [![](https://2.bp.blogspot.com/-S2EVQ6ekFH8/Vr6qFCENVcI/AAAAAAAABNg/JNcTxnNO-xk/s640/%25E5%25A2%2583%25E7%2595%258C%25E6%259D%25A1%25E4%25BB%25B6.JPG)](https://2.bp.blogspot.com/-S2EVQ6ekFH8/Vr6qFCENVcI/AAAAAAAABNg/JNcTxnNO-xk/s1600/%25E5%25A2%2583%25E7%2595%258C%25E6%259D%25A1%25E4%25BB%25B6.JPG)
 
-断面は後から最適化を行うので、ここでは形状の区分だけ与えます。断面の設定には３つのコンポーネントを使用しています。また、断面には[コチラ](http://rgkr-memo.blogspot.jp/p/blog-page_4.html)で公開している部材断面データとして使用しています。  
-　まず CrossSectionSelector コンポーネントで、BeamID と断面を関連づけます。一番上の例でいえば、column を Elem|Ids につないでいるところになります。  
+断面は後から最適化を行うので、ここでは形状の区分だけ与えます。断面の設定には３つのコンポーネントを使用しています。  
+まず CrossSectionSelector コンポーネントで、BeamID と断面を関連づけます。一番上の例でいえば、column を Elem|Ids につないでいるところになります。  
 　次に使用する断面ファミリを選択します。ここでは CrossSectionRengeSelector コンポーネントを使用します。日本で設計するので Country は Japan 、柱は角型鋼管なので Shape は \[\] 、その中から選べばいいので、Family は ---all--- としておきます。  
 　二つができたらそれを CrossSectionMatcher コンポーネントにつなぐことで、名前の通り対象とする要素に、断面が与えられます。ここでは条件は指定していないので、もっとも小さい断面 BCP400x12 が与えられていると思います。　梁に対しても同様に行っています。  
 　基礎梁は、RC を想定しているので、断面サイズを指定することで作成しています。CrossSectios コンポーネントを使用することで、各パラメータを入力することで断面を作成することができます。　  
-　 karamba の断面形状の中には、中実矩形断面がないので、ここでは I 型断面を指定し、ウェブ厚を厚くすることで矩形としています。これでいいのかと若干思いますが、RC は断面検定出来ないこと、基本計画としていることから、これでいいことにしています。
+　 Karamba3D の断面形状の中には、中実矩形断面がないので、ここでは I 型断面を指定し、ウェブ厚を厚くすることで矩形としています。これでいいのかと若干思いますが、RC は断面検定出来ないこと、基本計画としていることから、これでいいことにしています。
 
 [![](https://1.bp.blogspot.com/-hTvKYR3AvCw/Vr6rJ25EdXI/AAAAAAAABNw/PfgZg2tSZvc/s640/%25E6%2596%25AD%25E9%259D%25A2%25E8%25A8%25AD%25E5%25AE%259A.JPG)](https://1.bp.blogspot.com/-hTvKYR3AvCw/Vr6rJ25EdXI/AAAAAAAABNw/PfgZg2tSZvc/s1600/%25E6%2596%25AD%25E9%259D%25A2%25E8%25A8%25AD%25E5%25AE%259A.JPG)
 
@@ -56,7 +60,7 @@ karamba を使用する前に、まずはビルのモデル化を行います。
 [![](https://1.bp.blogspot.com/-nyVGh0TPg0g/Vr6yfPoPtEI/AAAAAAAABOQ/ezw3OCp1Vho/s640/%25E8%258D%25B7%25E9%2587%258D%25E3%2581%25AE%25E8%25A8%25AD%25E5%25AE%259A.JPG)](https://1.bp.blogspot.com/-nyVGh0TPg0g/Vr6yfPoPtEI/AAAAAAAABOQ/ezw3OCp1Vho/s1600/%25E8%258D%25B7%25E9%2587%258D%25E3%2581%25AE%25E8%25A8%25AD%25E5%25AE%259A.JPG)
 
 次に材料の設定をします。基礎以外は鉄骨造なので、ここでは SN490B を設定しています。基礎は RC 想定なので、コンクリートを設定します。材料のデータは作成していないので、デフォルトのものを使用している関係で角型鋼管でも BCP 材ではなく、SN 材を選択しています。  
-　コンクリート材料は、karamba の作成元のボリンジャーグローマンがドイツの事務所だからなのか、ドイツ規格のコンクリート材料しかなかったので、ここでは C20/25 を選択しています。呼び強度で 20N/mm2 相当らしいですが、ここでは RC 部材は主眼としていないので、このままとします。
+　コンクリート材料は、Karamba3D の作成元のボリンジャーグローマンがドイツの事務所だからなのか、ドイツ規格のコンクリート材料しかなかったので、ここでは C20/25 を選択しています。呼び強度で 20N/mm2 相当らしいですが、ここでは RC 部材は主眼としていないので、このままとします。
 
 [![](https://4.bp.blogspot.com/-3dsaeURL5Fg/Vr63ABekoMI/AAAAAAAABOg/TfkOkLu12VA/s640/%25E6%259D%2590%25E6%2596%2599%25E3%2581%25AE%25E8%25A8%25AD%25E5%25AE%259A.JPG)](https://4.bp.blogspot.com/-3dsaeURL5Fg/Vr63ABekoMI/AAAAAAAABOg/TfkOkLu12VA/s1600/%25E6%259D%2590%25E6%2596%2599%25E3%2581%25AE%25E8%25A8%25AD%25E5%25AE%259A.JPG)
 
@@ -70,7 +74,7 @@ karamba を使用する前に、まずはビルのモデル化を行います。
 [![](https://2.bp.blogspot.com/-4PWafkxy90M/Vr66TdTbQYI/AAAAAAAABO4/XIPTqVt6bTQ/s640/%25E8%25A7%25A3%25E6%259E%2590%25E5%25AE%259F%25E8%25A1%258C.JPG)](https://2.bp.blogspot.com/-4PWafkxy90M/Vr66TdTbQYI/AAAAAAAABO4/XIPTqVt6bTQ/s1600/%25E8%25A7%25A3%25E6%259E%2590%25E5%25AE%259F%25E8%25A1%258C.JPG)
 
 では解析結果です。図示は水平荷重時の結果となります。  
-　 grasshopper 上の右上のコンターが変位、右下が utilization 分布になっています。最大変位は 9.36cm なので設定した変位のクライテリアの 12cm を下回っていますが、utilization は 76.3%となっており、設定の値を超えてしまっているため、どこか設定が間違っているのかもしれません。  
+　 Grasshopper 上の右上のコンターが変位、右下が utilization 分布になっています。最大変位は 9.36cm なので設定した変位のクライテリアの 12cm を下回っていますが、utilization は 76.3%となっており、設定の値を超えてしまっているため、どこか設定が間違っているのかもしれません。  
 　応力分布をみるとおかしな点はないので、最適化の設定の問題のようですね。
 
 [![](https://3.bp.blogspot.com/-HrsF5Zk1dU4/Vr693xXk6_I/AAAAAAAABPM/JhFuy_UfISE/s640/%25E8%25A7%25A3%25E6%259E%2590%25E7%25B5%2590%25E6%259E%259C.JPG)](https://3.bp.blogspot.com/-HrsF5Zk1dU4/Vr693xXk6_I/AAAAAAAABPM/JhFuy_UfISE/s1600/%25E8%25A7%25A3%25E6%259E%2590%25E7%25B5%2590%25E6%259E%259C.JPG)

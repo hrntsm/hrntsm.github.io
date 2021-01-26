@@ -6,7 +6,7 @@ path: "/articles/arduinofft"
 article-tags: ["Grasshopper", "Firefly", "Python", "Arduino", "構造とデジタル"]
 ---
 
-以前の[Arduino と Firefly で加速度を取得](../aruduino-firefly) 、に続く記事になります。  
+以前の[Arduino と Firefly で加速度を取得](../aruduino-firefly)、に続く記事になります。  
 　前回の記事で、arduino から grasshopper へ加速度波形を取得することができたので、今回はその加速度波形をフーリエ変換して周波数特性を明らかにすることで、対象物の固有周期を求めてみます。  
 　まず、どうやってフーリエ変換を行うかですが、ここでは[GhPython](http://www.food4rhino.com/project/ghpython?ufh)を使用します。これは、grasshopper のコンポーネントをプログラミング言語である python で作成できるようになるプラグインです。grasshopper は標準で C#と VB に対応していますが、個人的に python が好きということと、VB と違い python で作成したものは windows だけだなく Mac でも使用できる利点があります。  
 　では FFT ができるコンポーネントの作成を行います。コードの中身は以下です。基本は[rosettacode.org](http://rosettacode.org/wiki/Fast_Fourier_transform#Python:_Recursive)　に記載されているコードに対して、入力波形の長さにかかわらずデータ数が 2 の累乗になるゼロを挿入するコードを追加しています。

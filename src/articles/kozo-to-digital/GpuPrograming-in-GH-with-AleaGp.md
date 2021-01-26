@@ -10,7 +10,7 @@ GPU プログラミングが面白そうだったので、Grasshopper で実装�
 
 [![](https://1.bp.blogspot.com/-0Fs5Nd-oCzc/XqrCTImNSCI/AAAAAAAAB2Q/JBMrTBcHsPYsqQhFMAPTsAxeUlayYX5mgCK4BGAsYHg/w640-h482/gpu.gif)](https://1.bp.blogspot.com/-0Fs5Nd-oCzc/XqrCTImNSCI/AAAAAAAAB2Q/JBMrTBcHsPYsqQhFMAPTsAxeUlayYX5mgCK4BGAsYHg/gpu.gif)
 
-使用するライブラリは[AleaGPU](http://www.aleagpu.com/release/3_0_4/doc/)です。
+使用するライブラリは[AleaGPU](http://www.aleagpu.com/release/3_0_4/doc/) です。
 
 公式のドキュメントによると、AleaGPU は、早く使いやすく高い生産性となっており、コンパイルされたコードは CUDA C、C++と同程度の速さで実行されるとのことです。上記で書きましたが、CUDA を使用しているため、NVIDIA の GTX1050 以上 GPU を積んでいないと動作しないため注意してください。
 
@@ -40,7 +40,7 @@ using Alea.Parallel;
 
 ・・・省略・・・
 
-\[GpuManaged\]
+[GpuManaged]
 protected override void SolveInstance(IGH_DataAccess DA)
 {
  var gpu = Gpu.Default;
@@ -53,7 +53,6 @@ protected override void SolveInstance(IGH_DataAccess DA)
     average = GpuExtension.Average(gpu, inputArray);
 
     DA.SetData(0, average);
-
 }
 ```
 
@@ -63,7 +62,7 @@ protected override void SolveInstance(IGH_DataAccess DA)
 
 [![](https://1.bp.blogspot.com/-eAdjBT1FKpg/XqrOjjqxwZI/AAAAAAAAB24/nnMn2asubrQj_oFRfUlwfaLIwCIQF9IXwCK4BGAsYHg/w400-h354/%25E3%2582%25B3%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2588%2B2020-04-30%2B221105.png)](https://1.bp.blogspot.com/-eAdjBT1FKpg/XqrOjjqxwZI/AAAAAAAAB24/nnMn2asubrQj_oFRfUlwfaLIwCIQF9IXwCK4BGAsYHg/%25E3%2582%25B3%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2588%2B2020-04-30%2B221105.png)
 
-この中で Alea.CUDA.CT.LibDevice から  FSharp.Core.xml までを C:\\Program Files\\Rhino 6\\System 内に入れます。
+この中で Alea.CUDA.CT.LibDevice から FSharp.Core.xml までを C:\\Program Files\\Rhino 6\\System 内に入れます。
 
 これで動くようになったので、Grasshopper を起動して作成したコンポーネントを使用して比較してみると以下のようになりました。比較としては、合計は、GH の MassAddition コンポーネントとの比較、平均は GH の Average コンポーネントと Impala の QuickAvr コンポーネントとの比較を行っています。
 
