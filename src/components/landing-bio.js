@@ -18,12 +18,12 @@ const OuterContainer = styled.div`
 const Description = styled.p`
   padding: 0;
   margin-bottom: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 `
 
 const NameHeader = styled.h1`
-  font-size: 3.5rem;
-  margin-bottom: 0;
+  font-size: 3rem;
+  margin-bottom: 3rem;
 `
 
 const LandingBio = () => (

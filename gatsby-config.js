@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `hiron`,
-    subtitle: `Structure and Computational Engineer`,
-    description: `hiron のポートフォリオサイトです。`,
+    title: `構造とデジタル_最新版_Final(1)`,
+    subtitle: `記事とかポエムとか`,
+    description: `構造設計とデジタルデザインにかかわりそうなものを気が向いたときに書きます。`,
     author: `@hiron`,
     image: `https://hiron.dev/icons/icon-256x256.png`,
     siteUrl: `https://hiron.dev`
