@@ -80,11 +80,11 @@ export default ({ data }) => {
             <FacebookIcon size={36} round />
           </FacebookShareButton>
 
-          <HatenaShareButton title={title} url={url} >
+          <HatenaShareButton title={title + " | " + data.site.siteMetadata.title} url={url} >
             <HatenaIcon size={36} round />
           </HatenaShareButton>
 
-          <TwitterShareButton title={title} via="hiron_rgkr" url={url} >
+          <TwitterShareButton title={title + " | " + data.site.siteMetadata.title} via="hiron_rgkr" url={url} >
             <TwitterIcon size={36} round />
           </TwitterShareButton>
         </div>
@@ -110,6 +110,11 @@ export const pageQuery = graphql`
         }
         slug
         collection
+      }
+    }
+    site(siteMetadata: {title: {}}) {
+      siteMetadata {
+        title
       }
     }
   }
