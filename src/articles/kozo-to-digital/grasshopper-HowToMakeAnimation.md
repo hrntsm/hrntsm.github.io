@@ -6,11 +6,11 @@ path: "/articles/grasshopper-HowToMakeAnimation"
 article-tags: ["Grasshopper", "構造とデジタル"]
 ---
 
-number slider を使用してパラスタした結果を動画に出力する方法について、久しぶりにやろうとしたら忘れていたので、[以前の記事](https://rgkr-memo.blogspot.jp/2017/01/Karamba-ConfirmEffectOfRingGarter.html)で作成したものを例にまとめます。
+number slider を使用してパラスタした結果を動画に出力する方法について、久しぶりにやろうとしたら忘れていたので、[以前の記事](../Karamba-ConfirmEffectOfRingGarter) で作成したものを例にまとめます。
 
 [![](https://3.bp.blogspot.com/-ddXarb_dHtU/WOCOAfUB21I/AAAAAAAABWg/ND5KRylVLxQssEotFO_wbIgw_9DnJxOCACLcB/s1600/avi.PNG)](https://3.bp.blogspot.com/-ddXarb_dHtU/WOCOAfUB21I/AAAAAAAABWg/ND5KRylVLxQssEotFO_wbIgw_9DnJxOCACLcB/s1600/avi.PNG)
 
-では[以前の記事](https://rgkr-memo.blogspot.jp/2017/01/Karamba-ConfirmEffectOfRingGarter.html)で作成したアニメーションの保存法について説明していきたいと思います。number slider を右クリックすると以下のように「Animate....」という選択肢がありますので選択します。
+では [以前の記事](../Karamba-ConfirmEffectOfRingGarter) で作成したアニメーションの保存法について説明していきたいと思います。number slider を右クリックすると以下のように「Animate....」という選択肢がありますので選択します。
 
 [![](https://2.bp.blogspot.com/-5WvXuLoRucM/WNBgiNVKFSI/AAAAAAAABVw/DpGt3s2zFjQ-cNQ-kymddm0mNVEmnNsdwCLcB/s320/%25E3%2582%25A2%25E3%2583%258B%25E3%2583%25A1%25E8%25A8%25AD%25E5%25AE%259A.PNG)](https://2.bp.blogspot.com/-5WvXuLoRucM/WNBgiNVKFSI/AAAAAAAABVw/DpGt3s2zFjQ-cNQ-kymddm0mNVEmnNsdwCLcB/s1600/%25E3%2582%25A2%25E3%2583%258B%25E3%2583%25A1%25E8%25A8%25AD%25E5%25AE%259A.PNG)
 
@@ -30,7 +30,7 @@ number slider を使用してパラスタした結果を動画に出力する方
 
 設定が完了したら一番下の「OK」を押すことで指定した場所に画像ファイルが出力されます。このままでは、番号が振られた大量の画像データのままですので、これを一体化して、動画（avi ファイル）の作成を行います。
 
-png ファイルをまとめて動画にするプログラムはいくつかありますが、ここではフリーである程度知名度もあることから「aviutl」を使用します。aviutl については、[公式](http://spring-fragrance.mints.ne.jp/aviutl/)や[wiki](https://ja.wikipedia.org/wiki/AviUtl)、それ専門のブログ等多くあるので詳細はそちらを見てください。
+png ファイルをまとめて動画にするプログラムはいくつかありますが、ここではフリーである程度知名度もあることから「aviutl」を使用します。aviutl については、[公式](http://spring-fragrance.mints.ne.jp/aviutl/) や [wiki](https://ja.wikipedia.org/wiki/AviUtl) やそれ専門のブログ等多くあるので詳細はそちらを見てください。
 
 では動画の作り方です。やり方はとても簡単です。対象の画像ファイルがあるフォルダ内の 000 番を選び開くだけです。
 
