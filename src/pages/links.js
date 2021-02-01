@@ -26,25 +26,12 @@ const MarkerHeader = styled.h3`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Links" />
+      <SEO
+       title="Links"
+       description="外部サイトへのリンク"
+       />
       <Content>
         <h1>Links</h1>
-        <a href="https://zenn.dev/hrntsm"
-           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
-          <MarkerHeader>zenn.dev</MarkerHeader>
-        </a>
-        <br/><br/>
-        <a href="https://qiita.com/hiron_rgkr"
-           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
-          <MarkerHeader>Qiita</MarkerHeader>
-        </a>
-        <br/><br/>
         <a href="https://github.com/hrntsm"
            css={css`
                   text-decoration: none;

@@ -46,13 +46,13 @@ const ReadingTime = styled.h5`
   color: #606060;
 `
 const ogpurl = "https://hiron.dev/articles/"
-const ogptitle = "Technical Articles"
+const ogptitle = "技術記事たち"
 
 const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO
-       title="Technical Articles"
+       title="技術記事たち"
        description="技術記事です。構造とデジタル というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。"
       />
       <Content>
