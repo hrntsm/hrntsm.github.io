@@ -6,21 +6,22 @@ path: "/articles/grasshopper-HowToMakeAnimation"
 article-tags: ["Grasshopper", "構造とデジタル"]
 ---
 
-number slider を使用してパラスタした結果を動画に出力する方法について、久しぶりにやろうとしたら忘れていたので、[以前の記事](../Karamba-ConfirmEffectOfRingGarter) で作成したものを例にまとめます。
+Number Slider を使用してパラスタした結果を動画に出力する方法について、久しぶりにやろうとしたら忘れていたので、[以前の記事](../Karamba-ConfirmEffectOfRingGarter) で作成したものを例にまとめます。
 
 [![](https://3.bp.blogspot.com/-ddXarb_dHtU/WOCOAfUB21I/AAAAAAAABWg/ND5KRylVLxQssEotFO_wbIgw_9DnJxOCACLcB/s1600/avi.PNG)](https://3.bp.blogspot.com/-ddXarb_dHtU/WOCOAfUB21I/AAAAAAAABWg/ND5KRylVLxQssEotFO_wbIgw_9DnJxOCACLcB/s1600/avi.PNG)
 
-では [以前の記事](../Karamba-ConfirmEffectOfRingGarter) で作成したアニメーションの保存法について説明していきたいと思います。number slider を右クリックすると以下のように「Animate....」という選択肢がありますので選択します。
+では [以前の記事](../Karamba-ConfirmEffectOfRingGarter) で作成したアニメーションの保存法について説明していきます。
+Number Slider を右クリックすると以下のように「Animate....」という選択肢がありますので選択します。
 
 [![](https://2.bp.blogspot.com/-5WvXuLoRucM/WNBgiNVKFSI/AAAAAAAABVw/DpGt3s2zFjQ-cNQ-kymddm0mNVEmnNsdwCLcB/s320/%25E3%2582%25A2%25E3%2583%258B%25E3%2583%25A1%25E8%25A8%25AD%25E5%25AE%259A.PNG)](https://2.bp.blogspot.com/-5WvXuLoRucM/WNBgiNVKFSI/AAAAAAAABVw/DpGt3s2zFjQ-cNQ-kymddm0mNVEmnNsdwCLcB/s1600/%25E3%2582%25A2%25E3%2583%258B%25E3%2583%25A1%25E8%25A8%25AD%25E5%25AE%259A.PNG)
 
-すると以下のようなウインドウが出てきます。
+すると以下のようなウィンドウが出てきます。
 
 最初の個所（C:\\Users と表示されている箇所）は出力先です。
 
-次の Filename template は出力する画像ファイルの命名規則です。ここでは、3 桁（000 ～ 999）で名前を付けるようにしています。拡張子は .png となっていますが、ここを変えると名前上拡張子も変わります。例えば.jpg など
+次の Filename template は出力する画像ファイルの命名規則です。ここでは、3 桁（000 ～ 999）で名前を付けるようにしています。拡張子は .png となっていますが、ここを変えると名前上拡張子も変わります。例えば.jpg など。
 
-次の Sorce and Resolution は rhino 上のどの画面を出力するかと解像度、出力のフレーム数です。ここでは Perspective、解像度は 692X809、フレーム数は 100 枚としています。
+次の Sorce and Resolution は Rhino 上のどの画面を出力するかと解像度、出力のフレーム数です。ここでは Perspective、解像度は 692 x 809、フレーム数は 100 枚としています。
 
 フレーム数を増やすことでこの後の動画化でより滑らかな動画が作れます。
 
