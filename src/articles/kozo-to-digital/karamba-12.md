@@ -1,5 +1,5 @@
 ---
-title: "karamba ver1.2 のアップデート内容"
+title: "Karamba3D ver1.2 のアップデート内容"
 date: "2016-11-03"
 draft: false
 path: "/articles/karamba-12"
