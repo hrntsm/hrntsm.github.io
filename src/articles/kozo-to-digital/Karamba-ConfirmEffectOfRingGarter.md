@@ -1,17 +1,21 @@
 ---
-title: "karambaを利用してリングガーターの効果を確認する"
+title: "Karamba3D を利用してリングガーターの効果を確認する"
 date: "2017-01-15"
 draft: false
 path: "/articles/Karamba-ConfirmEffectOfRingGarter"
-article-tags: ["Karamba", "Grasshopper", "構造とデジタル"]
+article-tags: ["Karamba3D", "Grasshopper", "構造とデジタル"]
 ---
 
 新建築 2017 年１月号に掲載のキャノピーが非常にかっこよかったので、調べたところリングガーターの効果を期待しているということでした。
 
-リングガーダーは、アーチなどと同じように構造体の幾何学的形状抵抗を期待するものです。形状操作は、grasshopper の得意とするところですので、grasshopper と karamba を利用してリングガーダーの効果を確認してみます。  
-　リングガーターについては、[コチラ](http://www.archstructure.net/asmt/topics/2015/05/weinberg.html)や[コチラ](http://www.archstructure.net/asmt/topics/2015/02/lecture.html)を参照してください。
+リングガーダーは、アーチなどと同じように構造体の幾何学的な形状抵抗を期待するものです。
+形状操作は、Grasshopper の得意とするところですので、Grasshopper と Karamba3D を利用してリングガーダーの効果を確認してみます。  
+
+リングガーターについては、[コチラ](http://www.archstructure.net/asmt/topics/2015/05/weinberg.html) や[コチラ](http://www.archstructure.net/asmt/topics/2015/02/lecture.html) を参照してください。
 
 [![](https://2.bp.blogspot.com/-2jziJwIoq_M/WHtM2V-N3WI/AAAAAAAABUQ/LLCnuykP8qwOZydjsB52__V1IodB8PqigCLcB/s320/%25E3%2583%2588%25E3%2583%2583%25E3%2583%2597%25E7%2594%25BB%25E5%2583%258F.PNG)](https://2.bp.blogspot.com/-2jziJwIoq_M/WHtM2V-N3WI/AAAAAAAABUQ/LLCnuykP8qwOZydjsB52__V1IodB8PqigCLcB/s1600/%25E3%2583%2588%25E3%2583%2583%25E3%2583%2597%25E7%2594%25BB%25E5%2583%258F.PNG)
+
+## モデル化
 
 初めにモデル化です。円弧を作成し、柱の本数分だけ分割します。分割した点を屋根の高さにコピーし、この二点をつなげることで柱となるラインを作成します。
 
@@ -27,7 +31,12 @@ article-tags: ["Karamba", "Grasshopper", "構造とデジタル"]
 
 リングガーター効果をわかりやすくするためには、ツーフランジ断面となる鋼板のサンドイッチパネルのようなもののほうがわかりやすいですが、外周部に梁を通してあるのでここでは良しとしています。
 
-Karamba でのモデル化はそれぞれのライン、メッシュを取り込み梁要素、シェル要素に変換して完成です。もとのキャノピーは柱頭ピンですが、フリーの Karamba では、梁端の回転剛性を指定できないので、ModifyElement コンポーネントを使ってトラス要素として両端ピンにしています。このせいでなんだかちょっと違う気がしますが、取り合えずということで。
+## Karamba3D での解析
+
+Karamba3D でのモデル化はそれぞれのライン、メッシュを取り込み梁要素、シェル要素に変換して完成です。
+
+もとのキャノピーは柱頭ピンですが、フリーの Karamba3D では梁端の回転剛性を指定できないため、ModifyElement コンポーネントを使ってトラス要素として両端ピンにしています。
+このせいでなんだかちょっと違う気がしますが、取り合えずということで。
 
 [![](https://3.bp.blogspot.com/-RGOLE0zUH9U/WHt5xpIRGJI/AAAAAAAABUw/qfYUcMY_FzEOzo-6kFcVEoQBnhdNOXJMgCLcB/s400/%25E6%259F%25B1%25E3%2583%2588%25E3%2583%25A9%25E3%2582%25B9%25E5%258C%2596.PNG)](https://3.bp.blogspot.com/-RGOLE0zUH9U/WHt5xpIRGJI/AAAAAAAABUw/qfYUcMY_FzEOzo-6kFcVEoQBnhdNOXJMgCLcB/s1600/%25E6%259F%25B1%25E3%2583%2588%25E3%2583%25A9%25E3%2582%25B9%25E5%258C%2596.PNG)
 
@@ -35,7 +44,10 @@ Karamba でのモデル化はそれぞれのライン、メッシュを取り込
 
 [![](https://4.bp.blogspot.com/-z7KvZ3WD_AQ/WHt7HtGvcYI/AAAAAAAABU0/Lkyr2BUQ_ckXlmz9iQpJs8eooKaP9K_ggCLcB/s400/%25E5%25AE%258C%25E6%2588%2590%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB.PNG)](https://4.bp.blogspot.com/-z7KvZ3WD_AQ/WHt7HtGvcYI/AAAAAAAABU0/Lkyr2BUQ_ckXlmz9iQpJs8eooKaP9K_ggCLcB/s1600/%25E5%25AE%258C%25E6%2588%2590%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB.PNG)
 
-曲げモーメント図を出力することで、リングガーターの効果を確認してみます。効果があれば上目ん引張、下面圧縮、すなわち梁要素の上面にモーメント図が描かれるはずです。だんだんと円を大きくしながら確認していきます。初めに、R をつけない直線にすると、片持ち梁先端に応力が入るだけですが、
+曲げモーメント図を出力することで、リングガーターの効果を確認してみます。
+
+効果があれば上面引張、下面圧縮、すなわち梁要素の上面にモーメント図が描かれるはずです。
+だんだんと円を大きくしながら確認していきます。初めに、R をつけない直線にすると、片持ち梁先端に応力が入るだけです。
 
 [![](https://3.bp.blogspot.com/-v16ln_4MwqE/WHt-cKogZXI/AAAAAAAABVI/gbMMmf1sj9YgJbqdleXrWEnUA0VCoI4lwCEw/s400/%25E7%259B%25B4%25E7%25B7%259A.PNG)](https://3.bp.blogspot.com/-v16ln_4MwqE/WHt-cKogZXI/AAAAAAAABVI/gbMMmf1sj9YgJbqdleXrWEnUA0VCoI4lwCEw/s1600/%25E7%259B%25B4%25E7%25B7%259A.PNG)
 
@@ -51,10 +63,7 @@ Karamba でのモデル化はそれぞれのライン、メッシュを取り込
 
 [![](https://3.bp.blogspot.com/-sIDZ6OwgiZk/WHt-btCG-TI/AAAAAAAABVE/D3N1ZgoGzIso-f2g8VLLKPKyxMpNkFqbQCEw/s400/75.PNG)](https://3.bp.blogspot.com/-sIDZ6OwgiZk/WHt-btCG-TI/AAAAAAAABVE/D3N1ZgoGzIso-f2g8VLLKPKyxMpNkFqbQCEw/s1600/75.PNG)
 
-結果を連続して動画にすると以下のような感じです。
 
-変位も出力してみます。
+こうやって設計上でおいしい形状を探していけるツールとしても Karamba3D はやはり使えそうですね。
+例えば変位が最小になる形状だとか、外周の梁と内周の梁の応力が等しくなる、つまり梁せいをそろえられる形状などの形状の複数案をすぐ出せそうですね。
 
-こうやって設計上でおいしい形状を探していけるツールとしても Karamba はやはり使えそうですね。例えば変位が最小になる形状だとか、外周の梁と内周の梁の応力が等しくなる、つまり梁せいをそろえられる形状だとか、形状の複数案をすぐ出せそうですね。
-
-作成した grasshopper のモデルは、データ置き場に置いておくので、気になる方はそちらを確認してみてください。
