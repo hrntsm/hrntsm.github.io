@@ -22,30 +22,30 @@
 <p>開くと始めに以下のようなことが書かれていると思います。
 ここから先は、内容を確認しながら何の設定なのかみていきます。</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# this is the karamba ini-file
+<span class="token comment"># this is the karamba ini-file</span>
 <span class="token comment">#---</span>
-\# written by Clemens Preisinger
-\# 15.08.2011
+<span class="token comment"># written by Clemens Preisinger</span>
+<span class="token comment"># 15.08.2011</span>
 <span class="token comment">#---</span>
-\# - comments start with '#' or ';'
-\# - string-formatting of numbers follows the C# formating conventions
-\#   here some examples:
-\#      just two decimal places
-\#          "{0:0.00}";    123.4567 -> "123.46"
-\#          "{0:0.00}";    123.4    -> "123.40"
-\#      max. two decimal places
-\#          "{0:0.##}";    123.4567 -> "123.46"
-\#          "{0:0.##}";    123.4    -> "123.4"
-\#          "{0:0.##}";    123.0    -> "123"
-\#      align numbers
-\#          "{0,10:0.0}";  123.4567 -> "     123.5"
-\#          "{0,-10:0.0}"; 123.4567 -> "123.5     "
-\#      ouput number in percent
-\#          "%";             0.1    -> "10%"
-\# - colors are named following the C# naming convention ()
-\# - for properties not found here default values will be chosen
-\# - strings need to be enclosed in '"'
-\# - values and property names are case-sensitive
+<span class="token comment"># - comments start with '#' or ';'</span>
+<span class="token comment"># - string-formatting of numbers follows the C# formating conventions</span>
+<span class="token comment">#   here some examples:</span>
+<span class="token comment">#      just two decimal places</span>
+<span class="token comment">#          "{0:0.00}";    123.4567 -> "123.46"</span>
+<span class="token comment">#          "{0:0.00}";    123.4    -> "123.40"</span>
+<span class="token comment">#      max. two decimal places</span>
+<span class="token comment">#          "{0:0.##}";    123.4567 -> "123.46"</span>
+<span class="token comment">#          "{0:0.##}";    123.4    -> "123.4"</span>
+<span class="token comment">#          "{0:0.##}";    123.0    -> "123"</span>
+<span class="token comment">#      align numbers</span>
+<span class="token comment">#          "{0,10:0.0}";  123.4567 -> "     123.5"</span>
+<span class="token comment">#          "{0,-10:0.0}"; 123.4567 -> "123.5     "</span>
+<span class="token comment">#      ouput number in percent</span>
+<span class="token comment">#          "%";             0.1    -> "10%"</span>
+<span class="token comment"># - colors are named following the C# naming convention ()</span>
+<span class="token comment"># - for properties not found here default values will be chosen</span>
+<span class="token comment"># - strings need to be enclosed in '"'</span>
+<span class="token comment"># - values and property names are case-sensitive</span>
 <span class="token comment">#---</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>内容は、以下のようになっています。</p>
 <ul>
@@ -78,28 +78,28 @@
 <p>値や設定の名前は、大文字、小文字の区別がある</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# units to be used in Karamba. Do not mix Grasshopper definitions that
-\# use different units.
+<span class="token comment"># units to be used in Karamba. Do not mix Grasshopper definitions that</span>
+<span class="token comment"># use different units.</span>
 <span class="token comment">#---</span>
 <span class="token constant">UnitsSytem</span> <span class="token attr-value"><span class="token punctuation">=</span> "SI"</span>
-\# UnitsSytem <span class="token attr-value"><span class="token punctuation">=</span> "imperial"</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<span class="token comment"># UnitsSytem = "imperial"</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>これは単位系の設定です。</p>
 <p>始めに、Karamba3D は Grasshopper とは単位が関連付けられているわけではないので注意しましょうとなっています。</p>
 <p>その下の内容が単位の設定です。
 現在私の設定では SI 単位系となっているため、UnitsSytem 　は”SI”のほうが選択されており、”imperial”はコメント行として読み込まれないようになっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# default path of the license directory
-\# uncomment the entry by removing the '#' and set it to a custom value in case the default does not work for some reason
+<span class="token comment"># default path of the license directory</span>
+<span class="token comment"># uncomment the entry by removing the '#' and set it to a custom value in case the default does not work for some reason</span>
 <span class="token comment">#---</span>
-\# license_path <span class="token attr-value"><span class="token punctuation">=</span> "C:\\Program Files (x86)\\Rhinoceros 4.0\\Plug-ins\\Grasshopper\\Karamba\\License"</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<span class="token comment"># license_path = "C:\\Program Files (x86)\\Rhinoceros 4.0\\Plug-ins\\Grasshopper\\Karamba\\License"</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここは、Karamba3D のライセンスファイルの参照先についてです。
 基本は直接参照されるので、コメント行になっている license_path はコメントのままにしておきます。
 参照がうまくいかなかった場合に使用しましょう。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# number format of the 'Legend T' output of the ModelView-component for
-\#    stresses, strains and utilization
+<span class="token comment"># number format of the 'Legend T' output of the ModelView-component for</span>
+<span class="token comment">#    stresses, strains and utilization</span>
 <span class="token comment">#---</span>
 <span class="token constant">legend_stress_number_fmt</span> <span class="token attr-value"><span class="token punctuation">=</span> "{0,9:0.00e+00}"</span>
 <span class="token constant">legend_strain_number_fmt</span> <span class="token attr-value"><span class="token punctuation">=</span> "{0,9:0.00e+00}"</span>
@@ -109,14 +109,14 @@
 そのあとの部分は、stress(応力)と strain(ひずみ)は小数点以下２桁まで表示した指数表記、utilization(使用率)は小数点以下１桁まで表示するパーセント表記となっています。  </p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# number of colors for visualizing stresses, strains in positive and negative range
+<span class="token comment"># number of colors for visualizing stresses, strains in positive and negative range</span>
 <span class="token comment">#---</span>
 <span class="token constant">legend_num_colors</span> <span class="token attr-value"><span class="token punctuation">=</span> 16</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここでは、応力とひずみの値を色のコンターで表示する際の、階調の色数を設定しています。
 初期設定は 16 色となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# if true and zero lies in the range of results then the colour range will be centred on zero
+<span class="token comment"># if true and zero lies in the range of results then the colour range will be centred on zero</span>
 <span class="token comment">#---</span>
 <span class="token constant">center_color_range_on_zero</span> <span class="token attr-value"><span class="token punctuation">=</span> true</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここでは先程に続き、出力時の色のコンターの中央値の設定です。</p>
@@ -125,10 +125,10 @@
 <p>余談ですが、なぜかここのカラーのつづりだけイギリス英語(colour)です。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# coloring of legends
-\# color names can either be given by name or RGB value: (red, green, blue)
-\# the first color signifies values below the result range
-\# the last color signifies values above the result range
+<span class="token comment"># coloring of legends</span>
+<span class="token comment"># color names can either be given by name or RGB value: (red, green, blue)</span>
+<span class="token comment"># the first color signifies values below the result range</span>
+<span class="token comment"># the last color signifies values above the result range</span>
 <span class="token comment">#---</span>
 <span class="token constant">legend_colors</span> <span class="token attr-value"><span class="token punctuation">=</span> yellow|red|white|blue|LimeGreen</span>
 <span class="token constant">resultant_disp_legend_colors</span> <span class="token attr-value"><span class="token punctuation">=</span> yellow|white|magenta|LimeGreen</span>
@@ -162,7 +162,7 @@
 <p><a href="http://1.bp.blogspot.com/-ovC2iDsrtig/VlBLVMZsP-I/AAAAAAAABAQ/jbD_SF9wBRk/s1600/%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2582%25B3%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC.JPG"><img src="http://1.bp.blogspot.com/-ovC2iDsrtig/VlBLVMZsP-I/AAAAAAAABAQ/jbD_SF9wBRk/s640/%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2582%25B3%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC.JPG"></a></p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# default cross section color of beams and shells
+<span class="token comment"># default cross section color of beams and shells</span>
 <span class="token comment">#---</span>
 <span class="token constant">beam_cross_section_color</span> <span class="token attr-value"><span class="token punctuation">=</span> Blue</span>
 <span class="token constant">shell_cross_section_color</span> <span class="token attr-value"><span class="token punctuation">=</span> LightBlue</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
@@ -170,7 +170,7 @@
 <p>初期設定では、梁要素は青色、シェル要素は水色となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# colors for coloring the cross section forces curves
+<span class="token comment"># colors for coloring the cross section forces curves</span>
 <span class="token comment">#---</span>
 <span class="token constant">crosec_force_color_Nx</span> <span class="token attr-value"><span class="token punctuation">=</span> LightSalmon</span>
 <span class="token constant">crosec_force_color_Vy</span> <span class="token attr-value"><span class="token punctuation">=</span> LightGreen</span>
@@ -190,7 +190,7 @@
 </ol>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# color and number format for output of cross section forces
+<span class="token comment"># color and number format for output of cross section forces</span>
 <span class="token comment">#---</span>
 <span class="token constant">crosec_number_fmt</span> <span class="token attr-value"><span class="token punctuation">=</span> "{0:f}"</span>
 <span class="token constant">crosec_number_color</span> <span class="token attr-value"><span class="token punctuation">=</span> "Black"</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
@@ -198,7 +198,7 @@
 <p>初期設定は、値は小数点以下２桁までで黒色の文字で出力です。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# text color, height and offset of element identifiers
+<span class="token comment"># text color, height and offset of element identifiers</span>
 <span class="token comment">#---</span>
 <span class="token constant">elemID_text_height</span> <span class="token attr-value"><span class="token punctuation">=</span> 20</span>
 <span class="token constant">elemID_text_offset</span> <span class="token attr-value"><span class="token punctuation">=</span> 20</span>
@@ -207,7 +207,7 @@
 <p>初期設定は高さ 20、オフセット 20、黒色となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# text height and offset of cross section names
+<span class="token comment"># text height and offset of cross section names</span>
 <span class="token comment">#---</span>
 <span class="token constant">crosec_text_height</span> <span class="token attr-value"><span class="token punctuation">=</span> 20</span>
 <span class="token constant">crosec_text_offset</span> <span class="token attr-value"><span class="token punctuation">=</span>-20</span>
@@ -216,7 +216,7 @@
 <p>初期設定は高さ 20、オフセット-20、黒色となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# text height and offset of cross material names
+<span class="token comment"># text height and offset of cross material names</span>
 <span class="token comment">#---</span>
 <span class="token constant">material_text_height</span> <span class="token attr-value"><span class="token punctuation">=</span> 20</span>
 <span class="token constant">material_text_offset</span> <span class="token attr-value"><span class="token punctuation">=</span>-20</span>
@@ -225,7 +225,7 @@
 <p>初期設定は高さ 20、オフセット-20、黒色となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# text height and offset of node tags
+<span class="token comment"># text height and offset of node tags</span>
 <span class="token comment">#---</span>
 <span class="token constant">node_text_height</span> <span class="token attr-value"><span class="token punctuation">=</span> 20</span>
 <span class="token constant">node_text_offset</span> <span class="token attr-value"><span class="token punctuation">=</span>-20</span>
@@ -234,7 +234,7 @@
 <p>初期設定は高さ 20、オフセット-20、黒色となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# text height and offset of NII values at elements
+<span class="token comment"># text height and offset of NII values at elements</span>
 <span class="token comment">#---</span>
 <span class="token constant">NII_text_height</span> <span class="token attr-value"><span class="token punctuation">=</span> 20</span>
 <span class="token constant">NII_text_offset</span> <span class="token attr-value"><span class="token punctuation">=</span>-20</span>
@@ -244,28 +244,28 @@
 <p>初期設定は高さ 20、オフセット-20、黒色、小数点以下 2 位まで表示となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# maximum number of beam sections for mesh display
+<span class="token comment"># maximum number of beam sections for mesh display</span>
 <span class="token comment">#---</span>
 <span class="token constant">maximum_ncrosec</span><span class="token attr-value"><span class="token punctuation">=</span>500</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここではメッシュ表示するための梁要素断面の最大数を設定しています。</p>
 <p>初期設定では 500 となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# factor for number of faces for rendering circular cross sections
+<span class="token comment"># factor for number of faces for rendering circular cross sections</span>
 <span class="token comment">#---</span>
 <span class="token constant">circular_cross_sections_n_faces_factor</span><span class="token attr-value"><span class="token punctuation">=</span>6</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここでは円形の断面を表示するために、円を多角形に置換する際の多角形の角数を設定しています。</p>
 <p>初期設定では、6 となっています。</p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# maximum number of line segments per element when drawing stress- or force-flow-lines on meshes
+<span class="token comment"># maximum number of line segments per element when drawing stress- or force-flow-lines on meshes</span>
 <span class="token comment">#---</span>
 <span class="token constant">maximum_mesh_lines_per_element</span><span class="token attr-value"><span class="token punctuation">=</span>500</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここではメッシュで応力や荷重や力の流れを線表示する際の線の最大分割数を設定しています。</p>
 <p>初期設定では、500 となっています。  </p>
 <p>では次の段落へ</p>
 <div class="gatsby-highlight" data-language="ini"><pre style="counter-reset: linenumber NaN" class="language-ini line-numbers"><code class="language-ini"><span class="token comment">#---</span>
-\# offset between symbols and annotations
+<span class="token comment"># offset between symbols and annotations</span>
 <span class="token comment">#---</span>
 <span class="token constant">annotation_offset</span><span class="token attr-value"><span class="token punctuation">=</span>20</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
 <p>ここでは符号と注記間の間隔を設定します。</p>
