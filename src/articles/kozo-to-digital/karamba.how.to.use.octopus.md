@@ -1,5 +1,5 @@
 ---
-title: "StitchesとOctopusを使用した最適化"
+title: "Stitches と Octopus を使用した最適化"
 date: "2015-11-10"
 draft: false
 path: "/articles/karamba.how.to.use.octopus"

@@ -22,30 +22,30 @@ Karamba3D の初期設定は、karamba.ini 　というファイルに記述さ�
 
 ```ini
 #---
-\# this is the karamba ini-file
+# this is the karamba ini-file
 #---
-\# written by Clemens Preisinger
-\# 15.08.2011
+# written by Clemens Preisinger
+# 15.08.2011
 #---
-\# - comments start with '#' or ';'
-\# - string-formatting of numbers follows the C# formating conventions
-\#   here some examples:
-\#      just two decimal places
-\#          "{0:0.00}";    123.4567 -> "123.46"
-\#          "{0:0.00}";    123.4    -> "123.40"
-\#      max. two decimal places
-\#          "{0:0.##}";    123.4567 -> "123.46"
-\#          "{0:0.##}";    123.4    -> "123.4"
-\#          "{0:0.##}";    123.0    -> "123"
-\#      align numbers
-\#          "{0,10:0.0}";  123.4567 -> "     123.5"
-\#          "{0,-10:0.0}"; 123.4567 -> "123.5     "
-\#      ouput number in percent
-\#          "%";             0.1    -> "10%"
-\# - colors are named following the C# naming convention ()
-\# - for properties not found here default values will be chosen
-\# - strings need to be enclosed in '"'
-\# - values and property names are case-sensitive
+# - comments start with '#' or ';'
+# - string-formatting of numbers follows the C# formating conventions
+#   here some examples:
+#      just two decimal places
+#          "{0:0.00}";    123.4567 -> "123.46"
+#          "{0:0.00}";    123.4    -> "123.40"
+#      max. two decimal places
+#          "{0:0.##}";    123.4567 -> "123.46"
+#          "{0:0.##}";    123.4    -> "123.4"
+#          "{0:0.##}";    123.0    -> "123"
+#      align numbers
+#          "{0,10:0.0}";  123.4567 -> "     123.5"
+#          "{0,-10:0.0}"; 123.4567 -> "123.5     "
+#      ouput number in percent
+#          "%";             0.1    -> "10%"
+# - colors are named following the C# naming convention ()
+# - for properties not found here default values will be chosen
+# - strings need to be enclosed in '"'
+# - values and property names are case-sensitive
 #---
 
 ```
@@ -87,11 +87,11 @@ Karamba3D の初期設定は、karamba.ini 　というファイルに記述さ�
 
 ```ini
 #---
-\# units to be used in Karamba. Do not mix Grasshopper definitions that
-\# use different units.
+# units to be used in Karamba. Do not mix Grasshopper definitions that
+# use different units.
 #---
 UnitsSytem = "SI"
-\# UnitsSytem = "imperial"
+# UnitsSytem = "imperial"
 ```
 
 これは単位系の設定です。
@@ -105,10 +105,10 @@ UnitsSytem = "SI"
 
 ```ini
 #---
-\# default path of the license directory
-\# uncomment the entry by removing the '#' and set it to a custom value in case the default does not work for some reason
+# default path of the license directory
+# uncomment the entry by removing the '#' and set it to a custom value in case the default does not work for some reason
 #---
-\# license_path = "C:\\Program Files (x86)\\Rhinoceros 4.0\\Plug-ins\\Grasshopper\\Karamba\\License"
+# license_path = "C:\\Program Files (x86)\\Rhinoceros 4.0\\Plug-ins\\Grasshopper\\Karamba\\License"
 ```
 
 ここは、Karamba3D のライセンスファイルの参照先についてです。
@@ -119,8 +119,8 @@ UnitsSytem = "SI"
 
 ```ini
 #---
-\# number format of the 'Legend T' output of the ModelView-component for
-\#    stresses, strains and utilization
+# number format of the 'Legend T' output of the ModelView-component for
+#    stresses, strains and utilization
 #---
 legend_stress_number_fmt = "{0,9:0.00e+00}"
 legend_strain_number_fmt = "{0,9:0.00e+00}"
@@ -136,7 +136,7 @@ legend_utilization_number_fmt = "{0,9:0.0}%"
 
 ```ini
 #---
-\# number of colors for visualizing stresses, strains in positive and negative range
+# number of colors for visualizing stresses, strains in positive and negative range
 #---
 legend_num_colors = 16
 ```
@@ -148,7 +148,7 @@ legend_num_colors = 16
 
 ```ini
 #---
-\# if true and zero lies in the range of results then the colour range will be centred on zero
+# if true and zero lies in the range of results then the colour range will be centred on zero
 #---
 center_color_range_on_zero = true
 ```
@@ -164,10 +164,10 @@ center_color_range_on_zero = true
 
 ```ini
 #---
-\# coloring of legends
-\# color names can either be given by name or RGB value: (red, green, blue)
-\# the first color signifies values below the result range
-\# the last color signifies values above the result range
+# coloring of legends
+# color names can either be given by name or RGB value: (red, green, blue)
+# the first color signifies values below the result range
+# the last color signifies values above the result range
 #---
 legend_colors = yellow|red|white|blue|LimeGreen
 resultant_disp_legend_colors = yellow|white|magenta|LimeGreen
@@ -214,7 +214,7 @@ resultant_disp_legend_colors = white|blue|lightBlue|LimeGreen|yellow|red|white
 
 ```ini
 #---
-\# default cross section color of beams and shells
+# default cross section color of beams and shells
 #---
 beam_cross_section_color = Blue
 shell_cross_section_color = LightBlue
@@ -228,7 +228,7 @@ shell_cross_section_color = LightBlue
 
 ```ini
 #---
-\# colors for coloring the cross section forces curves
+# colors for coloring the cross section forces curves
 #---
 crosec_force_color_Nx = LightSalmon
 crosec_force_color_Vy = LightGreen
@@ -253,7 +253,7 @@ crosec_force_color_Mz = CadetBlue
 
 ```ini
 #---
-\# color and number format for output of cross section forces
+# color and number format for output of cross section forces
 #---
 crosec_number_fmt = "{0:f}"
 crosec_number_color = "Black"
@@ -267,7 +267,7 @@ crosec_number_color = "Black"
 
 ```ini
 #---
-\# text color, height and offset of element identifiers
+# text color, height and offset of element identifiers
 #---
 elemID_text_height = 20
 elemID_text_offset = 20
@@ -282,7 +282,7 @@ elemID_text_color = "Black"
 
 ```ini
 #---
-\# text height and offset of cross section names
+# text height and offset of cross section names
 #---
 crosec_text_height = 20
 crosec_text_offset =-20
@@ -297,7 +297,7 @@ crosec_text_color = "Black"
 
 ```ini
 #---
-\# text height and offset of cross material names
+# text height and offset of cross material names
 #---
 material_text_height = 20
 material_text_offset =-20
@@ -312,7 +312,7 @@ material_text_color = "Black"
 
 ```ini
 #---
-\# text height and offset of node tags
+# text height and offset of node tags
 #---
 node_text_height = 20
 node_text_offset =-20
@@ -327,7 +327,7 @@ node_text_color = "Black"
 
 ```ini
 #---
-\# text height and offset of NII values at elements
+# text height and offset of NII values at elements
 #---
 NII_text_height = 20
 NII_text_offset =-20
@@ -343,7 +343,7 @@ NII_number_fmt = "{0:f}"
 
 ```ini
 #---
-\# maximum number of beam sections for mesh display
+# maximum number of beam sections for mesh display
 #---
 maximum_ncrosec=500
 ```
@@ -356,7 +356,7 @@ maximum_ncrosec=500
 
 ```ini
 #---
-\# factor for number of faces for rendering circular cross sections
+# factor for number of faces for rendering circular cross sections
 #---
 circular_cross_sections_n_faces_factor=6
 ```
@@ -369,7 +369,7 @@ circular_cross_sections_n_faces_factor=6
 
 ```ini
 #---
-\# maximum number of line segments per element when drawing stress- or force-flow-lines on meshes
+# maximum number of line segments per element when drawing stress- or force-flow-lines on meshes
 #---
 maximum_mesh_lines_per_element=500
 ```
@@ -382,7 +382,7 @@ maximum_mesh_lines_per_element=500
 
 ```ini
 #---
-\# offset between symbols and annotations
+# offset between symbols and annotations
 #---
 annotation_offset=20
 ```
