@@ -16,6 +16,8 @@ GitHub を見ると最初のプレリリースが 20/9/14 になっており、�
 
 ## 配信しながら触りました。
 
+実際にどんな動きをするか気になる方はこちらも併せて参照してください。
+
 [![NightlyBuild の Karamba3D が良い話（記事作成作業配信）](https://img.youtube.com/vi/qNkgK0RbfbQ/0.jpg)](https://www.youtube.com/watch?v=qNkgK0RbfbQ))
 
 ## GitHub のリリースで更新内容を確認
