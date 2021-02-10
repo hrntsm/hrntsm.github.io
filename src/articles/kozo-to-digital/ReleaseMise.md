@@ -1,17 +1,19 @@
 ---
-title: "Mise のリリースのお知らせ"
+title: "Mice のリリースのお知らせ"
 date: "2019-03-01"
 draft: false
 path: "/articles/ReleaseMise"
 article-tags: ["Grasshopper", "Mice", "CSharp", "構造とデジタル"]
 ---
 
-これまでに動画やこの blog で紹介してきた単純梁の計算を行うコンポーネントを Food4Rhino でリリースしました。
+これまでに動画やこの blog で紹介してきた単純梁の計算するコンポーネントを Food4Rhino でリリースしました。
 
 [![](https://1.bp.blogspot.com/-gIj-CYFqAFQ/XHkidPNLynI/AAAAAAAABl4/3coBfhoozEIzElqdYOp6q8WZd7UVJ_j-QCLcBGAs/s200/Icon.png)](https://1.bp.blogspot.com/-gIj-CYFqAFQ/XHkidPNLynI/AAAAAAAABl4/3coBfhoozEIzElqdYOp6q8WZd7UVJ_j-QCLcBGAs/s1600/Icon.png)
 
-作成したコンポーネント名は「Mice」です。基本的にはこれまで作成してきたものから、出力関係を強化したものになっています。ダウンロードは  [food4rhino](https://www.food4rhino.com/app/mice)  からどうぞ。  
-　機能はこれまでに紹介してきた物と同様に以下のようになっています。
+作成したコンポーネント名は「Mice」です。基本的にはこれまで作成してきたものから、出力関係を強化したものになっています。
+ダウンロードは [food4rhino](https://www.food4rhino.com/app/mice) からどうぞ。
+
+機能はこれまでに紹介してきた物と同様に以下のようになっています。
 
 ## 対象
 
@@ -36,9 +38,9 @@ article-tags: ["Grasshopper", "Mice", "CSharp", "構造とデジタル"]
 - 曲げモーメント分布の図化出力と数値の出力
 - 部材断面の図化出力
 
-曲げモーメントの計算、たわみの計算、告示の基準により断面検定を行うコンポーネントになっています。許容曲げモーメントは、座屈を考慮して計算するようになっています。
+曲げモーメントの計算、たわみの計算、告示の基準により断面検定するコンポーネントになっています。許容曲げモーメントは、座屈を考慮して計算するようになっています。
 
-これまで同様に [github](https://github.com/hiro-n-rgkr/BeamAnalysis) 側にもアップしているので、中身が気になる方はそちらを参照してください。
+これまで同様に [github](https://github.com/hrntsm/mice) 側にもアップしているので、中身が気になる方はそちらを参照してください。
 
 ---
 
