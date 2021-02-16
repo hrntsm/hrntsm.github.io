@@ -1,5 +1,5 @@
 ---
-title: "RhinoInside UnityでRhinoへメッシュを送るやり方"
+title: "RhinoInside Unity で Rhino へメッシュを送るやり方"
 date: "2020-03-05"
 draft: false
 path: "/articles/rhino.inside.unity-sendmesh"
