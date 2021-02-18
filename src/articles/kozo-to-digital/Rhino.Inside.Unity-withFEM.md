@@ -2,7 +2,7 @@
 title: "RhinoInside を使ってリアルタイムで人の動きの FEM解析 をやってみる"
 date: "2020-03-09"
 draft: false
-path: "/articles/Rhino.Inside.Unity-withFEM/"
+path: "/articles/Rhino.Inside.Unity-withFEM"
 article-tags: ["Karamba3D", "Unity", "VR", "RhinoInside", "CSharp", "構造とデジタル"]
 ---
 
