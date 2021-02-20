@@ -30,7 +30,7 @@ pip install --user rhinoinsite
 
 pip で RhinoInside をインストールするとわかりますが、Pytonnet を使うことで .NET 向けに書かれた RhinoInside を使っています。
 
-pythonnet については、[公式サイト](http://pythonnet.github.io/) やググって Qiita の記事などで調べることができます。
+Pythonnet については、[公式サイト](http://pythonnet.github.io/) やググって Qiita の記事などで調べることができます。
 GitHub の README を見てみると、.NET Foundation からサポートを受けているので、体制にも安心感があります。
 
 ## カーブを作成してみる
