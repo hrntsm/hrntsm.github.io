@@ -1,5 +1,5 @@
 ---
-title: "st-bridgeのunity読み込みツール「Stb2U」について"
+title: "ST-Bridge の Unity 読み込みツール「Stb2U」について"
 date: "2020-02-05"
 draft: false
 path: "/articles/stb2u"
@@ -8,7 +8,11 @@ article-tags: ["Unity", "CSharp", "構造とデジタル"]
 
 Unity で建築構造設計の一貫計算ソフトと BIM の連携等に使用されている ST-Bridge データを読み込むアセットを作成したので公開します。
 
-動作の様子は以下のような感じです。ここで使っている建物の ST-Bridge データは、規格を作成している一般社団法人 building SMART Japan さんで公開されている「[ST-Bridge Viewer](https://www.building-smart.or.jp/old/download/files/20171030_st.zip)」のなかのサンプルデータを使用させていただいています。
+## 動作状況
+
+動作の様子は以下のような感じです。
+
+ここで使用している建物の ST-Bridge データは、規格を作成している一般社団法人 building SMART Japan さんで公開されている「[ST-Bridge Viewer](https://www.building-smart.or.jp/old/download/files/20171030_st.zip)」のなかのサンプルデータを使用させていただいています。
 
 [![](https://1.bp.blogspot.com/-IIo29ddUg58/Xjoap7b_a9I/AAAAAAAABvg/KFJGHy6UBhE2tWtAPuN57ctc7PxLnLz4gCLcBGAsYHQ/s640/stb2u.gif)](https://1.bp.blogspot.com/-IIo29ddUg58/Xjoap7b_a9I/AAAAAAAABvg/KFJGHy6UBhE2tWtAPuN57ctc7PxLnLz4gCLcBGAsYHQ/s1600/stb2u.gif)
 
@@ -17,7 +21,6 @@ Unity で建築構造設計の一貫計算ソフトと BIM の連携等に使用
 [https://www.building-smart.or.jp/meeting/buildall/structural-design/](https://www.building-smart.or.jp/meeting/buildall/structural-design/)
 
 ## アセットの対応状況（Stb2U v.0.1）
-
 
 - 入力されたデータから部材ごとにメッシュを作ります。
 - 基本的なタグのデータには対応（柱、梁、間柱、小梁、ブレース、スラブ）
@@ -35,10 +38,15 @@ Unity で建築構造設計の一貫計算ソフトと BIM の連携等に使用
 
 AssetStore に出していないので、アセットのダウンロードは私の GitHub から README、LICENSE を確認の上、どうぞ。
 
-ダウンロードリンク：[https://github.com/hiro-n-rgkr/Stb2Unity/releases](https://github.com/hiro-n-rgkr/Stb2Unity/releases)
+ダウンロードリンク：[https://github.com/hrntsm/STEVIA-Stb2U/releases](https://github.com/hrntsm/STEVIA-Stb2U/releases/tag/v0.2.1)
 
-コードが気になる方は同じく[Github のリポジトリ](https://github.com/hiro-n-rgkr/Stb2Unity)もしくはダウンロードしたアセットに入っている.cs ファイルを参照ください。ぐちゃぐちゃですが、C#の LINQ を使って XML を読み込んでいるだけです。
+コードが気になる方は同じく[Github のリポジトリ](https://github.com/hrntsm/STEVIA-Stb2U)もしくはダウンロードしたアセットに入っている .cs ファイルを参照ください。ぐちゃぐちゃですが、C#の LINQ を使って XML を読み込んでいるだけです。
 
-中身は以前開発した stbhopper とほぼ同様ですが、こちらの方があとなので、コードはこちらの方が整理されています。基本的な違いは、データの持ち方が違うのでそこを変更しているだけです。（gh 版は double で処理している箇所を、unity では float で処理するように変更している）
+中身は Grasshopper 向け実装の HoaryFox とほぼ同様です。
 
-今後は、unity 上で動作する環境はできているので、UI を整理し Unity なしでも動作するスタンドアロン版の開発を考えています。
+基本的な違いは、データの持ち方が違うのでそこを変更しているだけです。
+Grasshopper 版で Double で処理している箇所を、Unity では Float で処理するように変更しています。
+
+スタントアローンで動くようにビルドした [STEVIA](https://github.com/hrntsm/STEVIA-Stb2U/wiki) という名前のソフトもありますので、そちらも使ってみてください。
+
+[![](https://github.com/hrntsm/STEVIA-Stb2U/wiki/images/Banner.jpg)](https://github.com/hrntsm/STEVIA-Stb2U/wiki)
