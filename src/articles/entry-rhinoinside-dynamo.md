@@ -1,6 +1,6 @@
 ---
 title: "RhinoInside Dynamo 入門"
-date: "2021-03-05"
+date: "2021-03-04"
 draft: false
 path: "/articles/entry-rhinoinside-dynamo"
 article-tags: ["RhinoInside", "Python", "Dynamo"]
