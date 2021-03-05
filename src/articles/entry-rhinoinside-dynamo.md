@@ -6,7 +6,7 @@ path: "/articles/entry-rhinoinside-dynamo"
 article-tags: ["RhinoInside", "Python", "Dynamo"]
 ---
 
-[CPython で RhinoInside](./entry-rhinoinside-cpython) で RhinoInside を Python で使ったので、Dynamo でもつかってみます。
+[RhinoInside CPython 入門](./entry-rhinoinside-cpython) で Python で RhinoInside が使えたので、Dynamo でもつかってみます。
 
 ## やること
 
@@ -19,7 +19,7 @@ article-tags: ["RhinoInside", "Python", "Dynamo"]
 RhinoInside.dll が必要なので、それを用意してください。冒頭で上げた記事と同様に pip すればたぶん問題ないです。
 
 ```python
-pip install --user rhinoinsite
+pip install --user rhinoinside
 ```
 
 ## Dynamo でうごかす
