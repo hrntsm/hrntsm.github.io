@@ -1,5 +1,5 @@
 ---
-title: "RhinoInside Dynamo 入門"
+title: "RhinoInside Dynamo ができるかのチャレンジ"
 date: "2021-03-04"
 draft: false
 path: "/articles/entry-rhinoinside-dynamo"
@@ -10,13 +10,13 @@ article-tags: ["RhinoInside", "Python", "Dynamo"]
 
 ## やること
 
-環境構築して、CPython 内でジオメトリを作成して、3dm で保存することをやります。中身としては挙げられているサンプルに保存用の部分を追加したものになります。
+環境構築して、Dynamo の Python Script で RhinoInside を動かすことをやります。
 
 ## 環境構築
 
 最初に Dynamo から RhinoInside を呼べるようにします。
 
-RhinoInside.dll が必要なので、それを用意してください。冒頭で上げた記事と同様に pip すれば問題ないです。
+RhinoInside.dll が必要なので、それを用意してください。冒頭で上げた記事と同様に pip すればたぶん問題ないです。
 
 ```python
 pip install --user rhinoinsite
@@ -25,6 +25,9 @@ pip install --user rhinoinsite
 ## Dynamo でうごかす
 
 動作させるのは CPython のときと同じようにポイントを作って、そこを通るラインを作り、そのラインの長さを出力させます。
+
+なお、Dynamo の Python は IronPython です。
+CPython ではないので注意してください。
 
 ### Dynamo 内でポイント作成
 
