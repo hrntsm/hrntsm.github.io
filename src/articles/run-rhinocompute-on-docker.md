@@ -1,7 +1,7 @@
 ---
 title: "RhinoCompute を Docker を使って実行する"
 date: "2021-03-13"
-draft: true
+draft: false
 path: "/articles/run-rhinocompute-on-docker"
 article-tags: ["RhinoCompute", "Docker"]
 ---
