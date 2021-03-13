@@ -18,7 +18,7 @@ Docker を使って RhinoCompute を実行してみます。
 
 Docker は [Docker のホームページ](https://www.docker.com/) からインストールしてください。
 
-Rhino は Windows (.NetFrameWork) で動くので Windows Container を対象とした状態にしておいてください。
+Rhino は Windows (.netFrameWork) で動くので Windows Container を対象とした状態にしておいてください。
 
 ### Dockerfile の入手
 
@@ -26,7 +26,7 @@ Dockerfile は RhinoCompute の公式リポジトリにあるので、そのま�
 
 - [mcneel/compute.rhino3d](https://github.com/mcneel/compute.rhino3d)
 
-```ps
+```bash
 git clone http://github.com/mcneel/compute.rhino3d.git
 ```
 
@@ -34,7 +34,7 @@ git clone http://github.com/mcneel/compute.rhino3d.git
 
 クローンしたフォルダで docker bulid します。
 
-```ps
+```bash
 docker build --isolation process -t rhino-compute .
 ```
 
@@ -43,7 +43,8 @@ docker build --isolation process -t rhino-compute .
 ### 使用する Windows のバージョンをそろえる
 
 デフォルトだと Windows 10 version 1809 がインストールされますが、自分が使っている Windows のバージョンとそろえる必要があります。
-2021/03/13 時点で最新の Windows は 20H2 なので、細心にしている方は以下に直します。
+
+2021/03/13 時点で最新の Windows は 20H2 なので、最新にしている方は以下に直します。
 
 ```Dockerfile
 FROM mcr.microsoft.com/windows:20H2
@@ -99,14 +100,14 @@ ENV RHINO_TOKEN="TOKEN"
 
 ビルドできたら以下で Docker で RhinoCompute が実行できます。
 
-```ps
+```bash
 docker run -p 8080:80 rhino-compute
 ```
 
 実行に問題がなければ以下のように表示されます。
 タイムスタンプは実行した時間によりますので、環境次第です。
 
-```ps
+```bash
 [18:19:12 INF] Compute 1.0.0.0, Rhino 7.4.21067.13001
 [18:19:12 INF] Configuration Result:  
 [Success] Name compute.geometry       
@@ -154,11 +155,11 @@ docker run -p 8080:80 rhino-compute
 ここでは STATUS の欄にあるように 55 秒前に起動された状態で、RhinoCompute は動いたままなので、**RhinoCompute の課金もアクティブなまま（注意）** です。
 CONTAINER ID と NAMES は環境によって異なる値になります。
 
-```ps
+```bash
 docker ps
 ```
 
-```
+```bash
 CONTAINER ID   IMAGE           COMMAND                  CREATED              STATUS          PORTS                  NAMES
 0b3733eee521   rhino-compute   "compute.geometry.exe"   About a minute ago   Up 55 seconds   0.0.0.0:8080->80/tcp   quirky_elgamal
 ```
@@ -168,7 +169,7 @@ CONTAINER ID   IMAGE           COMMAND                  CREATED              STA
 
 停止していると ps コマンドでは表示されなくなりますが、明示的に確認したい場合は、-a オプションで確認できます。
 
-```ps
+```bash
 docker stop {NAMES}
 docker ps -a
 ```
@@ -176,7 +177,7 @@ docker ps -a
 -a オプションでの表示は以下です。
 STATUS が Exit になっていてちゃんと終了していることがわかります。
 
-```ps
+```bash
 CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS                              PORTS     NAMES
 0b3733eee521   rhino-compute   "compute.geometry.exe"   4 minutes ago   Exited (3221225786) 3 minutes ago             quirky_elgamal
 ```
@@ -186,4 +187,44 @@ CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS  
 ## ちなみに
 
 始めた後に気づきましたが、GitHub Actions では Windows Container を使えないっぽいので、別のサービスを使う必要があるみたいでした。
+
 Azure ならできるんでしょうか。
+
+## 使った Dockerfile
+
+私が使った Dockerfile の全文を以下に上げます。
+TOKEN は自分のものに書き換えてください。
+
+```Dockerfile
+### builder image
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 as builder
+
+# copy everything, restore nuget packages and build app
+COPY src/ ./src/
+RUN msbuild /p:Configuration=Release /restore /v:Minimal src/compute.sln
+
+### main image
+FROM mcr.microsoft.com/windows:20H2
+
+# install .net 4.8 
+RUN curl -fSLo dotnet-framework-installer.exe https://download.visualstudio.microsoft.com/download/pr/7afca223-55d2-470a-8edc-6a1739ae3252/abd170b4b0ec15ad0222a809b761a036/ndp48-x86-x64-allos-enu.exe `
+    && .\dotnet-framework-installer.exe /q `
+    && del .\dotnet-framework-installer.exe `
+    && powershell Remove-Item -Force -Recurse ${Env:TEMP}\*
+
+# install rhino (with “-package -quiet” args)
+RUN curl -fSLo rhino_installer.exe https://www.rhino3d.com/download/rhino-for-windows/7/latest/direct?email=EMAIL `
+    && .\rhino_installer.exe -package -quiet `
+    && del .\rhino_installer.exe
+
+# copy compute app to image
+COPY --from=builder ["/src/bin/Release/compute", "/app"]
+WORKDIR /app
+
+# bind compute.geometry to port 80
+ENV RHINO_COMPUTE_URLS="http://+:80"
+EXPOSE 80
+ENV RHINO_TOKEN="TOKEN"
+
+CMD ["compute.geometry.exe"]
+```
