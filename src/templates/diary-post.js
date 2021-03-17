@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
-import SEO from "../components/seoNoindex"
+import SEONOINDEX from "../components/seoNoindex"
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -64,7 +64,7 @@ export default ({ data }) => {
   const title = post.frontmatter.title
   return (
     <Layout>
-      <SEO
+      <SEONOINDEX
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         keywords={post.frontmatter.tags}

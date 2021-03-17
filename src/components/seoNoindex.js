@@ -8,23 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            image
-          }
-        }
-      }
-    `
-  )
+function SEONOINDEX({ description, lang, meta, keywords, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
@@ -34,27 +19,14 @@ function SEO({ description, lang, meta, keywords, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
           name: `robots`,
-          content= `noindex`
+          content: `noindex`
         },
         {
           property: `og:title`,
           content: title,
-        },
-        {
-          property: `og:image`,
-          content: site.siteMetadata.image, 
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
         },
         {
           property: `og:type`,
@@ -65,16 +37,8 @@ function SEO({ description, lang, meta, keywords, title }) {
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
           name: `twitter:title`,
           content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
         },
       ]
         .concat(
@@ -90,13 +54,13 @@ function SEO({ description, lang, meta, keywords, title }) {
   )
 }
 
-SEO.defaultProps = {
+SEONOINDEX.defaultProps = {
   lang: `ja`,
   meta: [],
   keywords: [],
 }
 
-SEO.propTypes = {
+SEONOINDEX.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
@@ -104,4 +68,4 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-export default SEO
+export default SEONOINDEX
