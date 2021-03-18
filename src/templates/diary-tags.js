@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 // Components
 import { Link, graphql } from "gatsby"
-import SEO from "../components/seo"
+import seoNoindex from "../components/seoNoindex"
 import Layout from "../components/layout"
 
 const Tags = ({ pageContext, data }) => {
@@ -15,7 +15,7 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <SEO title={tag} />
+      <seoNoindex title={tag} />
       <div>
         <h1>{tagHeader}</h1>
         <ul>

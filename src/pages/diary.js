@@ -4,7 +4,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import seoNoindex from "../components/seoNoindex"
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -52,7 +52,7 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO
+      <seoNoindex
        title="備忘録たち"
        description="日々のメモやポエムです。"
       />
