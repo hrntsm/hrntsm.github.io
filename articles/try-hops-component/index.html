@@ -26,13 +26,16 @@
 </ol>
 <h3>参考資料</h3>
 <p>前半の Hops を Grasshopper の Cluster のように使用をする方法は以下の公式の資料をもとにしています。</p>
-<p><a href="https://developer.rhino3d.com/guides/grasshopper/hops-component/">Hops Component</a></p>
+<ul>
+<li><a href="https://developer.rhino3d.com/guides/grasshopper/hops-component/">Hops Component</a></li>
+</ul>
 <p>後半の Hops を使った CPython コンポーネント作成は以下の RhinocerosForums の以下のディスカッションや RhinoCompute のリポジトリをもとにしています。</p>
 <ul>
 <li><a href="https://discourse.mcneel.com/t/create-cpython-components-using-hops-in-grasshopper/120517?u=hiron">Create CPython components using Hops in Grasshopper</a></li>
 <li><a href="https://github.com/mcneel/compute.rhino3d/tree/master/src/ghhops-server-py">compute.rhino3d/src/ghhops-server-py/</a></li>
 </ul>
 <h2>Hops コンポーネントのインストール方法</h2>
+<p>あああああああああああ</p>
 <h2>Hops を使った CPython コンポーネントの作成</h2>
 <h3>GH Hops CPython とは</h3>
 <p>Grasshopper 内でも Python を使用できます。
@@ -48,21 +51,21 @@
 </ol>
 <h3>仕組みについて</h3>
 <p>内蔵されているデフォルトの HTTP サーバーを使って、Grasshopper のコンポーネントとして機能したり、Flask アプリのミドルウェアとして機能したりできます。
-Hops の基本は HTTP で RhinoCompute とやり取りをして結果を返すものでした。
-前の章では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいましたが、ここでは Python から RhinoCompute をよんでその結果を Grasshopper に返すものになっています。</p>
+Hops の基本は HTTP で RhinoCompute とやり取りをして結果を返すものでした。</p>
+<p>前の章では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいましたが、ここでは Python から RhinoCompute や RhinoInside をよんでその結果を Grasshopper に返すものになっています。</p>
 <h3>環境構築</h3>
 <p>Python の venv を使用して Python の環境を構築します。
 環境を構築したいフォルダに移動して以下を実行し環境構築し、アクティブにします。</p>
-<div class="gatsby-highlight" data-language="python"><pre style="counter-reset: linenumber NaN" class="language-python line-numbers"><code class="language-python">python <span class="token operator">-</span>m venv venv
-<span class="token punctuation">.</span>\venv\Script\activate</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">python -m venv venv
+.<span class="token punctuation">\</span>venv<span class="token punctuation">\</span>Script<span class="token punctuation">\</span>activate</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
 <p>Python が複数インストールされている場合は、3.8 以上であること確認してください。以下でバージョンを確認できます。</p>
-<div class="gatsby-highlight" data-language="python"><pre style="counter-reset: linenumber NaN" class="language-python line-numbers"><code class="language-python">python <span class="token operator">-</span>V</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">python -V</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <p>デフォルトの Python が想定しているバージョンではなかった場合、例えば以下のようバージョンを指定して venv を作成するとその環境は対象のバージョンになります。</p>
-<div class="gatsby-highlight" data-language="python"><pre style="counter-reset: linenumber NaN" class="language-python line-numbers"><code class="language-python">python3<span class="token punctuation">.</span><span class="token number">9</span> <span class="token operator">-</span>m venv venv
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">python3.9 -m venv venv
 <span class="token comment"># 以降は同じ</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
 <p>必要なライブラリをインストールします。</p>
-<div class="gatsby-highlight" data-language="python"><pre style="counter-reset: linenumber NaN" class="language-python line-numbers"><code class="language-python">pip install ghhops<span class="token operator">-</span>server flask</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
-<h3>コードをかく</h3>
+<div class="gatsby-highlight" data-language="bath"><pre style="counter-reset: linenumber NaN" class="language-bath line-numbers"><code class="language-bath">pip install ghhops-server flask</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<h3>サンプルプログラム</h3>
 <p>実装例は以下です。</p>
 <div class="gatsby-highlight" data-language="python"><pre style="counter-reset: linenumber NaN" class="language-python line-numbers"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
 <span class="token keyword">import</span> ghhops_server <span class="token keyword">as</span> hs
