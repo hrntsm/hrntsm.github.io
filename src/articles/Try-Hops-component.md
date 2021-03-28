@@ -23,7 +23,7 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 
 前半の Hops を Grasshopper の Cluster のように使用をする方法は以下の公式の資料をもとにしています。
 
-[Hops Component](https://developer.rhino3d.com/guides/grasshopper/hops-component/)
+- [Hops Component](https://developer.rhino3d.com/guides/grasshopper/hops-component/)
 
 後半の Hops を使った CPython コンポーネント作成は以下の RhinocerosForums の以下のディスカッションや RhinoCompute のリポジトリをもとにしています。
 
@@ -31,6 +31,8 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 - [compute.rhino3d/src/ghhops-server-py/](https://github.com/mcneel/compute.rhino3d/tree/master/src/ghhops-server-py)
 
 ## Hops コンポーネントのインストール方法
+
+あああああああああああ
 
 ## Hops を使った CPython コンポーネントの作成
 
@@ -53,38 +55,39 @@ Hops を使った CPython のコンポーネント作成では CPython3.8 以上
 
 内蔵されているデフォルトの HTTP サーバーを使って、Grasshopper のコンポーネントとして機能したり、Flask アプリのミドルウェアとして機能したりできます。
 Hops の基本は HTTP で RhinoCompute とやり取りをして結果を返すものでした。
-前の章では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいましたが、ここでは Python から RhinoCompute をよんでその結果を Grasshopper に返すものになっています。
+
+前の章では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいましたが、ここでは Python から RhinoCompute や RhinoInside をよんでその結果を Grasshopper に返すものになっています。
 
 ### 環境構築
 
 Python の venv を使用して Python の環境を構築します。
 環境を構築したいフォルダに移動して以下を実行し環境構築し、アクティブにします。
 
-```python
+```bash
 python -m venv venv
 .\venv\Script\activate
 ```
 
 Python が複数インストールされている場合は、3.8 以上であること確認してください。以下でバージョンを確認できます。
 
-```python
+```bash
 python -V
 ```
 
 デフォルトの Python が想定しているバージョンではなかった場合、例えば以下のようバージョンを指定して venv を作成するとその環境は対象のバージョンになります。
 
-```python
+```bash
 python3.9 -m venv venv
 # 以降は同じ
 ```
 
 必要なライブラリをインストールします。
 
-```python
+```bath
 pip install ghhops-server flask
 ```
 
-### コードをかく
+### サンプルプログラム
 
 実装例は以下です。
 
@@ -137,4 +140,3 @@ inputs や outputs の部分であるように入出力には型指定が必要�
 - HopsVector
 
 icon も指定できます。
-
