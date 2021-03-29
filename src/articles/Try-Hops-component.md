@@ -7,14 +7,13 @@ article-tags: ["Grasshopper", "Python"]
 ---
 
 ## はじめに
-
 ### Hops とは
 
 Hops は Rhino7 から使用できるようになった新しい Grasshopper コンポーネントです。
 
 ### 必要な環境
 
-1. Windows（内部で RhinoInside が動く部分があるため）
+1. Windows
 1. Rhino 7.4 以上
 1. CPython 3.8 以上
 1. Visual Studio Code(任意の Python を書きやすいテキストエディタ)
@@ -32,10 +31,51 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 
 ## Hops コンポーネントのインストール方法
 
-あああああああああああ
+ああああああああああああああああ
+なお Hops の実装は以下の GitHub リポジトリで公開されているので、興味がある方はどうぞ。
+
+- [compute.rhino3d/src/hops/](https://github.com/mcneel/compute.rhino3d/tree/master/src/hops)
+
+## 外部の gh ファイルを使用する
+
+基本的な使い方は冒頭でも上げた以下の公式のページを参照してください。
+
+- [Hops Component](https://developer.rhino3d.com/guides/grasshopper/hops-component/)
+
+ここではそこで触れられていない部分について追記しています。
+
+### デフォルトの値の設定方法
+
+公式のページでは GetNumber コンポーネントを使用したサンプルが載っていますが、デフォルトの値が指定されていません。
+
+Hops で使うデフォルトの値は以下のようにコンポーネントに値を入力することでしてできます。
+
+![Set default value](https://hiron.dev/article-images/try-hops-component/ParallelRhinoCompute.png)
+
+### GrasshopperPlayer 向け以外のコンポーネントを使った入力値の設定
+
+対象をグループ化して「RH_IN:」で始める名前をつけると読み込まれます。
+例えば Bool の値を使いたいときは Boolean コンポーネントを使用しグループの名前をつけることで、isBake という名前の入力を作れます。
+
+![Bool input](https://hiron.dev/article-images/try-hops-component/BoolInput.png)
+
+### どこで RhinoCompute が起動して処理しているのか
+
+バックで compute.geometry が動いていますがこれが RhinoCompute と呼ばれるものです。
+タスクマネージャーなどで確認すると、実際に動いているのが確認できます。
+
+なお、デフォルトで開かれるポートは 6500 です。
+
+### 並列計算数を増やすには
+
+Hops コンポーネントを右クリックします。
+Local Computes から「1More」を選ぶと 1 インスタンス、「6Pack」を選ぶと 6 インスタンスの RhinoCompute が追加されます。
+
+つまり RhinoCompute が並列で走るという意味です。
+
+![Parallel Rhino Compute](https://hiron.dev/article-images/try-hops-component/ParallelRhinoCompute.png)
 
 ## Hops を使った CPython コンポーネントの作成
-
 ### GH Hops CPython とは
 
 Grasshopper 内でも Python を使用できます。
