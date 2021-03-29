@@ -3,7 +3,7 @@ title: "Grasshopper の Hops のはじめ方"
 date: "2021-04-03"
 draft: false
 path: "/articles/try-hops-component"
-article-tags: ["Grasshopper", "Python"]
+article-tags: ["Grasshopper", "Python", "RhinoCompute"]
 ---
 
 ## はじめに
@@ -32,6 +32,7 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 ## Hops コンポーネントのインストール方法
 
 ああああああああああああああああ
+
 なお Hops の実装は以下の GitHub リポジトリで公開されているので、興味がある方はどうぞ。
 
 - [compute.rhino3d/src/hops/](https://github.com/mcneel/compute.rhino3d/tree/master/src/hops)
@@ -50,7 +51,7 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 
 Hops で使うデフォルトの値は以下のようにコンポーネントに値を入力することでしてできます。
 
-![Set default value](https://hiron.dev/article-images/try-hops-component/ParallelRhinoCompute.png)
+![Set default value](https://hiron.dev/article-images/try-hops-component/SetHopsDefaultVal.png)
 
 ### GrasshopperPlayer 向け以外のコンポーネントを使った入力値の設定
 
@@ -59,21 +60,21 @@ Hops で使うデフォルトの値は以下のようにコンポーネントに
 
 ![Bool input](https://hiron.dev/article-images/try-hops-component/BoolInput.png)
 
+### 並列計算数を増やすには
+
+Hops コンポーネントを右クリックします。
+Local Computes から「1More」を選ぶと 1 インスタンス、「6Pack」を選ぶと 6 インスタンスの RhinoCompute が追加されます。
+
+つまり 複数起動された RhinoCompute が並列で走るという意味です。
+
+![Parallel Rhino Compute](https://hiron.dev/article-images/try-hops-component/ParallelRhinoCompute.png)
+
 ### どこで RhinoCompute が起動して処理しているのか
 
 バックで compute.geometry が動いていますがこれが RhinoCompute と呼ばれるものです。
 タスクマネージャーなどで確認すると、実際に動いているのが確認できます。
 
 なお、デフォルトで開かれるポートは 6500 です。
-
-### 並列計算数を増やすには
-
-Hops コンポーネントを右クリックします。
-Local Computes から「1More」を選ぶと 1 インスタンス、「6Pack」を選ぶと 6 インスタンスの RhinoCompute が追加されます。
-
-つまり RhinoCompute が並列で走るという意味です。
-
-![Parallel Rhino Compute](https://hiron.dev/article-images/try-hops-component/ParallelRhinoCompute.png)
 
 ## Hops を使った CPython コンポーネントの作成
 ### GH Hops CPython とは
