@@ -37,7 +37,7 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 
 - [compute.rhino3d/src/hops/](https://github.com/mcneel/compute.rhino3d/tree/master/src/hops)
 
-## 外部の gh ファイルを使用する
+## 外部の gh ファイルを Cluster のように使用する
 
 基本的な使い方は冒頭でも上げた以下の公式のページを参照してください。
 
@@ -49,38 +49,64 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 
 公式のページでは GetNumber コンポーネントを使用したサンプルが載っていますが、デフォルトの値が指定されていません。
 
-Hops で使うデフォルトの値は以下のようにコンポーネントに値を入力することでしてできます。
+Hops で使うデフォルトの値は以下のようにコンポーネントに値を入力できます。
 
 ![Set default value](https://hiron.dev/article-images/try-hops-component/SetHopsDefaultVal.png)
 
 ### GrasshopperPlayer 向け以外のコンポーネントを使った入力値の設定
 
 対象をグループ化して「RH_IN:」で始める名前をつけると読み込まれます。
-例えば Bool の値を使いたいときは Boolean コンポーネントを使用しグループの名前をつけることで、isBake という名前の入力を作れます。
+例えば Bool を使いたいときは Boolean コンポーネントを使用し、グループ化した後に名前をつけることで、isBake という名前の入力を作れます。
 
 ![Bool input](https://hiron.dev/article-images/try-hops-component/BoolInput.png)
 
-### 並列計算数を増やすには
+### 並列計算数を増やす方法
 
-Hops コンポーネントを右クリックします。
+まず Hops コンポーネントを右クリックします。
 Local Computes から「1More」を選ぶと 1 インスタンス、「6Pack」を選ぶと 6 インスタンスの RhinoCompute が追加されます。
 
-つまり 複数起動された RhinoCompute が並列で走るという意味です。
+つまり複数起動された RhinoCompute が並列で走るという意味です。
 
 ![Parallel Rhino Compute](https://hiron.dev/article-images/try-hops-component/ParallelRhinoCompute.png)
 
+### rhino.compute.exe と compute.geometry.exe の関係
+
+rhino.compute.exe が .net5 で実装されているので、そのことについてつぶやいたら、mcneel の Steve からリプライがありました。
+.net framework 4.8 で書かれている compute.geometry を取りまとめる役割をしているようです。
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">rhino.compute.exe is written in .NET 5 and acts as a reverse proxy parent process for one or more child compute.geometry.exe processes written in .NET 4.8.</p>&mdash; Steve Baer (@baersteve) <a href="https://twitter.com/baersteve/status/1376601913156845573?ref_src=twsrc%5Etfw">March 29, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 ### どこで RhinoCompute が起動して処理しているのか
 
-バックで compute.geometry が動いていますがこれが RhinoCompute と呼ばれるものです。
+バックで compute.geometry が動いており、これが RhinoCompute と呼ばれるものです。
 タスクマネージャーなどで確認すると、実際に動いているのが確認できます。
 
 なお、デフォルトで開かれるポートは 6500 です。
 
+### Hops と RhinoCompute との HTTP通信を確認したい
+
+Hops の実装を確認すると以下の箇所で RhinoCompute サーバーの WindowSytle が Hidden または Minimized されています。
+
+- [compute.rhino3d/src/hops/Servers.cs](https://github.com/mcneel/compute.rhino3d/blob/master/src/hops/Servers.cs#L198)
+
+コード中にコメントで書かれていますが、こちらをコメントアウトして以下のように書き換えれば確認できます。
+
+Grasshopper 起動時に RhinoCompute が呼び出される瞬間から表示されるようになります。
+ここで表示されるウィンドウを使えばやり取りが確認できます。
+
+```cs
+// startInfo.WindowStyle = Hops.HopsAppSettings.HideWorkerWindows ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Minimized;
+startInfo.WindowStyle = ProcessWindowStyle.Normal;
+```
+
+![CheckHTTP](https://hiron.dev/article-images/try-hops-component/CheckHTTP.gif)
+
 ## Hops を使った CPython コンポーネントの作成
 ### GH Hops CPython とは
 
-Grasshopper 内でも Python を使用できます。
-ですが、IronPyrhon と呼ばれる .NET 環境向けの Python となっており、CPython に比べて自由度が低いです。
+Grasshopper 内でも Python を使用できますが、IronPyrhon と呼ばれる .NET 環境向けの Python となっており、CPython に比べて自由度が低いです。
 
 Hops を使った CPython のコンポーネント作成では CPython3.8 以上が対応バージョンとなっており、最新の Python 環境、ライブラリを使用できるようになります。
 
@@ -95,13 +121,14 @@ Hops を使った CPython のコンポーネント作成では CPython3.8 以上
 ### 仕組みについて
 
 内蔵されているデフォルトの HTTP サーバーを使って、Grasshopper のコンポーネントとして機能したり、Flask アプリのミドルウェアとして機能したりできます。
-Hops の基本は HTTP で RhinoCompute とやり取りをして結果を返すものでした。
+Hops の基本は HTTP で RhinoCompute とやり取りをして結果を返すものです。
 
-前の章では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいましたが、ここでは Python から RhinoCompute や RhinoInside をよんでその結果を Grasshopper に返すものになっています。
+前半では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいました。
+これは Python から RhinoCompute や RhinoInside をよんでその結果を Grasshopper に返しています。
 
 ### 環境構築
 
-Python の venv を使用して Python の環境を構築します。
+任意の環境で問題ありませんが、ここでは Python の venv を使用して Python の環境を構築します。
 環境を構築したいフォルダに移動して以下を実行し環境構築し、アクティブにします。
 
 ```bash
@@ -119,7 +146,6 @@ python -V
 
 ```bash
 python3.9 -m venv venv
-# 以降は同じ
 ```
 
 必要なライブラリをインストールします。
@@ -165,7 +191,7 @@ if __name__ == "__main__":
 C# コンポーネントでいうところの GH_Component を継承したクラスのコンストラクタや RegisterInput/OutputParams に該当する部分です。
 
 inputs や outputs の部分であるように入出力には型指定が必要なので、適切な型を選択するようにしてください。以下の型があります。
-[実装](https://github.com/mcneel/compute.rhino3d/blob/master/src/ghhops-server-py/ghhops_server/params.py#L9) をみるとそれ以外の型はコメントアウトされているので、そのうち実装されるかもしれません。
+[実装](https://github.com/mcneel/compute.rhino3d/blob/master/src/ghhops-server-py/ghhops_server/params.py#L9) をみるとそれら以外の型はコメントアウトされているので、そのうち実装されるかもしれません。
 
 - HopsBoolean
 - HopsBrep
