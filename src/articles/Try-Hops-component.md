@@ -20,18 +20,23 @@ Hops は Rhino7 から使用できるようになった新しい Grasshopper コ
 
 ### 参考資料
 
-前半の Hops を Grasshopper の Cluster のように使用をする方法は以下の公式の資料をもとにしています。
+Hops を Grasshopper の Cluster のように使用をする方法は以下の公式の資料をもとにしています。
 
 - [Hops Component](https://developer.rhino3d.com/guides/grasshopper/hops-component/)
 
-後半の Hops を使った CPython コンポーネント作成は以下の RhinocerosForums の以下のディスカッションや RhinoCompute のリポジトリをもとにしています。
+Hops を使った CPython コンポーネント作成は RhinocerosForums の以下のディスカッションや RhinoCompute のリポジトリをもとにしています。
 
 - [Create CPython components using Hops in Grasshopper](https://discourse.mcneel.com/t/create-cpython-components-using-hops-in-grasshopper/120517?u=hiron)
 - [compute.rhino3d/src/ghhops-server-py/](https://github.com/mcneel/compute.rhino3d/tree/master/src/ghhops-server-py)
 
 ## Hops コンポーネントのインストール方法
 
-ああああああああああああああああ
+Hops は、Rhino の PackageManager をつかってインストールできます。
+
+Rhino でコマンド「PackageManager」を使用すると Rhino に関するいろいろな Package を調べたりインストールできます。
+PackageManager を起動したら、「Hops」で検索すると見つかるのでそれをインストールすることで Hops が使えるようになります。
+
+![PackageManager](https://hiron.dev/article-images/try-hops-component/PackageManager.png)
 
 なお Hops の実装は以下の GitHub リポジトリで公開されているので、興味がある方はどうぞ。
 
@@ -103,6 +108,8 @@ startInfo.WindowStyle = ProcessWindowStyle.Normal;
 
 ![CheckHTTP](https://hiron.dev/article-images/try-hops-component/CheckHTTP.gif)
 
+---
+
 ## Hops を使った CPython コンポーネントの作成
 ### GH Hops CPython とは
 
@@ -123,7 +130,7 @@ Hops を使った CPython のコンポーネント作成では CPython3.8 以上
 内蔵されているデフォルトの HTTP サーバーを使って、Grasshopper のコンポーネントとして機能したり、Flask アプリのミドルウェアとして機能したりできます。
 Hops の基本は HTTP で RhinoCompute とやり取りをして結果を返すものです。
 
-前半では、Grasshopper の .gh ファイルそのものを使って RhinoCompute を読んでいました。
+前半では、Grasshopper の .gh ファイルそのものを使って RhinoCompute をよんでいました。
 これは Python から RhinoCompute や RhinoInside をよんでその結果を Grasshopper に返しています。
 
 ### 環境構築
@@ -179,13 +186,30 @@ hops = hs.Hops(app)
         hs.HopsPoint("P", "P", "Point on curve at t")
     ],
 )
-def pointat(curve:rhino3dm.Curve, t:float):
+def pointat(curve:rhino3dm.Curve, t:float) -> rhino3dm.Point3d:
     return curve.PointAt(t)
 
+@hops.component(
+    "/create_line",
+    name="CreateLine",
+    description="Create line from 2 points",
+    inputs=[
+        hs.HopsPoint("A", "A", "point from"),
+        hs.HopsPoint("B", "B", "point to"),
+    ],
+    outputs=[
+        hs.HopsLine("Line", "L", "Line")
+    ],
+)
+def create_line(p1:rhino3dm.Point3d, p2:rhino3dm.Point3d) -> rhino3dm.Line:
+    return rhino3dm.Line(p1, p2)
 
 if __name__ == "__main__":
     app.run(debug=True)
 ```
+
+rhino3dm.py のドキュメントは以下です。
+- [rhino3dm’s documentation](https://mcneel.github.io/rhino3dm/python/api/index.html)
 
 @hops.component の箇所でコンポーネントの見た目を設定しています。
 C# コンポーネントでいうところの GH_Component を継承したクラスのコンストラクタや RegisterInput/OutputParams に該当する部分です。
@@ -207,3 +231,131 @@ inputs や outputs の部分であるように入出力には型指定が必要�
 - HopsVector
 
 icon も指定できます。
+
+### 実行する
+
+コードを作成したら実行します。
+以下は app.py を実行する例です。
+
+```python
+python ./app.py
+```
+
+問題なく実行されると以下のように表示されます。
+
+```python
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+[INFO]  * Restarting with stat
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 335-903-339
+[INFO]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
+最後に表示された http://127.0.0.1:5000/ を対象のアドレスをいれたものが Hops へ入力する値となります。
+例えば create_line メソッドを呼び出い時は以下の画像のように入力します。
+
+![Make Hops Cpython](https://hiron.dev/article-images/try-hops-component/make_ghHopsCpython.png)
+
+ちなみに http://127.0.0.1:5000/ にアクセスすると以下のような Json になっています。
+例えば http://127.0.0.1:5000/pointat にアクセスすると、以下リスト中の pointat の値が返ってきます。
+
+設定したアトリビュートが各メソッドごとにリストの形式で出力されています。
+
+```json
+[
+    {
+        "Description": "Get point along curve",
+        "Inputs": [
+            {
+                "Name": "Curve", "Nickname": "C", "Description": "Curve to evaluate",
+                "ParamType": "Curve", "ResultType": "Rhino.Geometry.Curve",
+                "AtLeast": 1, "AtMost": 1
+            },
+            {
+                "Name": "t", "Nickname": "t", "Description": "Parameter on Curve to evaluate",
+                "ParamType": "Number", "ResultType": "System.Double",
+                "AtLeast": 1, "AtMost": 1, "Default": 2.0
+            }
+        ],
+        "Outputs": [
+            {
+                "Name": "P", "Nickname": "P", "Description": "Point on curve at t",
+                "ParamType": "Point", "ResultType": "Rhino.Geometry.Point3d",
+                "AtLeast": 1, "AtMost": 1
+            }
+        ]
+    },
+    {
+        "Description": "Create line from 2 points",
+        "Inputs": [
+            {
+                "Name": "A", "Nickname": "A", "Description": "point from",
+                "ParamType": "Point", "ResultType": "Rhino.Geometry.Point3d",
+                "AtLeast": 1, "AtMost": 1
+            },
+            {
+                "Name": "B", "Nickname": "B", "Description": "point to",
+                "ParamType": "Point", "ResultType": "Rhino.Geometry.Point3d",
+                "AtLeast": 1, "AtMost": 1
+            }
+        ],
+        "Outputs": [
+            {
+                "Name": "Line", "Nickname": "L", "Description": "Line",
+                "ParamType": "Line", "ResultType": "Rhino.Geometry.Line",
+                "AtLeast": 1, "AtMost": 1
+            }
+        ]
+    }
+]
+```
+
+以下は実行例です。
+
+上記コードから Hops で作った PointAt コンポーンネントと CreateLine コンポーネントを使って円の中心と円上の点を結ぶラインを作成しています。
+
+![Make Hops Cpython](https://hiron.dev/article-images/try-hops-component/make_ghHopsCpython.png)
+
+## Visual Studio Code を使ったデバッグのやり方
+
+通常の Python の場合と同様の方法でデバッグできます。
+
+確認したい箇所にブレークポイントを設定して、デバッグを実行します。
+処理がブレークポイントに来ると止まって変数などの値を確認できます。
+
+![debug](https://hiron.dev/article-images/try-hops-component/debug.gif)
+
+デバッグモードで動作しているかは、コンソールの表示を見ることでも確認できます。
+以下がコンソールの表示ですが、`Debug mode: on` になっていることがわかります。
+
+
+```python
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.  
+   Use a production WSGI server instead.
+ * Debug mode: on
+[INFO]  * Restarting with stat
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 374-354-728
+[INFO]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
+### 開発例
+
+RhinocerosForum で面白いものが上がっていました。
+
+以下の例は、Blender のメッシュをこの Hops を使って Grasshopper に送っている例です。
+Blender は .NET の API がないので、RhinoInside でもなかなか連携できずにいましたが、こういった形で新しい可能性がでてきて面白そうです。
+
+[BlenderHops](https://discourse.mcneel.com/t/create-cpython-components-using-hops-in-grasshopper/120517/53?u=hiron)
+
+
+## おわりに
+
+おととし RhinoCompute に出会ってからいろいろ試していました。
+ですが、こういった形で CPython を Grasshopper で使えるようにするため RhinoCompute を使用するとは思っておらず、今後の Rhino7 の開発が楽しみです。
