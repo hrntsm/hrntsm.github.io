@@ -318,7 +318,7 @@ python ./app.py
 
 上記コードから Hops で作った PointAt コンポーンネントと CreateLine コンポーネントを使って円の中心と円上の点を結ぶラインを作成しています。
 
-![Make Hops Cpython](https://hiron.dev/article-images/try-hops-component/make_ghHopsCpython.png)
+![Run Hops component](https://hiron.dev/article-images/try-hops-component/RunHopsComponent.gif)
 
 ## Visual Studio Code を使ったデバッグのやり方
 
@@ -349,10 +349,10 @@ python ./app.py
 
 RhinocerosForum で面白いものが上がっていました。
 
-以下の例は、Blender のメッシュをこの Hops を使って Grasshopper に送っている例です。
+以下のリンクの例は、Blender のメッシュをこの Hops を使って Grasshopper に送っている例です。
 Blender は .NET の API がないので、RhinoInside でもなかなか連携できずにいましたが、こういった形で新しい可能性がでてきて面白そうです。
 
-[BlenderHops](https://discourse.mcneel.com/t/create-cpython-components-using-hops-in-grasshopper/120517/53?u=hiron)
+- [BlenderHops](https://discourse.mcneel.com/t/create-cpython-components-using-hops-in-grasshopper/120517/53?u=hiron)
 
 
 ## おわりに
