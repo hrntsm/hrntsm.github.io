@@ -68,7 +68,7 @@ export default ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         keywords={post.frontmatter.tags}
-        image={"https://hiron.dev/image/forOGP" + post.fields.slug + "thumbnamil.png"}
+        image={"https://hiron.dev/image/forOGP" + post.fields.slug + "thumbnail.png"}
       />
       <Content>
         <MarkedHeader>{post.frontmatter.title}</MarkedHeader>
