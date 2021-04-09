@@ -50,7 +50,52 @@ module.exports = {
             aliases:{sh: "bash", js:"javascript"},
             showLineNumbers: true,
           }
-        }],
+        },{
+            resolve: `gatsby-remark-og-image`,
+            options: {
+              output: {
+                directory: '',
+                fileName: 'thumbnail.png'
+              },
+              image: {
+                width: 1200,
+                height: 630,
+                // backgroundImage: './src/assets/images/og-background.jpg'
+                backgroundColor: '#e2eadd',
+              },
+              style: {
+                title: {
+                  fontFamily: 'Noto Sans JP',
+                  fontColor: '#333333',
+                  fontWeight: 'Bold',
+                  fontSize: 64,
+                  paddingTop: 100,
+                  paddingBottom: 200,
+                  paddingLeft: 150,
+                  paddingRight: 150,
+                },
+                author: {
+                  fontFamily: 'Noto Sans JP',
+                  fontColor: '#333333',
+                  fontWeight: 'Bold',
+                  fontSize: 42,
+                }
+              },
+              meta: {
+                title: '',
+                author: 'hrntsm'
+              },
+              fontFile: [
+                {
+                  path: require.resolve('./src/assets/fonts/NotoSansJP-Bold.otf'),
+                  family: 'Noto Sans JP',
+                  weight: 'bold',
+                },
+              ],
+              iconFile: require.resolve('./static/twittercard/image.png'),
+              timeout: 10000,
+            },
+          }],
       },
     },
     {
