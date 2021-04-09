@@ -9,7 +9,7 @@ module.exports = async ({ markdownNode }, pluginOptions) => {
     ...pluginOptions,
     output: {
       ...pluginOptions.output,
-      directory: `./public/og-image/${markdownNode.fields.slug}`,
+      directory: `./public/image/forOGP/${markdownNode.fields.slug}`,
       fileName: pluginOptions.output.fileName,
     },
     meta: {
