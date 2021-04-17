@@ -53,7 +53,7 @@ Tokyo AEC Industry Dev Group についての詳細は以下を参照してくだ
 
 こんな形です。完成したデータは Data フォルダの column_model.gh です。
 
-![GH_model](./images/gh_model.jpg)
+![GH_model](https://hiron.dev/article-images/structural-analysis-coding-with-karamba3d/gh_model.jpg)
 
 ### 同じものを C#Script コンポーネントで作る
 
@@ -71,10 +71,10 @@ karamba3d はデフォルトだと以下にあります。
 
 最初に参照を追加します。
 
-C#Script コンポーネントを右クリックして `Manage Assemblies...` を選択します。
+C#Script コンポーネントを右クリックして **Manage Assemblies...** を選択します。
 その後 Referenced Assemblies の右側の Add から KarambaCommon.dll と Karamba.gha を追加します。
 
-![manage_assembles](./images/manage_assembles.jpg)
+![manage_assembles](https://hiron.dev/article-images/structural-analysis-coding-with-karamba3d/manage_assembles.jpg)
 
 ### C#Script の内容
 
@@ -156,15 +156,18 @@ public class Script_Instance : GH_ScriptInstance
 
 片持ち梁を作成し、その応力が許容応力以内におさまる最小の断面にするものを作成します。断面は作成した断面リストの中から選択します。
 
-![canti_opt](./images/canti_opt.jpg)
+![canti_opt](https://hiron.dev/article-images/structural-analysis-coding-with-karamba3d//canti_opt.jpg)
 
 ### 断面リストの作成
 
 断面は karamba3d の CrossSectionRangeSelector コンポーネントを使用します。
 このコンポーネントが出力する断面のリストから先程の条件を満たす断面サイズを決定するようにプログラムを作成します。
+
 karamba3d のデフォルトの断面リストには日本の規格も含んでおり、JIS 規格がベースになっています。
+
 例えばメーカー品の断面を使用する場合は自分で追加できます。
 参考として SH と BCP を追加したものが Data/JP_CrossSectionValues.csv のデータになります。
+
 Read CrossSection Table From File コンポーネントでこれを読み込むことができます。
 
 断面リストのフォーマットは以下のようになっています。
@@ -174,7 +177,7 @@ Read CrossSection Table From File コンポーネントでこれを読み込む�
 | 単位   | -       | -      | -                   | -     | mm  | mm    | mm      | mm      | mm      | mm      | mm  | cm  | cm  | cm  | cm  | cm2   | cm2   | cm2  | cm4 | cm3  | cm3  | cm   | cm4 | cm3  | cm3  | cm   | cm4  | cm3  | cm6  | -       | -       | -        | -       |
 | 例     | Japan   | H      | H 100 x 100 x 6 x 8 | I     | 100 | 6     | 100     | 8       |         |         | 8   |     |     |     | 5   | 21.59 | 16.55 | 5.04 | 378 | 75.6 | 86.4 | 4.18 | 134 | 26.7 | 41   | 2.49 | 4.91 | 6.14 | 2820 | 0.34    | 0.49    | 0.34     | 3       |
 
-#### C#Script の内容
+### C#Script の内容
 
 断面リストの取得に失敗すると karamba3d のデフォルトの断面である RO114.3/4 になるので、出力がおかしいと思った場合は確認してください。
 
