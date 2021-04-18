@@ -2,7 +2,7 @@
 title: "RhinoCompute を使ったGrasshopperコンポーネントのユニットテストの作成"
 date: "2021-04-24"
 draft: false
-path: "/articles/about-karamba3d-v2-nightlybuild"
+path: "/articles/test-gh-component-using-rhinocompute"
 article-tags: ["Grasshopper", "RhinoCompute"]
 ---
 
@@ -58,7 +58,7 @@ dotnet new --install Rhino.Templates
 
 問題なくインストールされると以下のようになり、Templates の中に Grasshopper Component が含まれます。
 
-```powershell
+```
 dotnet new
 
 Templates                                     Short Name           Language    Tags
@@ -73,15 +73,20 @@ Zoo Plug-In for Rhinoceros                    zooplugin            [C#],VB     R
 コンポーネントを作成したいフォルダに移動して、以下を実行してソリューションファイルとその中身を作成など初期の支度をします。
 
 ```powershell
+# sln ファイルと csproj の作成
 mkdir GHCITest
 cd GHCITest
 dotnet new sln
-dotnet new gitignore
-git init
 mkdir GHCITest
 dotnet new ./GHCITest/grasshopper
 dotnet sln ./GHCITest.sln add ./GHCITest/GHCITest.csproj
+dotnet restore
+# git の初期化
+dotnet new gitignore
+git init
 ```
 
 `dotnet new grasshopper --help` でヘルプを見ることができます。
 引数を指定することでコンポーネントの名前やカテゴリの初期値を指定できます。
+
+環境が構築できたので作成した sln ファイルを VisualStudio で開きます。
