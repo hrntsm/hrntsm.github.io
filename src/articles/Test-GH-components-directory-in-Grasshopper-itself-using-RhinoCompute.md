@@ -15,6 +15,10 @@ article-tags: ["Grasshopper", "RhinoCompute"]
 
 Rhino7 の新機能 RhinoCompute を使うことで、MsTest などから Grasshopper コンポーネントのテストを実行することが可能になったのでその方法について紹介します。
 
+こちらの内容は以下の GitHub にデータがおいてあるので適宜参照してください。
+
+- [hrntsm/GH-UnitTest-by-RhinoCompute](https://github.com/hrntsm/GH-UnitTest-by-RhinoCompute)
+
 ## 環境構築
 
 RhinoCompute を実行できる環境を構築してください。mcneel の GitHub などからダウンロードでできます。

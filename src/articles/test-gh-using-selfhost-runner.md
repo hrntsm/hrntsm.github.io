@@ -19,6 +19,10 @@ GitHub Actions では GitHub の仮想環境で実行されるため、自身の
 
 - [GitHub Actions で Grasshopper コンポーネントをビルドする](./grasshopper-ci)
 
+こちらの内容は以下の GitHub にデータがおいてあるので適宜参照してください。
+
+- [hrntsm/GH-UnitTest-by-RhinoCompute](https://github.com/hrntsm/GH-UnitTest-by-RhinoCompute)
+
 ## セルフホストランナーの環境構築
 
 セルフホストランナーの公式のドキュメントは以下です。必要に応じて参照してください。
