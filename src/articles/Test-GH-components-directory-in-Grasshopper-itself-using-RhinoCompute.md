@@ -257,4 +257,4 @@ Grasshopper の GUI を使うことなく開発したコンポーネントのテ
 
 CI の記事は以下になります。
 
-- [aaa]()
+- [GitHub のセルフホストランナーを使って Grasshopper コンポーネントをテストする](./test-gh-using-selfhost-runner)
