@@ -10,13 +10,14 @@ article-tags: ["Grasshopper", "RhinoCompute"]
 
 通常開発した Grasshopper コンポーネントは Rhino の GUI を使用して動作確認、テストを行います。
 ですがこれでは軽微な変更であっても挙動を変更した時、毎回デバッグを実行して Rhino、そして Grasshopper の起動を待って、さらに GH ファイルを読み込む手順を踏むことになります。
+
 これは、作業効率を落とす原因になっていないでしょうか。
 
 Rhino7 の新機能 RhinoCompute を使うことで、MsTest などから Grasshopper コンポーネントのテストを実行することが可能になったのでその方法について紹介します。
 
 ## 環境構築
 
-RhinoCompute を実行できる環境を構築してください。mcneel の GitHub などからダウンローでできます。
+RhinoCompute を実行できる環境を構築してください。mcneel の GitHub などからダウンロードでできます。
 一番簡単な方法は Hops をインストールすることです。
 
 以下の記事を参考に Hops をインストールしてください。
@@ -49,8 +50,8 @@ RhinoCompute を実行できる環境を構築してください。mcneel の Gi
 
 ### テンプレートの作成
 
-ここで作成したコンポーネントを別記事で CI することを書いているので、ここでは VisualStudio を使わず、dotnet.exe を使ってコンポーネントとの作成のテンプレートを作成します。
-VisualStudio のテンプレートでの作成でも構いません。
+本記事で作成したコンポーネントとテストの内容を別記事で CI 化しているので、ここでは VisualStudio を使わず、dotnet.exe を使ってコンポーネントのテンプレートを作成します。
+VisualStudio のテンプレートでの作成でも、もちろん構いません。
 
 はじめに PowerSell で以下を実行すると dotnet に Grasshopper のテンプレートが入ります。
 
@@ -95,7 +96,7 @@ git init
 
 ### コンポーネントの作成
 
-コンポーネントの作成はここの本題ではないので、以下のように A と B の和を出力する単純なコンポーネントを作成します。
+コンポーネントの作成方法はここの主題ではないので、以下のように A と B の和を出力する単純なコンポーネントを作成します。
 
 ```cs
 protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
@@ -139,6 +140,8 @@ dotnet add package Rhino3dm --version 0.3.0
 もちろん以下のように VisualStudio の機能を使って作成しても問題ありません。
 
 ![Create Test](https://hiron.dev/article-images/test-gh-component-using-rhinocompute/createTest.jpg)
+
+VisualStudio から作成した場合は、テストプロジェクトの GHCITest.csproj への参照を切っておいてください。
 
 ### テスト用 GH ファイルの作成
 
@@ -246,7 +249,8 @@ dotnet test
 ## 次のステップ
 
 Grasshopper の GUI を使うことなく開発したコンポーネントのテストできることが確認できました。
-これを CI 化することでテストの自動化を行います。
+次にこれを CI 化することでテストの自動化を行います。
 
 CI の記事は以下になります。
+
 - [aaa]()
