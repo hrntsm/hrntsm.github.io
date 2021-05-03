@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-article-tags-js","path":"/article-tags/java-script/","result":{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/hello-ifcjs/"},"frontmatter":{"title":"Hello IFC.js","path":"/articles/hello-ifcjs"}}}]}},"pageContext":{"tag":"JavaScript"}},"staticQueryHashes":["32046230","3649515864"]}
