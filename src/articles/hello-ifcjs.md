@@ -13,7 +13,7 @@ IFC.js が面白そうなので始め方を紹介します。
 JavaScript で IFC を扱えるようにすることを目標にして開発されているものです。
 単純にすべてを JaveScript を使って書いてしまうと動作が重くなってしまうため、速度が求められている部分は C++で書かれた WASM を使っています。
 
-以下の公式のサンプルリポジトリをもとに進めます。
+以下の公式のサンプルリポジトリをもとに進めます。ファルダ構成などは以下に準拠しています。
 
 - [agviegas/ifcjs-hello-world](https://github.com/agviegas/ifcjs-hello-world)
 
@@ -35,6 +35,12 @@ IFC.js の公式ドキュメントは以下です。
 
 - [Node.js](https://nodejs.org/ja/)
 
+インストールできたら対象のディレクトリで npm を init します。
+
+```
+npm init -y
+```
+
 モジュールバンドラーには [rollup.js](https://rollupjs.org/guide/en/) を使用するので以下でインストールしてください。グローバルでインストールする場合は以下です。
 
 ```
@@ -42,10 +48,10 @@ npm install --global rollup
 ```
 
 IFC.js は Babylon.js や Three.js を使うことで簡単にモデル可視化できます。
-npm を初期化した後 Three.js を入れて使います。
+
+ここでは Three.js を入れて使います。
 
 ```
-npm init -y
 npm install -s three
 ```
 
@@ -83,7 +89,7 @@ export default {
 
 index.html を以下の内容で作成します。
 
-```js
+```html
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -100,14 +106,13 @@ index.html を以下の内容で作成します。
     <script src="bundle.js"></script>
   </body>
 </html>
-
 ```
 
 ### js ファイルの作成
 
 app.js を以下の内容で作成します。
 
-必要なものを import する。
+まず Three.js で必要なものを import する。
 
 ```js
 import {
@@ -217,6 +222,7 @@ input.addEventListener(
   false
 )
 ```
+これで完成。
 
 コード全体は以下。
 
@@ -321,6 +327,6 @@ LiveServer は VSCode の右下に Go Live というボタンがあるのでそ�
 
 ![go live](https://hiron.dev/article-images/hello-ifcjs/GoLive.jpg)
 
-左上から IFC ファイルを読み込めば IFC が表示されます。
+左上から IFC ファイルを読み込めばモデルが表示されます。
 
 ![load IFC](https://hiron.dev/article-images/hello-ifcjs/loadIFC.gif)
