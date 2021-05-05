@@ -80,6 +80,7 @@ const Header = ({ siteTitle }) => (
         <NavLink to="/about/">AboutMe</NavLink>
         <NavLink to="/articles/">Articles</NavLink>
         <NavLink to="/diary/">Diary</NavLink>
+        <NavLink to="/threejs-modelviewer/">ModelViewer</NavLink>
         <NavLink to="/links/">Links</NavLink>
         <NavLink to="/contact/">Contact</NavLink>
       </p>
