@@ -27,25 +27,41 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO
-       title="Links"
-       description="外部サイトへのリンク"
-       />
+        title="Links"
+        description="外部サイトへのリンク"
+      />
       <Content>
         <h1>Links</h1>
         <a href="https://github.com/hrntsm"
-           css={css`
+          css={css`
                   text-decoration: none;
                   color: inherit;
                 `}>
           <MarkerHeader>GitHub</MarkerHeader>
         </a>
-        <br/><br/>
+        <br /><br />
         <a href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA"
-           css={css`
+          css={css`
                   text-decoration: none;
                   color: inherit;
                 `}>
-          <MarkerHeader>Youtube Channel</MarkerHeader>
+          <MarkerHeader>YouTube Channel</MarkerHeader>
+        </a>
+        <br /><br />
+        <a href="https://hiron.dev/HoaryFox/"
+          css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
+          <MarkerHeader>HoaryFox Official WebSite</MarkerHeader>
+        </a>
+        <br /><br />
+        <a href="https://hiron.dev/STBDotNet/docs/index.html"
+          css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}>
+          <MarkerHeader>STBDotNet API WebSite</MarkerHeader>
         </a>
       </Content>
     </Layout>
