@@ -12,7 +12,7 @@ import {
   HatenaIcon,
   TwitterShareButton,
   TwitterIcon,
-} from 'react-share';
+} from "react-share"
 
 const ogpurl = "https://hrntsm.github.io/diary/"
 const ogptitle = "備忘録たち"
@@ -39,7 +39,7 @@ const MarkerHeader = styled.h3`
   background-image: linear-gradient(
     -100deg,
     rgba(209, 245, 255, 0.15),
-    rgba(209, 245, 255, 1.0) 100%,
+    rgba(209, 245, 255, 1) 100%,
     rgba(209, 245, 255, 0.45)
   );
 `
@@ -52,10 +52,7 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <seoNoindex
-       title="備忘録たち"
-       description="日々のメモやポエムです。"
-      />
+      <seoNoindex title="備忘録たち" description="日々のメモやポエムです。" />
       <Content>
         <h1>Diary</h1>
         <hr></hr>
@@ -65,27 +62,29 @@ const IndexPage = ({ data }) => {
           <Link
             to={"/diary-tags"}
             css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}
+              text-decoration: none;
+              color: inherit;
+            `}
           >
             All Diary Tags Page
           </Link>
-        </TagsHeader><br/><br/>
+        </TagsHeader>
+        <br />
+        <br />
         <hr></hr>
         <div>
           <FacebookShareButton url={ogpurl}>
             <FacebookIcon size={36} round />
           </FacebookShareButton>
- 
-          <HatenaShareButton title={ogptitle} url={ogpurl} >
+
+          <HatenaShareButton title={ogptitle} url={ogpurl}>
             <HatenaIcon size={36} round />
           </HatenaShareButton>
- 
-          <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={ogpurl} >
+
+          <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={ogpurl}>
             <TwitterIcon size={36} round />
           </TwitterShareButton>
-       </div>
+        </div>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {
@@ -106,7 +105,10 @@ const IndexPage = ({ data }) => {
                 <div>
                   <ArticleDate>{node.frontmatter.date}</ArticleDate>
                   <ReadingTime> - {node.fields.readingTime.text}</ReadingTime>
-                  <ArticleDate> - Tags: {node.frontmatter.tags + ""}</ArticleDate>
+                  <ArticleDate>
+                    {" "}
+                    - Tags: {node.frontmatter.tags + ""}
+                  </ArticleDate>
                 </div>
                 <p>{node.excerpt}</p>
               </Link>
@@ -128,7 +130,10 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { eq: false } }, fields: {collection : { eq: "diary"} } }
+      filter: {
+        frontmatter: { draft: { eq: false } }
+        fields: { collection: { eq: "diary" } }
+      }
     ) {
       totalCount
       edges {

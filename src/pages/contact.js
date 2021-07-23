@@ -39,18 +39,24 @@ const IndexPage = ({ data }) => {
       <SEO title="Contact" />
       <Content>
         <h1>Contact</h1>
-        <p>お気軽にお問い合わせください。<br />お仕事も募集しておりますので、もしご一緒にお仕事できたらとてもうれしいです。</p>
+        <p>
+          お気軽にお問い合わせください。
+          <br />
+          お仕事も募集しておりますので、もしご一緒にお仕事できたらとてもうれしいです。
+        </p>
         <h3>Form</h3>
-        <a href= {"https://docs.google.com/forms/d/e/1FAIpQLSc-tO01F1Pf0LX9rhbzVvHQjcGBduUACzyeTS2uQehNq8JoBQ/viewform"}>
+        <a
+          href={
+            "https://docs.google.com/forms/d/e/1FAIpQLSc-tO01F1Pf0LX9rhbzVvHQjcGBduUACzyeTS2uQehNq8JoBQ/viewform"
+          }
+        >
           お問い合わせフォーム
         </a>
-        <p/>
+        <p />
         <h3>E-mail</h3>
-        <p>contact(a)hrntsm.com   (a) を @ に変換してください</p>
+        <p>contact(a)hrntsm.com (a) を @ に変換してください</p>
         <h3>Twitter</h3>
-        <a href={"https://twitter.com/hiron_rgkr"}>
-            @hiron_rgkr
-        </a>
+        <a href={"https://twitter.com/hiron_rgkr"}>@hiron_rgkr</a>
       </Content>
     </Layout>
   )

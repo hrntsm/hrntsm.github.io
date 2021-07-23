@@ -26,41 +26,49 @@ const MarkerHeader = styled.h3`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO
-        title="Links"
-        description="外部サイトへのリンク"
-      />
+      <SEO title="Links" description="外部サイトへのリンク" />
       <Content>
         <h1>Links</h1>
-        <a href="https://github.com/hrntsm"
+        <a
+          href="https://github.com/hrntsm"
           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
+            text-decoration: none;
+            color: inherit;
+          `}
+        >
           <MarkerHeader>GitHub</MarkerHeader>
         </a>
-        <br /><br />
-        <a href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA"
+        <br />
+        <br />
+        <a
+          href="https://www.youtube.com/channel/UC6k39WVNArYdGew6NeolxJA"
           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
+            text-decoration: none;
+            color: inherit;
+          `}
+        >
           <MarkerHeader>YouTube Channel</MarkerHeader>
         </a>
-        <br /><br />
-        <a href="https://hiron.dev/HoaryFox/"
+        <br />
+        <br />
+        <a
+          href="https://hiron.dev/HoaryFox/"
           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
+            text-decoration: none;
+            color: inherit;
+          `}
+        >
           <MarkerHeader>HoaryFox Official WebSite</MarkerHeader>
         </a>
-        <br /><br />
-        <a href="https://hiron.dev/STBDotNet/docs/index.html"
+        <br />
+        <br />
+        <a
+          href="https://hiron.dev/STBDotNet/docs/index.html"
           css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}>
+            text-decoration: none;
+            color: inherit;
+          `}
+        >
           <MarkerHeader>STBDotNet API WebSite</MarkerHeader>
         </a>
       </Content>

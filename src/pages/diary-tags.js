@@ -11,20 +11,20 @@ import kebabCase from "lodash/kebabCase"
 import { Link, graphql } from "gatsby"
 
 const DiaryTagsPage = ({
-                    data: {
-                      allMarkdownRemark: { group },
-                      site: {
-                        siteMetadata: { title },
-                      },
-                    },
-                  }) => (
+  data: {
+    allMarkdownRemark: { group },
+    site: {
+      siteMetadata: { title },
+    },
+  },
+}) => (
   <Layout>
-    <seoNoindex title="Diary Tags"  />
+    <seoNoindex title="Diary Tags" />
     <div>
       <div>
         <h1>Diary Tags</h1>
         <ul>
-          {group.map(tag => (
+          {group.map((tag) => (
             <li key={tag.fieldValue}>
               <Link to={`/diary-tags/${kebabCase(tag.fieldValue)}/`}>
                 {tag.fieldValue} ({tag.totalCount})
@@ -58,17 +58,17 @@ DiaryTagsPage.propTypes = {
 export default DiaryTagsPage
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        allMarkdownRemark(limit: 2000) {
-            group(field: frontmatter___tags) {
-                fieldValue
-                totalCount
-            }
-        }
+  query {
+    site {
+      siteMetadata {
+        title
+      }
     }
+    allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
+    }
+  }
 `

@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
 function SEONOINDEX({ description, lang, meta, keywords, title, image }) {
-
   const metaDescription = description || site.siteMetadata.description
 
   return (
@@ -22,7 +21,7 @@ function SEONOINDEX({ description, lang, meta, keywords, title, image }) {
       meta={[
         {
           name: `robots`,
-          content: `noindex`
+          content: `noindex`,
         },
         {
           property: `og:title`,
@@ -34,7 +33,7 @@ function SEONOINDEX({ description, lang, meta, keywords, title, image }) {
         },
         {
           property: `og:image`,
-          content: image, 
+          content: image,
         },
         {
           name: `twitter:card`,

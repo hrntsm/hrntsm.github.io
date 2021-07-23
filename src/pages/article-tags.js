@@ -13,27 +13,25 @@ import {
   HatenaIcon,
   TwitterShareButton,
   TwitterIcon,
-} from 'react-share';
+} from "react-share"
 
 const url = "https://hiron.dev/article-tags/"
 const ogptitle = "技術記事 タグ一覧"
 const ArticleTagsPage = ({
-                    data: {
-                      allMarkdownRemark: { group },
-                      site: {
-                        siteMetadata: { title },
-                      },
-                    },
-                  }) => (
+  data: {
+    allMarkdownRemark: { group },
+    site: {
+      siteMetadata: { title },
+    },
+  },
+}) => (
   <Layout>
-    <SEO
-      title="Article Tags"
-    />
+    <SEO title="Article Tags" />
     <div>
       <div>
         <h1>Article Tags</h1>
         <ul>
-          {group.map(tag => (
+          {group.map((tag) => (
             <li key={tag.fieldValue}>
               <Link to={`/article-tags/${kebabCase(tag.fieldValue)}/`}>
                 {tag.fieldValue} ({tag.totalCount})
@@ -48,11 +46,11 @@ const ArticleTagsPage = ({
         <FacebookIcon size={36} round />
       </FacebookShareButton>
 
-      <HatenaShareButton title={ogptitle} url={url} >
+      <HatenaShareButton title={ogptitle} url={url}>
         <HatenaIcon size={36} round />
       </HatenaShareButton>
 
-      <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={url} >
+      <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={url}>
         <TwitterIcon size={36} round />
       </TwitterShareButton>
     </div>
@@ -80,17 +78,17 @@ ArticleTagsPage.propTypes = {
 export default ArticleTagsPage
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        allMarkdownRemark(limit: 2000) {
-            group(field: frontmatter___article_tags) {
-                fieldValue
-                totalCount
-            }
-        }
+  query {
+    site {
+      siteMetadata {
+        title
+      }
     }
+    allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___article_tags) {
+        fieldValue
+        totalCount
+      }
+    }
+  }
 `
