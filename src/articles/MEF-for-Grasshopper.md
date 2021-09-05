@@ -3,7 +3,7 @@ title: "Managed Extensibility Framework を使った Grasshopperコンポーネ�
 date: "2021-09-05"
 draft: false
 path: "/articles/MEF-for-Grasshopper"
-article-tags: ["CSharp", "Grasshopper"]
+article-tags: ["CSharp", "Grasshopper", "DI"]
 ---
 
 ## はじめに
@@ -16,11 +16,11 @@ Rhino を再起動することなくビルドし直した内容を反映する�
 
 以下 MicroSoft の [ドキュメント](https://docs.microsoft.com/ja-jp/dotnet/framework/mef/) より引用。
 
-> Managed Extensibility Framework (MEF) は、軽量で拡張可能なアプリケーションを作成するためのライブラリです。
-> これにより、アプリケーション開発者は、拡張機能を見つけたら、それをそのまま使用できます。
-> 構成は必要ありません。
-> 拡張機能の開発者は、コードを簡単にカプセル化できるため、ハードコーディングによる脆弱な依存関係を回避できます。
-> MEF により、アプリケーション内だけでなく、アプリケーション間でも拡張機能を再利用できます。
+> *Managed Extensibility Framework (MEF) は、軽量で拡張可能なアプリケーションを作成するためのライブラリです。*
+> *これにより、アプリケーション開発者は、拡張機能を見つけたら、それをそのまま使用できます。*
+> *構成は必要ありません。*
+> *拡張機能の開発者は、コードを簡単にカプセル化できるため、ハードコーディングによる脆弱な依存関係を回避できます。*
+> *MEF により、アプリケーション内だけでなく、アプリケーション間でも拡張機能を再利用できます。*
 
 例えば Excel や Word などの製品は全てアドオンを使って機能拡張を行うことができるようになっています。
 こういった拡張性のあるアプリケーションを作ろうとしたときに必要となるであろう機能セットを提供しているものが MEF になります。
@@ -39,6 +39,7 @@ Rhino を再起動することなくビルドし直した内容を反映する�
 - [Managed Extensibility Framework (MEF) Plugin for Rhinoceros RhinoCommon](https://www.codeproject.com/Articles/1091178/Managed-Extensibility-Framework-MEF-Plugin-for-Rhi)
 
 本内容と若干異なりますが、作成例として以下にデータをあげていますので必要に応じて参照してください。
+
 - [hrntsm/MEF-for-Grasshopper-Plugin](https://github.com/hrntsm/MEF-for-Grasshopper-Plugin)
 
 ### 通常の Grasshopper コンポーネントの作成
@@ -153,9 +154,9 @@ namespace PluginLoader
     }
 
     // 以下は PluginUtil のものを使うため、コメントアウトする
-    // public static class Util
+    // public class Util
     // {
-    //     public static string RevText(string text)
+    //     public string RevText(string text)
     //     {
     //         return new string(text.Reverse().ToArray());
     //     }
@@ -164,6 +165,7 @@ namespace PluginLoader
 ```
 
 **PluginUtil.cs**
+
 ```cs
 using System.Linq;
 
@@ -195,7 +197,7 @@ PluginLoader
 
 ### MEF を使う形へ書き換え
 
-依存性を注入する際に共通のインターフェースがあると、都合がよいためまずインターフェース用のプロジェクトを作成します。内容はインターフェースを定義するだけです。
+依存性を注入する際に共通のインターフェースの必要があるため、まずインターフェース用のプロジェクトを作成します。内容はインターフェースを定義するだけです。
 
 フォルダの構成は以下のようになります。
 
@@ -229,9 +231,12 @@ namespace PluginContract
 
 MEF は System.ComponentModel.Composition を使用します。Nuget を使って使用できるようにしておいてください。
 
+- [nuget/System.ComponentModel.Composition](https://www.nuget.org/packages/System.ComponentModel.Composition/)
+
 まず、DI の対象としてエクスポートされるように、PluginUtil を以下のように変更します。
 
 **PluginUtil.cs**
+
 ```cs
 using System.Linq;
 
@@ -252,9 +257,10 @@ namespace PluginUtil
 }
 ```
 
-次にこのクラスを DI を使って Grasshopper コンポーネントに依存性を注入できるようにします。
+次にこのクラスを MEF を使って Grasshopper コンポーネントに依存性を注入できるようにします。
 
 **PluginLoader.cs**
+
 ```cs
 using System;
 using Grasshopper.Kernel;
@@ -297,7 +303,7 @@ namespace PluginLoader
             if (!DA.GetData(0, ref path)) { return; }
             if (!DA.GetData(1, ref text)) { return; }
 
-            // DI ようにカタログ、コンテナを作って、plugin に依存性を注入
+            // DI 用にカタログ、コンテナを作って、plugin に依存性を注入
             var catalog = new AggregateCatalog(
                 new AssemblyCatalog(Assembly.Load(System.IO.File.ReadAllBytes(path)))
             );
@@ -324,3 +330,5 @@ Rhino を起動したままにした状態で、PluginUtil.cs の内容を書き
 そして、PluginUtil.csproj を再ビルドし、Grasshopper を再実行すると変更した内容が反映されます。
 
 ソリューション全体をビルドし直してしまうと、 .gha ファイルは Rhino で使われているのでエラーになります。PluginUtil.csproj のみビルドしてください。
+
+これで MEF を使って Grasshopper コンポーネント開発の紹介は終わりです。
