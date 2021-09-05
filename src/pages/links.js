@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
