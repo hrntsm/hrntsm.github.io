@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://hiron.dev/articles/structural-analysis-coding-with-karamba3d</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/articles/MEF-for-Grasshopper</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/test-gh-component-using-rhinocompute</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/try-hops-component</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/articles/structural-analysis-coding-with-karamba3d</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/about-karamba3d-v2-nightlybuild</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/entry-rhinoinside-cpython</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/entry-rhinoinside-dynamo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -50,8 +51,8 @@
 <url> <loc>https://hiron.dev/articles/rhino.inside.unity-sendmesh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/stb2u</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/niche-blogger</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/articles/201912-rhinoinside</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/retirement-story</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/articles/201912-rhinoinside</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/call-winform-from-gh</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/colouring-gh-wire</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/articles/rhino-cs-to-unity</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -92,15 +93,15 @@
 <url> <loc>https://hiron.dev/diary/ahoy-lazy-sunday</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/if-clean-up-my-side-desk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/async-show-me-your-moves</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/everyone-is-different-so-everyone-is-awesome</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/silence-over-3sec-is-terrible</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/shaking-makes-kawaii</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/fan-to-fab</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/everyone-is-different-so-everyone-is-awesome</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/ennui-sunday</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/do-it-tomorrow-make-it-better</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/strong-and-heavy-history-of-spring</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/it-is-hard-to-get-up-isnt-it</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/do-it-tomorrow-make-it-better</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/do-copy-yourself</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/strong-and-heavy-history-of-spring</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/bet-on-what-you-excited</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/vr-psychological-hurdles.</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/want-to-be-full-of-english</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -110,8 +111,8 @@
 <url> <loc>https://hiron.dev/diary/they-make-me-feel-quite-architectural</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/talking-each-other-is-very-stimulating</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/intro-for-in-n-time-after-m-years</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/must-do-and-do-and-do</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/i-can-fly-yes-you-can-fly</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/must-do-and-do-and-do</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/my-new-gear</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/sleeping-wednesday</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/ride-the-subscription-big-wave</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -223,15 +224,15 @@
 <url> <loc>https://hiron.dev/diary/open-world_world</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/erai</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/terima_kasih_banyak</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/living_so_there_is_a_shadow</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/world_true_end</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/living_so_there_is_a_shadow</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/whats_career_is_it_taste_good</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/love_for_product</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/my_dear_majesty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/youve_well_done_today</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/shadow_organization</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/bakutan</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/sometim_its_good_to_look_back</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/bakutan</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/my_dear_majesty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/thanx_400_subscribers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/pakeshi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/be_the_worst</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -242,8 +243,8 @@
 <url> <loc>https://hiron.dev/diary/dont_be_victim_tools_and_other_words_of_wisdom</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/more_bim_like_tool</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/need_salvation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hiron.dev/diary/if_i_dont_do_it_i_never_will</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/what_is_the_matter_with_you_kiraboshi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hiron.dev/diary/if_i_dont_do_it_i_never_will</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary/go_out_of_business_like_this</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary-tags//</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hiron.dev/diary-tags/archicad/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
