@@ -12,7 +12,7 @@ import {
   HatenaIcon,
   TwitterShareButton,
   TwitterIcon,
-} from 'react-share'
+} from "react-share"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -36,7 +36,7 @@ const MarkerHeader = styled.h3`
   background-image: linear-gradient(
     -100deg,
     rgba(209, 245, 255, 0.15),
-    rgba(209, 245, 255, 1.0) 100%,
+    rgba(209, 245, 255, 1) 100%,
     rgba(209, 245, 255, 0.45)
   );
 `
@@ -52,15 +52,18 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO
-       title="技術記事たち"
-       description="技術記事です。構造とデジタル というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。"
+        title="技術記事たち"
+        description="技術記事です。構造とデジタル というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。"
       />
       <Content>
         <h1>Technical Articles</h1>
         <hr></hr>
         <p>
-          技術記事です。<br/>
-          "構造とデジタル" というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。<br/>
+          技術記事です。
+          <br />
+          "構造とデジタル" というブログや Qiita、Zenn.dev
+          などにこれまで書いてきた記事をこちらにまとめました。
+          <br />
           各媒体での記事をお探しの場合は、下記タグページから過去掲載していたサービスのタグを参照してください。
         </p>
         <hr></hr>
@@ -68,27 +71,29 @@ const IndexPage = ({ data }) => {
           <Link
             to={"/article-tags"}
             css={css`
-                  text-decoration: none;
-                  color: inherit;
-                `}
+              text-decoration: none;
+              color: inherit;
+            `}
           >
             All Article Tags Page
           </Link>
-        </TagsHeader><br/><br/>
+        </TagsHeader>
+        <br />
+        <br />
         <hr></hr>
         <div>
           <FacebookShareButton url={ogpurl}>
             <FacebookIcon size={36} round />
           </FacebookShareButton>
- 
-          <HatenaShareButton title={ogptitle} url={ogpurl} >
+
+          <HatenaShareButton title={ogptitle} url={ogpurl}>
             <HatenaIcon size={36} round />
           </HatenaShareButton>
- 
-          <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={ogpurl} >
+
+          <TwitterShareButton title={ogptitle} via="hiron_rgkr" url={ogpurl}>
             <TwitterIcon size={36} round />
           </TwitterShareButton>
-       </div>
+        </div>
         <hr></hr>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {
@@ -109,7 +114,10 @@ const IndexPage = ({ data }) => {
                 <div>
                   <ArticleDate>{node.frontmatter.date}</ArticleDate>
                   <ReadingTime> - {node.fields.readingTime.text}</ReadingTime>
-                  <ArticleDate> - Tags: {node.frontmatter.article_tags + ""}</ArticleDate>
+                  <ArticleDate>
+                    {" "}
+                    - Tags: {node.frontmatter.article_tags + ""}
+                  </ArticleDate>
                 </div>
                 <p>{node.excerpt}</p>
               </Link>
@@ -131,7 +139,10 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { eq: false } }, fields: {collection : { eq: "article"} } }
+      filter: {
+        frontmatter: { draft: { eq: false } }
+        fields: { collection: { eq: "article" } }
+      }
     ) {
       totalCount
       edges {

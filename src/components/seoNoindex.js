@@ -19,7 +19,7 @@ function SEONOINDEX({ lang, meta, keywords, title, image }) {
       meta={[
         {
           name: `robots`,
-          content: `noindex`
+          content: `noindex`,
         },
         {
           property: `og:title`,
@@ -31,7 +31,7 @@ function SEONOINDEX({ lang, meta, keywords, title, image }) {
         },
         {
           property: `og:image`,
-          content: image, 
+          content: image,
         },
         {
           name: `twitter:card`,

@@ -40,15 +40,15 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Content>
           <main>{children}</main>
           <Footer>
             <p>
-            © {new Date().getFullYear()} hrntsm / Built with
-            {` `}
+              © {new Date().getFullYear()} hrntsm / Built with
+              {` `}
             </p>
             <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
           </Footer>

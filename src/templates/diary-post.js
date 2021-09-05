@@ -10,7 +10,7 @@ import {
   HatenaIcon,
   TwitterShareButton,
   TwitterIcon,
-} from 'react-share';
+} from "react-share"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -24,7 +24,7 @@ const MarkedHeader = styled.h1`
   background-image: linear-gradient(
     -100deg,
     rgba(209, 245, 255, 0.15),
-    rgba(209, 245, 255, 1.0) 100%,
+    rgba(209, 245, 255, 1) 100%,
     rgba(209, 245, 255, 0.45)
   );
 `
@@ -42,7 +42,7 @@ const MarkdownContent = styled.div`
 
     background-image: linear-gradient(
       rgba(209, 245, 255, 0.3),
-      rgba(209, 245, 255, 1.0)
+      rgba(209, 245, 255, 1)
     );
     background-repeat: no-repeat;
     background-size: 100% 0.2em;
@@ -68,12 +68,15 @@ export default ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         keywords={post.frontmatter.tags}
-        image={"https://hiron.dev/image/forOGP" + post.fields.slug + "thumbnail.png"}
+        image={
+          "https://hiron.dev/image/forOGP" + post.fields.slug + "thumbnail.png"
+        }
       />
       <Content>
         <MarkedHeader>{post.frontmatter.title}</MarkedHeader>
         <HeaderDate>
-          {post.frontmatter.date} - {post.fields.readingTime.text} - Tags: {post.frontmatter.tags + ""}
+          {post.frontmatter.date} - {post.fields.readingTime.text} - Tags:{" "}
+          {post.frontmatter.tags + ""}
         </HeaderDate>
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
         <div>
@@ -81,11 +84,11 @@ export default ({ data }) => {
             <FacebookIcon size={36} round />
           </FacebookShareButton>
 
-          <HatenaShareButton title={title} url={url} >
+          <HatenaShareButton title={title} url={url}>
             <HatenaIcon size={36} round />
           </HatenaShareButton>
 
-          <TwitterShareButton title={title} via="hiron_rgkr" url={url} >
+          <TwitterShareButton title={title} via="hiron_rgkr" url={url}>
             <TwitterIcon size={36} round />
           </TwitterShareButton>
         </div>
