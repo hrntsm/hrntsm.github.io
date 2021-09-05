@@ -9,10 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
-function SEONOINDEX({ description, lang, meta, keywords, title, image }) {
-
-  const metaDescription = description || site.siteMetadata.description
-
+function SEONOINDEX({ lang, meta, keywords, title, image }) {
   return (
     <Helmet
       htmlAttributes={{
