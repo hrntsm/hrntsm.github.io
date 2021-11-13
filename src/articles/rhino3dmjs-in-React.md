@@ -1,6 +1,6 @@
 ---
 title: "Rhino3dm.js の使い方 〜React編〜"
-date: "2021-11-14"
+date: "2021-11-13"
 draft: false
 path: "/articles/Intro-Rhino3dm-js-in-React"
 article-tags: ["Rhinoceros", "TypeScript", "React"]
