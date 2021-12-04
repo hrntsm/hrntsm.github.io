@@ -36,9 +36,11 @@ Rhino 7 が発売されてだいぶ立ちましたが、開発版の RhinoWIP（
 
 1. macOS Monterey を使用していて、Apple Silicon Mac で Rhinoceros WIP を起動
 1. 現在開発版なので RhinoWIP は最新版なのか確認
-1. [サンプルの写真のセット](https://files.mcneel.com/misc/Shoe-Photos.zip) をダウンロードし解凍
+1. サンプル写真セットをダウンロードし解凍
+    - [mcneel forum のサンプル写真セット](https://files.mcneel.com/misc/Shoe-Photos.zip)
+    - [apple のサンプル写真セット](https://developer.apple.com/augmented-reality/object-capture/)
 1. Rhino で `ObjectCaptureFromPhotos` コマンドを実行
-1. 3 で回答した写真のあるフォルダに移動し OK をクリック
+1. 3 で解凍した写真のあるフォルダに移動し OK をクリック
 1. コマンドオプションを指定（詳細は以下に記載）し Enter
 1. 処理が開始
     - 上記サンプルとデフォルトのオプションを使用すると約90秒かかります。
@@ -83,7 +85,7 @@ Rhino 7 が発売されてだいぶ立ちましたが、開発版の RhinoWIP（
 
 Apple が出している公式のサンプルは以下になります。
 これはコマンドラインから Rhino でできることとほぼ同様のことを実行するアプリになります。
-違いは出力が usdz 形式担っているところです。
+違いは出力が usdz 形式になっているところです。
 
 - [Creating a Photogrammetry Command-Line App](https://developer.apple.com/documentation/realitykit/creating_a_photogrammetry_command-line_app)
 
@@ -125,3 +127,14 @@ Sample Ordering と Feature Sensitivity は `PhotogrammetrySession.Configuration
 
 - [Object Captureの紹介 Apple公式](https://developer.apple.com/jp/augmented-reality/object-capture/)
 - [ObjectCaptureの使い方 lileaLab](https://lilea.net/lab/how-to-use-object-capture/)
+
+## データの作成部分をコードで扱ってみる
+
+この機能は macOS が提供している機能なため、Rhino からではなくコードから使用することができます。
+上でも出しましたが、apple の公式が出しているコードのサンプルは以下になります。
+
+- [Creating a Photogrammetry Command-Line App](https://developer.apple.com/documentation/realitykit/creating_a_photogrammetry_command-line_app)
+
+動作に必要な部分だけ更に抽出したコードを以下に作成しましたので、興味のある方は公式のサンプルと合わせて見てください。
+
+- [ObjectCaptureSample](https://github.com/hrntsm/ObjectCaptureSample)
