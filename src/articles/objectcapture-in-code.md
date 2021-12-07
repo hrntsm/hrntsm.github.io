@@ -8,8 +8,8 @@ article-tags: ["Swift", "Photogrammetry"]
 
 ## はじめに
 
-Rhino WIP を使って ObjectCapture をやる方法を紹介しました。
-記事内で書いたようにこの機能は macOS で提供されている機能なため、Rhino でなくとも ObjectCapture を使うことができます。
+[こちらの記事](./Rhino8-NewFunc-ObjectCapture) では Rhino WIP を使って ObjectCapture をやる方法を紹介しました。
+その記事内で書いたようにこの機能は macOS によって提供されている機能なため、Rhino でなくとも ObjectCapture を使うことができます。
 ここでは以下の Apple のサンプルをもとに Swift を使って ObjectCapture を実行する方法を紹介します。
 
 - [Creating a Photogrammetry Command-Line App](https://developer.apple.com/documentation/realitykit/creating_a_photogrammetry_command-line_app)
