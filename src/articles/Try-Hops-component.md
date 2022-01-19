@@ -197,12 +197,13 @@ def pointat(curve:rhino3dm.Curve, t:float) -> rhino3dm.Point3d:
         hs.HopsPoint("A", "A", "point from"),
         hs.HopsPoint("B", "B", "point to"),
     ],
-    outputs=[
-        hs.HopsLine("Line", "L", "Line")
+    outputs=[ 
+        hs.HopsCurve("line", "L", "line")
     ],
 )
-def create_line(p1:rhino3dm.Point3d, p2:rhino3dm.Point3d) -> rhino3dm.Line:
-    return rhino3dm.Line(p1, p2)
+def create_line(p1:rhino3dm.Point3d, p2:rhino3dm.Point3d) -> rhino3dm.LineCurve:
+    ln = rhino3dm.LineCurve(p1, p2)
+    return ln
 
 if __name__ == "__main__":
     app.run(debug=True)
