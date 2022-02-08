@@ -17,20 +17,379 @@
       }</script><title data-react-helmet="true">Deep dive into RhinoCompute through Rust | 構造とデジタル_最新版_Final(1)</title><meta data-react-helmet="true" name="description" content="はじめに 最近流行りの言語として Rust があり、触ってみたいと思っている方も多いのではないでしょうか。
 ただ、建築系ソフトをみるとその多くが Python や C# で SDK が提供されており、仕事で使わない Rust のような言語に触れることはほぼありません。 ならば Rust…"/><meta data-react-helmet="true" property="og:title" content="Deep dive into RhinoCompute through Rust"/><meta data-react-helmet="true" property="og:image" content="https://hiron.dev/image/forOGP/deep-dive-into-rhinocompute-through-rust/thumbnail.png"/><meta data-react-helmet="true" property="og:description" content="はじめに 最近流行りの言語として Rust があり、触ってみたいと思っている方も多いのではないでしょうか。
 ただ、建築系ソフトをみるとその多くが Python や C# で SDK が提供されており、仕事で使わない Rust のような言語に触れることはほぼありません。 ならば Rust…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="@hiron"/><meta data-react-helmet="true" name="twitter:title" content="Deep dive into RhinoCompute through Rust"/><meta data-react-helmet="true" name="twitter:description" content="はじめに 最近流行りの言語として Rust があり、触ってみたいと思っている方も多いのではないでしょうか。
-ただ、建築系ソフトをみるとその多くが Python や C# で SDK が提供されており、仕事で使わない Rust のような言語に触れることはほぼありません。 ならば Rust…"/><meta data-react-helmet="true" name="keywords" content="Rust, RhinoCompute, Grasshopper"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=afd18a2153b750f19f9ded14d4216135" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=afd18a2153b750f19f9ded14d4216135"/><link as="script" rel="preload" href="/webpack-runtime-e6ebadf4910a22d6eb3d.js"/><link as="script" rel="preload" href="/framework-ddff9c6a94258f6c8286.js"/><link as="script" rel="preload" href="/app-a0ccfba20584af71ef81.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/commons-264e0739852b64c9d776.js"/><link as="script" rel="preload" href="/a71867b387144579e54c456cedfaaff4a7efccd9-50e9b705bd7cb4491cc2.js"/><link as="script" rel="preload" href="/component---src-templates-article-post-js-59841cc56ce66f587d1d.js"/><link as="fetch" rel="preload" href="/page-data/articles/deep-dive-into-rhinocompute-through-rust/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/32046230.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion-css="1pyi7sa">.css-1pyi7sa{background:transparent;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}</style><header class="css-1pyi7sa e2i1wbd3"><style data-emotion-css="k1grrt">.css-k1grrt{max-width:860px;padding:1rem 1.0875rem;font-size:1.2rem;}</style><div class="css-k1grrt e2i1wbd0"><p><style data-emotion-css="1kljdew">.css-1kljdew{color:black;margin-left:15px;-webkit-text-decoration:none;text-decoration:none;display:inline-block;position:relative;margin-left:0;}.css-1kljdew::after{content:"";position:absolute;width:100%;-webkit-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:2px;bottom:0;left:0;background-color:rgba(0,0,0,0.8);-webkit-transform-origin:bottom right;-ms-transform-origin:bottom right;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.4s cubic-bezier(0.86,0,0.07,1);-webkit-transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);}.css-1kljdew:hover::after{-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:bottom left;-ms-transform-origin:bottom left;transform-origin:bottom left;}</style><a class="css-1kljdew e2i1wbd2" href="/">Home</a><style data-emotion-css="1wj6arw">.css-1wj6arw{color:black;margin-left:15px;-webkit-text-decoration:none;text-decoration:none;display:inline-block;position:relative;}.css-1wj6arw::after{content:"";position:absolute;width:100%;-webkit-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:2px;bottom:0;left:0;background-color:rgba(0,0,0,0.8);-webkit-transform-origin:bottom right;-ms-transform-origin:bottom right;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.4s cubic-bezier(0.86,0,0.07,1);-webkit-transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);}.css-1wj6arw:hover::after{-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:bottom left;-ms-transform-origin:bottom left;transform-origin:bottom left;}</style><a class="css-1wj6arw e2i1wbd1" href="/about/">AboutMe</a><a class="css-1wj6arw e2i1wbd1" href="/articles/">Articles</a><a class="css-1wj6arw e2i1wbd1" href="/diary/">Diary</a><a class="css-1wj6arw e2i1wbd1" href="/threejs-modelviewer/">ModelViewer</a><a class="css-1wj6arw e2i1wbd1" href="/links/">Links</a><a class="css-1wj6arw e2i1wbd1" href="/contact/">Contact</a></p></div></header><style data-emotion-css="1813l62">.css-1813l62{margin:0 auto;max-width:860px;padding:0 1.0875rem 1rem;padding-top:0;}</style><div class="css-1813l62 e1ehxxwc0"><main><style data-emotion-css="hu0znc">.css-hu0znc{margin:0 auto;max-width:860px;padding:1.45rem 1.0875rem;}</style><div class="css-hu0znc e1r1aog30"><style data-emotion-css="10p74qk">.css-10p74qk{display:inline;border-radius:1em 0 1em 0;background-image:linear-gradient( -100deg,rgba(209,245,255,0.15),rgba(209,245,255,1) 100%,rgba(209,245,255,0.45) );}</style><h1 class="css-10p74qk e1r1aog31">Deep dive into RhinoCompute through Rust</h1><style data-emotion-css="wvcn4j">.css-wvcn4j{margin-top:10px;color:#606060;}</style><h3 class="css-wvcn4j e1r1aog32">12 February, 2022<!-- --> - <!-- -->1 min read<!-- --> - Tags:<!-- --> <!-- -->Rust,RhinoCompute,Grasshopper</h3><style data-emotion-css="8rjaq1">.css-8rjaq1 a{-webkit-text-decoration:none;text-decoration:none;position:relative;background-image:linear-gradient( rgba(209,245,255,0.3),rgba(209,245,255,1) );background-repeat:no-repeat;background-size:100% 0.2em;background-position:0 88%;-webkit-transition:background-size 0.25s ease-in;transition:background-size 0.25s ease-in;}.css-8rjaq1 a:hover{background-size:100% 88%;}.css-8rjaq1 a > code:hover{-webkit-text-decoration:underline;text-decoration:underline;}</style><div class="css-8rjaq1 e1r1aog33"><h2>はじめに</h2>
+ただ、建築系ソフトをみるとその多くが Python や C# で SDK が提供されており、仕事で使わない Rust のような言語に触れることはほぼありません。 ならば Rust…"/><meta data-react-helmet="true" name="keywords" content="Rust, RhinoCompute, Grasshopper"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=afd18a2153b750f19f9ded14d4216135" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=afd18a2153b750f19f9ded14d4216135"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=afd18a2153b750f19f9ded14d4216135"/><link as="script" rel="preload" href="/webpack-runtime-e6ebadf4910a22d6eb3d.js"/><link as="script" rel="preload" href="/framework-ddff9c6a94258f6c8286.js"/><link as="script" rel="preload" href="/app-a0ccfba20584af71ef81.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/commons-264e0739852b64c9d776.js"/><link as="script" rel="preload" href="/a71867b387144579e54c456cedfaaff4a7efccd9-50e9b705bd7cb4491cc2.js"/><link as="script" rel="preload" href="/component---src-templates-article-post-js-59841cc56ce66f587d1d.js"/><link as="fetch" rel="preload" href="/page-data/articles/deep-dive-into-rhinocompute-through-rust/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/32046230.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion-css="1pyi7sa">.css-1pyi7sa{background:transparent;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}</style><header class="css-1pyi7sa e2i1wbd3"><style data-emotion-css="k1grrt">.css-k1grrt{max-width:860px;padding:1rem 1.0875rem;font-size:1.2rem;}</style><div class="css-k1grrt e2i1wbd0"><p><style data-emotion-css="1kljdew">.css-1kljdew{color:black;margin-left:15px;-webkit-text-decoration:none;text-decoration:none;display:inline-block;position:relative;margin-left:0;}.css-1kljdew::after{content:"";position:absolute;width:100%;-webkit-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:2px;bottom:0;left:0;background-color:rgba(0,0,0,0.8);-webkit-transform-origin:bottom right;-ms-transform-origin:bottom right;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.4s cubic-bezier(0.86,0,0.07,1);-webkit-transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);}.css-1kljdew:hover::after{-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:bottom left;-ms-transform-origin:bottom left;transform-origin:bottom left;}</style><a class="css-1kljdew e2i1wbd2" href="/">Home</a><style data-emotion-css="1wj6arw">.css-1wj6arw{color:black;margin-left:15px;-webkit-text-decoration:none;text-decoration:none;display:inline-block;position:relative;}.css-1wj6arw::after{content:"";position:absolute;width:100%;-webkit-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:2px;bottom:0;left:0;background-color:rgba(0,0,0,0.8);-webkit-transform-origin:bottom right;-ms-transform-origin:bottom right;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.4s cubic-bezier(0.86,0,0.07,1);-webkit-transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);transition:transform 0.4s cubic-bezier(0.86,0,0.07,1);}.css-1wj6arw:hover::after{-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);-webkit-transform-origin:bottom left;-ms-transform-origin:bottom left;transform-origin:bottom left;}</style><a class="css-1wj6arw e2i1wbd1" href="/about/">AboutMe</a><a class="css-1wj6arw e2i1wbd1" href="/articles/">Articles</a><a class="css-1wj6arw e2i1wbd1" href="/diary/">Diary</a><a class="css-1wj6arw e2i1wbd1" href="/threejs-modelviewer/">ModelViewer</a><a class="css-1wj6arw e2i1wbd1" href="/links/">Links</a><a class="css-1wj6arw e2i1wbd1" href="/contact/">Contact</a></p></div></header><style data-emotion-css="1813l62">.css-1813l62{margin:0 auto;max-width:860px;padding:0 1.0875rem 1rem;padding-top:0;}</style><div class="css-1813l62 e1ehxxwc0"><main><style data-emotion-css="hu0znc">.css-hu0znc{margin:0 auto;max-width:860px;padding:1.45rem 1.0875rem;}</style><div class="css-hu0znc e1r1aog30"><style data-emotion-css="10p74qk">.css-10p74qk{display:inline;border-radius:1em 0 1em 0;background-image:linear-gradient( -100deg,rgba(209,245,255,0.15),rgba(209,245,255,1) 100%,rgba(209,245,255,0.45) );}</style><h1 class="css-10p74qk e1r1aog31">Deep dive into RhinoCompute through Rust</h1><style data-emotion-css="wvcn4j">.css-wvcn4j{margin-top:10px;color:#606060;}</style><h3 class="css-wvcn4j e1r1aog32">12 February, 2022<!-- --> - <!-- -->6 min read<!-- --> - Tags:<!-- --> <!-- -->Rust,RhinoCompute,Grasshopper</h3><style data-emotion-css="8rjaq1">.css-8rjaq1 a{-webkit-text-decoration:none;text-decoration:none;position:relative;background-image:linear-gradient( rgba(209,245,255,0.3),rgba(209,245,255,1) );background-repeat:no-repeat;background-size:100% 0.2em;background-position:0 88%;-webkit-transition:background-size 0.25s ease-in;transition:background-size 0.25s ease-in;}.css-8rjaq1 a:hover{background-size:100% 88%;}.css-8rjaq1 a > code:hover{-webkit-text-decoration:underline;text-decoration:underline;}</style><div class="css-8rjaq1 e1r1aog33"><h2>はじめに</h2>
 <p>最近流行りの言語として Rust があり、触ってみたいと思っている方も多いのではないでしょうか。
 ただ、建築系ソフトをみるとその多くが Python や C# で SDK が提供されており、仕事で使わない Rust のような言語に触れることはほぼありません。</p>
 <p>ならば Rust で建築系のソフトのなにかを操作できるようになれば、Rust を触れる機会が生まれるはずです。
-ということで、本記事では Rhinoceros と HTTP 通信を行うことで Rhinoceros の機能を使うことができる RhinoCompute を Rust で使う方法について紹介します。</p>
-<p>本記事でははじめに Rust に触る前にどのように実装するべきか確認するため、RhinoCompute と通信を行うことへの理解を深めます。
+ということで、本記事では Rhinoceros と HTTP 通信することで Rhinoceros の機能を使うことができる RhinoCompute を Rust で使う方法について紹介します。</p>
+<p>本記事でははじめに Rust を触る前にどのように実装するべきか確認するため、RhinoCompute と通信することへの理解を深めます。
 その後、その内容に基づいて Rust で実行環境を作成します。</p>
-<p>技術的には Rhino のデータを取得し rhino3dm 相当の操作をすることが可能ですがそのための実装は時間がかかるため、Grasshopper データを Post して RhinoCompute を使いその結果を取得することを目標とします。</p>
+<p>技術的には Rust でも Rhino のデータを取得し rhino3dm 相当の操作が可能です。
+しかしそのための実装は時間がかかるため、Grasshopper データを Post して RhinoCompute を使いその結果を取得することを目標とします。</p>
 <h3>必要な環境</h3>
 <ul>
-<li>Rhinoceros 7以降</li>
-<li>Grasshopper の Hops コンポーネント v0.11以降</li>
-<li>Rust</li>
+<li>Rhinoceros 7 以降</li>
+<li>Grasshopper の Hops コンポーネント v0.11 以降</li>
+<li>Rust(作成段階で rustc 1.58.1 を使っています)</li>
 </ul>
 <h2>RhinoCompute との通信内容について</h2>
 <h2>Rust について</h2>
-<h2>Rust を使った RhinoCompute との通信の実装</h2></div><div><button aria-label="facebook" class="react-share__ShareButton" style="background-color:transparent;border:none;padding:0;font:inherit;color:inherit;cursor:pointer"><svg viewBox="0 0 64 64" width="36" height="36"><circle cx="32" cy="32" r="31" fill="#3b5998"></circle><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" fill="white"></path></svg></button><button aria-label="hatena" class="react-share__ShareButton" style="background-color:transparent;border:none;padding:0;font:inherit;color:inherit;cursor:pointer"><svg viewBox="0 0 64 64" width="36" height="36"><circle cx="32" cy="32" r="31" fill="#009ad9"></circle><path d="M 36.164062 33.554688 C 34.988281 32.234375 33.347656 31.5 31.253906 31.34375 C 33.125 30.835938 34.476562 30.09375 35.335938 29.09375 C 36.191406 28.09375 36.609375 26.78125 36.609375 25.101562 C 36.628906 23.875 36.332031 22.660156 35.75 21.578125 C 35.160156 20.558594 34.292969 19.71875 33.253906 19.160156 C 32.304688 18.640625 31.175781 18.265625 29.847656 18.042969 C 28.523438 17.824219 26.195312 17.730469 22.867188 17.730469 L 14.769531 17.730469 L 14.769531 47.269531 L 23.113281 47.269531 C 26.46875 47.269531 28.886719 47.15625 30.367188 46.929688 C 31.851562 46.695312 33.085938 46.304688 34.085938 45.773438 C 35.289062 45.148438 36.28125 44.179688 36.933594 42.992188 C 37.597656 41.796875 37.933594 40.402344 37.933594 38.816406 C 37.933594 36.621094 37.347656 34.867188 36.164062 33.554688 Z M 22.257812 24.269531 L 23.984375 24.269531 C 25.988281 24.269531 27.332031 24.496094 28.015625 24.945312 C 28.703125 25.402344 29.042969 26.183594 29.042969 27.285156 C 29.042969 28.390625 28.664062 29.105469 27.9375 29.550781 C 27.210938 29.992188 25.84375 30.199219 23.855469 30.199219 L 22.257812 30.199219 Z M 29.121094 41.210938 C 28.328125 41.691406 26.976562 41.925781 25.078125 41.925781 L 22.257812 41.925781 L 22.257812 35.488281 L 25.195312 35.488281 C 27.144531 35.488281 28.496094 35.738281 29.210938 36.230469 C 29.925781 36.726562 30.304688 37.582031 30.304688 38.832031 C 30.304688 40.078125 29.914062 40.742188 29.105469 41.222656 Z M 29.121094 41.210938 M 46.488281 39.792969 C 44.421875 39.792969 42.742188 41.46875 42.742188 43.535156 C 42.742188 45.605469 44.421875 47.28125 46.488281 47.28125 C 48.554688 47.28125 50.230469 45.605469 50.230469 43.535156 C 50.230469 41.46875 48.554688 39.792969 46.488281 39.792969 Z M 46.488281 39.792969 M 43.238281 17.730469 L 49.738281 17.730469 L 49.738281 37.429688 L 43.238281 37.429688 Z M 43.238281 17.730469 " fill="white"></path></svg></button><button aria-label="twitter" class="react-share__ShareButton" style="background-color:transparent;border:none;padding:0;font:inherit;color:inherit;cursor:pointer"><svg viewBox="0 0 64 64" width="36" height="36"><circle cx="32" cy="32" r="31" fill="#00aced"></circle><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z" fill="white"></path></svg></button></div></div></main><style data-emotion-css="1l4w6pd">.css-1l4w6pd{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}</style><footer class="css-1l4w6pd e1ehxxwc2"><p>© <!-- -->2022<!-- --> hrntsm / Built with<!-- --> </p><style data-emotion-css="o5uqvq">.css-o5uqvq{margin-left:5px;}</style><a href="https://www.gatsbyjs.org" class="css-o5uqvq e1ehxxwc1">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/articles/deep-dive-into-rhinocompute-through-rust";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a857b2788f43edc0a2e4.js"],"app":["/app-a0ccfba20584af71ef81.js"],"component---src-pages-404-js":["/component---src-pages-404-js-02a0d69242ac65fb73aa.js"],"component---src-pages-about-js":["/component---src-pages-about-js-b6a51af8c23ed2ce721d.js"],"component---src-pages-article-tags-js":["/component---src-pages-article-tags-js-e4257fdfd12cb6941ac7.js"],"component---src-pages-articles-js":["/component---src-pages-articles-js-7b36c33dfaab5d3ad847.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-0a1b793d1f1ed8e24421.js"],"component---src-pages-diary-js":["/component---src-pages-diary-js-c57c75ec47d1a21df6ea.js"],"component---src-pages-diary-tags-js":["/component---src-pages-diary-tags-js-06221a12d956fc3c2004.js"],"component---src-pages-index-js":["/component---src-pages-index-js-ca165fe7d7b8e1a462fd.js"],"component---src-pages-links-js":["/component---src-pages-links-js-a203dd0f4a55f6138c4a.js"],"component---src-templates-article-post-js":["/component---src-templates-article-post-js-59841cc56ce66f587d1d.js"],"component---src-templates-article-tags-js":["/component---src-templates-article-tags-js-7ebf0ccf1694681c5702.js"],"component---src-templates-diary-post-js":["/component---src-templates-diary-post-js-3562d8afa2ae57ee76c2.js"],"component---src-templates-diary-tags-js":["/component---src-templates-diary-tags-js-674e22f33184b9a447c4.js"]};/*]]>*/</script><script src="/polyfill-a857b2788f43edc0a2e4.js" nomodule=""></script><script src="/component---src-templates-article-post-js-59841cc56ce66f587d1d.js" async=""></script><script src="/a71867b387144579e54c456cedfaaff4a7efccd9-50e9b705bd7cb4491cc2.js" async=""></script><script src="/commons-264e0739852b64c9d776.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-a0ccfba20584af71ef81.js" async=""></script><script src="/framework-ddff9c6a94258f6c8286.js" async=""></script><script src="/webpack-runtime-e6ebadf4910a22d6eb3d.js" async=""></script></body></html>
+<p>Rust の特徴を<a href="https://www.rust-lang.org/ja">公式サイト</a>より引用します。</p>
+<blockquote>
+<p>なぜ Rust か？</p>
+<p><strong>パフォーマンス</strong><br>
+Rust は非常に高速でメモリ効率が高くランタイムやガベージコレクタがないため、パフォーマンス重視のサービスを実装できますし、組込み機器上で実行したり他の言語との調和も簡単にできます。</p>
+<p><strong>信頼性</strong><br>
+Rust の豊かな型システムと所有権モデルによりメモリ安全性とスレッド安全性が保証されます。さらに様々な種類のバグをコンパイル時に排除することが可能です。</p>
+<p><strong>生産性</strong><br>
+Rust には優れたドキュメント、有用なエラーメッセージを備えた使いやすいコンパイラ、および統合されたパッケージマネージャとビルドツール、多数のエディタに対応するスマートな自動補完と型検査機能、自動フォーマッタといった一流のツール群が数多く揃っています。</p>
+</blockquote>
+<p>こういった特徴があり C/C++ に代わる言語として注目されています。
+インストールも同様に <a href="https://www.rust-lang.org/ja/tools/install">公式サイトのインストール</a> よりできます。</p>
+<p>開発に VSCode を使う場合は Rust の公式が出している <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust</a> という Extension がありますが、それを使うより <a href="https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer">rust-analyzer</a> を使うことをおススメします。</p>
+<p>VSCode の Settings で Rust-analyzer›Check On Save: Command の設定がデフォルトでは check になっていますが、clippy にすると保存するごとに linter が走るのでコードの確認をしやすくなります。
+修正の提案もしてくれるのでとても便利です。</p>
+<p>基本的な事項については公式のドキュメントがとても充実しているので実際に自分でコードを書いていきたい方は一読すると理解が深まります。<br>
+<a href="https://doc.rust-jp.rs/book-ja/">The Rust Programming Language 日本語版</a></p>
+<h2>Rust を使った RhinoCompute 実行の実装</h2>
+<p>ここで作成するものは GitHub にあげていますので必要に応じて参照しながらすすめてください。</p>
+<ul>
+<li><a href="https://github.com/hrntsm/RustHopper">RustHopper</a></li>
+</ul>
+<h3>Json との IO 用の構造体の作成</h3>
+<p>はじめに cargo を使って新しいパッケージを作成します。
+名前を "rusthopper" とする場合は以下です。</p>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">cargo new rusthopper</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<p>通信部を作成する前に Input/Output で Json を簡単にやり取りするための構造体を作成します。
+Json へのシリアライズ/デシリアライズをサポートする crate は Rust では serde が主に使われています。
+ここでも同様に使用するので、Cargo.toml に以下を追加します。</p>
+<div class="gatsby-highlight" data-language="toml"><pre style="counter-reset: linenumber NaN" class="language-toml line-numbers"><code class="language-toml"><span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span>
+<span class="token key property">serde</span> <span class="token punctuation">=</span> <span class="token string">"1.0.136"</span>
+<span class="token key property">serde_derive</span> <span class="token punctuation">=</span> <span class="token string">"1.0.136"</span>
+<span class="token key property">serde_json</span> <span class="token punctuation">=</span> <span class="token string">"1.0.78"</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
+<p>src ディレクトリに io.rs ファイルを作成し、ここに Json を I/O するための構造体を作成します。</p>
+<p>この構造体は RhinoCompute のリポジトリにある <a href="https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs">Schema.cs</a> を基に作成します。
+上であげたようにここのクラスを使って RhinoCompute 側は処理しているので、この Schema に倣うことでスムーズにデータのやり取りができ量になります。</p>
+<p>ただ、これを 0 から実装していくとが面倒なので、自動実装を使うと楽です。
+例えばこちらの <a href="https://transform.tools/json-to-rust-serde">transform.tools</a> を使うと Json から Rust の構造体を作成できるので、それを下敷きに足りない部分を手で修正してくことをおススメします。</p>
+<p>Hops から出力された Json がここでも役に立ちます。
+例として Hops のポストした IO への Json を変換すると以下のようになります。</p>
+<div class="gatsby-highlight" data-language="json"><pre style="counter-reset: linenumber NaN" class="language-json line-numbers"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"absolutetolerance"</span><span class="token operator">:</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+  <span class="token property">"angletolerance"</span><span class="token operator">:</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+  <span class="token property">"algo"</span><span class="token operator">:</span> <span class="token string">"7VgJUBNZGk4gQ....."</span><span class="token punctuation">,</span>
+  <span class="token property">"pointer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"cachesolve"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"recursionlevel"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"values"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"warnings"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"errors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">use serde_derive::Deserialize;
+use serde_derive::Serialize;
+use serde_json::Value;
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct Root {
+    pub absolutetolerance: f64,
+    pub angletolerance: f64,
+    pub algo: String,
+    pub pointer: Value,
+    pub cachesolve: bool,
+    pub recursionlevel: i64,
+    pub values: Vec&lt;Value&gt;,
+    pub warnings: Vec&lt;Value&gt;,
+    pub errors: Vec&lt;Value&gt;,
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>Json 内で null だったり空の配列だったりする箇所は当然自動で生成されないのでここは Schema を見ながら修正してきましょう。
+修正した結果が以下になります。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct Schema {
+    pub absolutetolerance: f64,
+    pub angletolerance: f64,
+    pub algo: Option&lt;String&gt;,
+    pub pointer: Option&lt;String&gt;,
+    pub cachesolve: bool,
+    pub recursionlevel: i64,
+    pub values: Vec&lt;DataTree&gt;,
+    pub warnings: Vec&lt;String&gt;,
+    pub errors: Vec&lt;String&gt;,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct DataTree {
+    #[serde(rename = &quot;ParamName&quot;)]
+    pub param_name: String,
+    #[serde(rename = &quot;InnerTree&quot;)]
+    pub inner_tree: HashMap&lt;String, Vec&lt;RestHopperObject&gt;&gt;,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct RestHopperObject {
+    #[serde(rename = &quot;type&quot;)]
+    pub object_type: String,
+    pub data: String,
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p><code class="language-text">algo</code> と <code class="language-text">pointer</code> は null（Rust では None）になる可能性があるので Option の Enum を使用して None または Some(T) を扱えるようにしています。</p>
+<p><code class="language-text">warnings</code> と <code class="language-text">errors</code> は文字列の配列である <code class="language-text">Vec&lt;String></code> としています。</p>
+<p><code class="language-text">values</code> は Grasshopper のツリーの情報を入れるため、別途 <code class="language-text">DataTree</code> という構造体を作成しています。
+C# の Schema ファイルでは、DataTree は別の扱い方をしていますが、簡単に扱うためここでは違う構成にしています。
+DataTree はパラメータの名前である <code class="language-text">param_name</code> とそのパラメータに入れる値のパスの String と実際の値を持つ <code class="language-text">inner_tree</code> の HashMap で構成しています。</p>
+<p>同様にして Response の構造体も作成します。
+作成した内容は以下です。
+こちらの内容は C# の Schema.cs と同様の内容を Rust の構造体に書き換えたものとなっています。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct IoResponseSchema {
+    #[serde(rename = &quot;Description&quot;)]
+    pub description: Option&lt;String&gt;,
+    #[serde(rename = &quot;CacheKey&quot;)]
+    pub cache_key: Option&lt;String&gt;,
+    #[serde(rename = &quot;InputNames&quot;)]
+    pub input_names: Vec&lt;String&gt;,
+    #[serde(rename = &quot;OutputNames&quot;)]
+    pub output_names: Vec&lt;String&gt;,
+    #[serde(rename = &quot;Icon&quot;)]
+    pub icon: Option&lt;String&gt;,
+    #[serde(rename = &quot;Inputs&quot;)]
+    pub inputs: Vec&lt;InputParamSchema&gt;,
+    #[serde(rename = &quot;Outputs&quot;)]
+    pub outputs: Vec&lt;IoParamSchema&gt;,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct InputParamSchema {
+    #[serde(rename = &quot;Description&quot;)]
+    pub description: String,
+    #[serde(rename = &quot;AtLeast&quot;)]
+    pub at_least: f64,
+    #[serde(rename = &quot;AtMost&quot;)]
+    pub at_most: f64,
+    #[serde(rename = &quot;Default&quot;)]
+    pub default: String,
+    #[serde(rename = &quot;Minimum&quot;)]
+    pub minimum: Value,
+    #[serde(rename = &quot;Maximum&quot;)]
+    pub maximum: Value,
+    #[serde(rename = &quot;Name&quot;)]
+    pub name: String,
+    #[serde(rename = &quot;Nickname&quot;)]
+    pub nickname: Option&lt;String&gt;,
+    #[serde(rename = &quot;ParamType&quot;)]
+    pub param_type: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = &quot;camelCase&quot;)]
+pub struct IoParamSchema {
+    #[serde(rename = &quot;Name&quot;)]
+    pub name: Option&lt;String&gt;,
+    #[serde(rename = &quot;Nickname&quot;)]
+    pub nickname: Option&lt;String&gt;,
+    #[serde(rename = &quot;ParamType&quot;)]
+    pub param_type: Option&lt;String&gt;,
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<h3>通信部分の作成</h3>
+<p>IO 用の構造体が作成できたので、次にそれらを Post する部分を作成していきます。
+必要な依存関係として、通信用にバイナリ（gh のファイル）を Base64 に変換する base64 と通信のための reqwest と非同期化に必要な tokio を依存関係に追加します。</p>
+<div class="gatsby-highlight" data-language="toml"><pre style="counter-reset: linenumber NaN" class="language-toml line-numbers"><code class="language-toml"><span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span>
+<span class="token key property">base64</span> <span class="token punctuation">=</span> <span class="token string">"0.13.0"</span>
+<span class="token key property">reqwest</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">"0.11"</span><span class="token punctuation">,</span> <span class="token key property">features</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">"json"</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token key property">serde</span> <span class="token punctuation">=</span> <span class="token string">"1.0.136"</span>
+<span class="token key property">serde_derive</span> <span class="token punctuation">=</span> <span class="token string">"1.0.136"</span>
+<span class="token key property">serde_json</span> <span class="token punctuation">=</span> <span class="token string">"1.0.78"</span>
+<span class="token key property">tokio</span> <span class="token punctuation">=</span>  <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token key property">features</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">"full"</span><span class="token punctuation">]</span> <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>はじめに Grasshopper のファイルを /io にポストする部分を作成します。
+実装としては引数に &#x26;str で gh ファイルへのパスをとり、ポストした結果を Result で返すようにしています。
+また通信なので関数は非同期とするためはじめに <code class="language-text">async</code> をつけています。</p>
+<p>/io へのポストなので、algo に gh ファイルのデータが入ったものをいれ、レスポンスでそのデータへの cache_key が返ってくることを期待しています。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">use base64::encode;
+use std::fs::File;
+use std::io::Read;
+
+use crate::{io, URL};
+
+async fn upload_definition(
+    gh_path: &amp;str,
+) -&gt; Result&lt;io::IoResponseSchema, Box&lt;dyn std::error::Error&gt;&gt; {
+    // io の URL を作成
+    let io_url = URL.to_owned() + &quot;io&quot;;
+
+    // ファイルを読み込み、Base64 にエンコード
+    let mut gh_file = File::open(gh_path).unwrap();
+    let mut buf = Vec::new();
+    let _ = gh_file.read_to_end(&amp;mut buf);
+    let encoded: &amp;str = &amp;encode(&amp;buf);
+
+    // body となる各値を作成し Json の文字列化
+    let io_schema = io::Schema {
+        absolutetolerance: 0.0,
+        angletolerance: 0.0,
+        algo: Some(encoded.to_owned()),
+        pointer: None,
+        cachesolve: false,
+        recursionlevel: 0,
+        values: Vec::new(),
+        warnings: Vec::new(),
+        errors: Vec::new(),
+    };
+    let io_body = serde_json::to_string(&amp;io_schema)?;
+
+    // ポストして結果の Json をデシリアライズ
+    let client = reqwest::Client::new();
+    let res = client
+        .post(io_url)
+        .body(io_body)
+        .send()
+        .await?
+        .json::&lt;io::IoResponseSchema&gt;()
+        .await?;
+
+    Ok(res)
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>Rust はコンパイラが細かいと聞いたことがある方もいると思いますので、その例をここで示します。
+上で io_schema を作成している箇所で、absolutetolerance は f64 なのですが、文字列 "0.0" をいれて <code class="language-text">cargo check</code> を実行します。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">let io_schema = io::Schema {
+    absolutetolerance: &quot;0.0&quot;,</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
+<p>このようにどこがどのようにダメなのかを細かくコンパイラが教えてくれます。
+基本的にはこのコンパイラの指示に素直に従っていればコードが仕上がっていきます。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">error[E0308]: mismatched types
+  --&gt; src\grasshopper.rs:15:28
+   |
+15 |         absolutetolerance: &quot;0.0&quot;,
+   |                            ^^^^^ expected `f64`, found `&amp;str`</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>/io からのレスポンスでポストした gh ファイルの cache key が返ってくるので、それを使って実際にファイルを評価する部分を作成します。</p>
+<p>実装としては mcneel の Python の compute-rhino3d の実装に倣って、gh ファイルのパスと DataTree を受け取ってそれを使って処理する関数としています。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">pub async fn evaluate_definition(
+    gh_path: &amp;str,
+    data_tree: Vec&lt;io::DataTree&gt;,
+) -&gt; Result&lt;io::Schema, Box&lt;dyn std::error::Error&gt;&gt; {
+
+    // 上で実装した /io へのポストを使って cache_key を取得
+    let cache_key = upload_definition(gh_path).await?.cache_key;
+
+    // io の URL を作成
+    let solve_url = URL.to_owned() + &quot;grasshopper&quot;;
+
+    // body となる各値を作成し Json の文字列化
+    let solve_schema = io::Schema {
+        absolutetolerance: 0.001,
+        angletolerance: 1.0,
+        cachesolve: false,
+        algo: None,
+        pointer: cache_key,
+        recursionlevel: 0,
+        values: data_tree,
+        warnings: Vec::new(),
+        errors: Vec::new(),
+    };
+    let solve_body = serde_json::to_string(&amp;solve_schema)?;
+
+    // ポストして結果の Json をデシリアライズ
+    let solve_client = reqwest::Client::new();
+    let solve_res = solve_client
+        .post(solve_url)
+        .body(solve_body)
+        .send()
+        .await?
+        .json::&lt;io::Schema&gt;()
+        .await?;
+
+    Ok(solve_res)
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>これで Grasshopper ファイルを実行して値を取得する部分の作成が完了しました。</p>
+<h3>main.rs の作成</h3>
+<p>IO の部分、通信する部分が作成できたので、これらをまとめて実際にポストするデータを作成し結果を表示する部分を作成していきます。</p>
+<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">mod grasshopper;
+mod io;
+
+use std::collections::HashMap;
+
+// ベースとなる URL 作成
+const URL: &amp;str = &quot;http://localhost:6500/&quot;;
+
+// 非同期のメイン関数であることを示すため #[tokio::main] を付ける
+#[tokio::main]
+async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+
+    // grasshopper のパスを入れる
+    let gh_path = &quot;definitions/sum.gh&quot;;
+
+    // インプット用の DataTree を作成する
+    let mut input_tree: Vec&lt;io::DataTree&gt; = Vec::new();
+    let mut tree = HashMap::new();
+    tree.insert(
+        &quot;0&quot;.to_string(),
+        vec![io::RestHopperObject {
+            object_type: &quot;System.Double&quot;.to_string(),
+            data: &quot;1.0&quot;.to_string(),
+        }],
+    );
+    input_tree.push(io::DataTree {
+        param_name: &quot;A&quot;.to_string(),
+        inner_tree: tree,
+    });
+
+    let mut tree = HashMap::new();
+    tree.insert(
+        &quot;0&quot;.to_string(),
+        vec![io::RestHopperObject {
+            object_type: &quot;System.Double&quot;.to_string(),
+            data: &quot;2.0&quot;.to_string(),
+        }],
+    );
+    input_tree.push(io::DataTree {
+        param_name: &quot;B&quot;.to_string(),
+        inner_tree: tree,
+    });
+
+    // RhinoCompute と通信して結果を受け取る
+    let output = grasshopper::evaluate_definition(gh_path, input_tree).await?;
+
+    // 各結果を表示する
+    // エラーの結果
+    let errors = output.errors;
+    if !errors.is_empty() {
+        println!(&quot;Errors:&quot;);
+        for error in errors {
+            println!(&quot;{}&quot;, error);
+        }
+    }
+
+    // ワーニングの結果
+    let warnings = output.warnings;
+    if !warnings.is_empty() {
+        println!(&quot;Warnings:&quot;);
+        for warning in warnings {
+            println!(&quot;{}&quot;, warning);
+        }
+    }
+
+    // RH_OUT で得られた結果
+    let values = output.values;
+    for value in values {
+        let name = value.param_name;
+        let inner_tree = value.inner_tree;
+        println!(&quot;{}&quot;, name);
+        for (key, value) in inner_tree {
+            println!(&quot;{}&quot;, key);
+            for v in value {
+                println!(&quot;{}&quot;, v.data);
+            }
+        }
+    }
+
+    Ok(())
+}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>すべてできたら <code class="language-text">cargo check</code> を実行して問題がないか確認しましょう。
+問題なければ RhinoCompute を起動して <code class="language-text">cargo run</code>　することで実際にコードを実行しちゃんと結果が返ってくることを確認しましょう。</p>
+<p>ここでは冒頭で出した A+B の足し算するデータに対して実行しているので結果は 3 が返ってきます。</p>
+<h2>まとめ</h2>
+<p>Rust で RhinoCompute を実行する例を出しましたがどうでしたでしょうか。
+C# や Python とはだいぶ違う言語なため手こずったと思いますが、実際に書きながらすすめると Rust の強力なコンパイラの力を感じられたのではないでしょうか。</p>
+<p>建築系ではあまり使うことはないと思いますが、機会があったら Rust にもぜひチャレンジしてみてください。</p></div><div><button aria-label="facebook" class="react-share__ShareButton" style="background-color:transparent;border:none;padding:0;font:inherit;color:inherit;cursor:pointer"><svg viewBox="0 0 64 64" width="36" height="36"><circle cx="32" cy="32" r="31" fill="#3b5998"></circle><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" fill="white"></path></svg></button><button aria-label="hatena" class="react-share__ShareButton" style="background-color:transparent;border:none;padding:0;font:inherit;color:inherit;cursor:pointer"><svg viewBox="0 0 64 64" width="36" height="36"><circle cx="32" cy="32" r="31" fill="#009ad9"></circle><path d="M 36.164062 33.554688 C 34.988281 32.234375 33.347656 31.5 31.253906 31.34375 C 33.125 30.835938 34.476562 30.09375 35.335938 29.09375 C 36.191406 28.09375 36.609375 26.78125 36.609375 25.101562 C 36.628906 23.875 36.332031 22.660156 35.75 21.578125 C 35.160156 20.558594 34.292969 19.71875 33.253906 19.160156 C 32.304688 18.640625 31.175781 18.265625 29.847656 18.042969 C 28.523438 17.824219 26.195312 17.730469 22.867188 17.730469 L 14.769531 17.730469 L 14.769531 47.269531 L 23.113281 47.269531 C 26.46875 47.269531 28.886719 47.15625 30.367188 46.929688 C 31.851562 46.695312 33.085938 46.304688 34.085938 45.773438 C 35.289062 45.148438 36.28125 44.179688 36.933594 42.992188 C 37.597656 41.796875 37.933594 40.402344 37.933594 38.816406 C 37.933594 36.621094 37.347656 34.867188 36.164062 33.554688 Z M 22.257812 24.269531 L 23.984375 24.269531 C 25.988281 24.269531 27.332031 24.496094 28.015625 24.945312 C 28.703125 25.402344 29.042969 26.183594 29.042969 27.285156 C 29.042969 28.390625 28.664062 29.105469 27.9375 29.550781 C 27.210938 29.992188 25.84375 30.199219 23.855469 30.199219 L 22.257812 30.199219 Z M 29.121094 41.210938 C 28.328125 41.691406 26.976562 41.925781 25.078125 41.925781 L 22.257812 41.925781 L 22.257812 35.488281 L 25.195312 35.488281 C 27.144531 35.488281 28.496094 35.738281 29.210938 36.230469 C 29.925781 36.726562 30.304688 37.582031 30.304688 38.832031 C 30.304688 40.078125 29.914062 40.742188 29.105469 41.222656 Z M 29.121094 41.210938 M 46.488281 39.792969 C 44.421875 39.792969 42.742188 41.46875 42.742188 43.535156 C 42.742188 45.605469 44.421875 47.28125 46.488281 47.28125 C 48.554688 47.28125 50.230469 45.605469 50.230469 43.535156 C 50.230469 41.46875 48.554688 39.792969 46.488281 39.792969 Z M 46.488281 39.792969 M 43.238281 17.730469 L 49.738281 17.730469 L 49.738281 37.429688 L 43.238281 37.429688 Z M 43.238281 17.730469 " fill="white"></path></svg></button><button aria-label="twitter" class="react-share__ShareButton" style="background-color:transparent;border:none;padding:0;font:inherit;color:inherit;cursor:pointer"><svg viewBox="0 0 64 64" width="36" height="36"><circle cx="32" cy="32" r="31" fill="#00aced"></circle><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z" fill="white"></path></svg></button></div></div></main><style data-emotion-css="1l4w6pd">.css-1l4w6pd{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}</style><footer class="css-1l4w6pd e1ehxxwc2"><p>© <!-- -->2022<!-- --> hrntsm / Built with<!-- --> </p><style data-emotion-css="o5uqvq">.css-o5uqvq{margin-left:5px;}</style><a href="https://www.gatsbyjs.org" class="css-o5uqvq e1ehxxwc1">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/articles/deep-dive-into-rhinocompute-through-rust";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a857b2788f43edc0a2e4.js"],"app":["/app-a0ccfba20584af71ef81.js"],"component---src-pages-404-js":["/component---src-pages-404-js-02a0d69242ac65fb73aa.js"],"component---src-pages-about-js":["/component---src-pages-about-js-b6a51af8c23ed2ce721d.js"],"component---src-pages-article-tags-js":["/component---src-pages-article-tags-js-e4257fdfd12cb6941ac7.js"],"component---src-pages-articles-js":["/component---src-pages-articles-js-7b36c33dfaab5d3ad847.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-0a1b793d1f1ed8e24421.js"],"component---src-pages-diary-js":["/component---src-pages-diary-js-c57c75ec47d1a21df6ea.js"],"component---src-pages-diary-tags-js":["/component---src-pages-diary-tags-js-06221a12d956fc3c2004.js"],"component---src-pages-index-js":["/component---src-pages-index-js-ca165fe7d7b8e1a462fd.js"],"component---src-pages-links-js":["/component---src-pages-links-js-a203dd0f4a55f6138c4a.js"],"component---src-templates-article-post-js":["/component---src-templates-article-post-js-59841cc56ce66f587d1d.js"],"component---src-templates-article-tags-js":["/component---src-templates-article-tags-js-7ebf0ccf1694681c5702.js"],"component---src-templates-diary-post-js":["/component---src-templates-diary-post-js-3562d8afa2ae57ee76c2.js"],"component---src-templates-diary-tags-js":["/component---src-templates-diary-tags-js-674e22f33184b9a447c4.js"]};/*]]>*/</script><script src="/polyfill-a857b2788f43edc0a2e4.js" nomodule=""></script><script src="/component---src-templates-article-post-js-59841cc56ce66f587d1d.js" async=""></script><script src="/a71867b387144579e54c456cedfaaff4a7efccd9-50e9b705bd7cb4491cc2.js" async=""></script><script src="/commons-264e0739852b64c9d776.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-a0ccfba20584af71ef81.js" async=""></script><script src="/framework-ddff9c6a94258f6c8286.js" async=""></script><script src="/webpack-runtime-e6ebadf4910a22d6eb3d.js" async=""></script></body></html>
