@@ -56,10 +56,11 @@ Rust には優れたドキュメント、有用なエラーメッセージを備
 <ul>
 <li><a href="https://github.com/hrntsm/RustHopper">RustHopper</a></li>
 </ul>
-<h3>Json との IO 用の構造体の作成</h3>
 <p>はじめに cargo を使って新しいパッケージを作成します。
 名前を "rusthopper" とする場合は以下です。</p>
 <div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">cargo new rusthopper</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<p>これを使ってこれから作成してきます。</p>
+<h3>Json との IO 用の構造体の作成</h3>
 <p>通信部を作成する前に Input/Output で Json を簡単にやり取りするための構造体を作成します。
 Json へのシリアライズ/デシリアライズをサポートする crate は Rust では serde が主に使われています。
 ここでも同様に使用するので、Cargo.toml に以下を追加します。</p>
