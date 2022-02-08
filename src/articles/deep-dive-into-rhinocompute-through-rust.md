@@ -60,14 +60,16 @@ VSCode の Settings で Rust-analyzer›Check On Save: Command の設定がデ�
 
 - [RustHopper](https://github.com/hrntsm/RustHopper)
 
-### Json との IO 用の構造体の作成
-
 はじめに cargo を使って新しいパッケージを作成します。
 名前を "rusthopper" とする場合は以下です。
 
 ```bash
 cargo new rusthopper
 ```
+
+これを使ってこれから作成してきます。
+
+### Json との IO 用の構造体の作成
 
 通信部を作成する前に Input/Output で Json を簡単にやり取りするための構造体を作成します。
 Json へのシリアライズ/デシリアライズをサポートする crate は Rust では serde が主に使われています。

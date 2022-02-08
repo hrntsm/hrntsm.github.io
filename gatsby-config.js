@@ -49,6 +49,7 @@ module.exports = {
           options: {
             aliases:{sh: "bash", js:"javascript"},
             showLineNumbers: true,
+            additionalLangs:[`language-rust`],
           }
         },{
             resolve: `gatsby-remark-og-image`,
