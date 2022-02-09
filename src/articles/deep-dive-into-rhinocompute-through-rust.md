@@ -107,7 +107,7 @@ Hops から出力された Json がここでも役に立ちます。
 }
 ```
 
-```rs
+```rust
 use serde_derive::Deserialize;
 use serde_derive::Serialize;
 use serde_json::Value;
@@ -130,7 +130,7 @@ pub struct Root {
 Json 内で null だったり空の配列だったりする箇所は当然自動で生成されないのでここは Schema を見ながら修正してきましょう。
 修正した結果が以下になります。
 
-```rs
+```rust
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Schema {
@@ -175,7 +175,7 @@ DataTree はパラメータの名前である `param_name` とそのパラメー
 作成した内容は以下です。
 こちらの内容は C# の Schema.cs と同様の内容を Rust の構造体に書き換えたものとなっています。
 
-```rs
+```rust
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct IoResponseSchema {
@@ -251,7 +251,7 @@ tokio =  { version = "1", features = ["full"] }
 
 /io へのポストなので、algo に gh ファイルのデータが入ったものをいれ、レスポンスでそのデータへの cache_key が返ってくることを期待しています。
 
-```rs
+```rust
 use base64::encode;
 use std::fs::File;
 use std::io::Read;
@@ -301,7 +301,7 @@ async fn upload_definition(
 Rust はコンパイラが細かいと聞いたことがある方もいると思いますので、その例をここで示します。
 上で io_schema を作成している箇所で、absolutetolerance は f64 なのですが、文字列 "0.0" をいれて `cargo check` を実行します。
 
-```rs
+```rust
 let io_schema = io::Schema {
     absolutetolerance: "0.0",
 ```
@@ -309,7 +309,7 @@ let io_schema = io::Schema {
 このようにどこがどのようにダメなのかを細かくコンパイラが教えてくれます。
 基本的にはこのコンパイラの指示に素直に従っていればコードが仕上がっていきます。
 
-```rs
+```rust
 error[E0308]: mismatched types
   --> src\grasshopper.rs:15:28
    |
@@ -322,7 +322,7 @@ error[E0308]: mismatched types
 
 実装としては mcneel の Python の compute-rhino3d の実装に倣って、gh ファイルのパスと DataTree を受け取ってそれを使って処理する関数としています。
 
-```rs
+```rust
 pub async fn evaluate_definition(
     gh_path: &str,
     data_tree: Vec<io::DataTree>,
@@ -368,7 +368,7 @@ pub async fn evaluate_definition(
 
 IO の部分、通信する部分が作成できたので、これらをまとめて実際にポストするデータを作成し結果を表示する部分を作成していきます。
 
-```rs
+```rust 
 mod grasshopper;
 mod io;
 
