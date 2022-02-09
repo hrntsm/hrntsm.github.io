@@ -86,55 +86,55 @@ Json へのシリアライズ/デシリアライズをサポートする crate �
   <span class="token property">"warnings"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"errors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">use serde_derive::Deserialize;
-use serde_derive::Serialize;
-use serde_json::Value;
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">serde_derive<span class="token punctuation">::</span></span><span class="token class-name">Deserialize</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">serde_derive<span class="token punctuation">::</span></span><span class="token class-name">Serialize</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">serde_json<span class="token punctuation">::</span></span><span class="token class-name">Value</span><span class="token punctuation">;</span>
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct Root {
-    pub absolutetolerance: f64,
-    pub angletolerance: f64,
-    pub algo: String,
-    pub pointer: Value,
-    pub cachesolve: bool,
-    pub recursionlevel: i64,
-    pub values: Vec&lt;Value&gt;,
-    pub warnings: Vec&lt;Value&gt;,
-    pub errors: Vec&lt;Value&gt;,
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">Root</span> <span class="token punctuation">{</span>
+    <span class="token keyword">pub</span> absolutetolerance<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> angletolerance<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> algo<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> pointer<span class="token punctuation">:</span> <span class="token class-name">Value</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> cachesolve<span class="token punctuation">:</span> <span class="token keyword">bool</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> recursionlevel<span class="token punctuation">:</span> <span class="token keyword">i64</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> values<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">Value</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> warnings<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">Value</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> errors<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">Value</span><span class="token operator">></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>Json 内で null だったり空の配列だったりする箇所は当然自動で生成されないのでここは Schema を見ながら修正してきましょう。
 修正した結果が以下になります。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct Schema {
-    pub absolutetolerance: f64,
-    pub angletolerance: f64,
-    pub algo: Option&lt;String&gt;,
-    pub pointer: Option&lt;String&gt;,
-    pub cachesolve: bool,
-    pub recursionlevel: i64,
-    pub values: Vec&lt;DataTree&gt;,
-    pub warnings: Vec&lt;String&gt;,
-    pub errors: Vec&lt;String&gt;,
-}
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">Schema</span> <span class="token punctuation">{</span>
+    <span class="token keyword">pub</span> absolutetolerance<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> angletolerance<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> algo<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> pointer<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> cachesolve<span class="token punctuation">:</span> <span class="token keyword">bool</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> recursionlevel<span class="token punctuation">:</span> <span class="token keyword">i64</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> values<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">DataTree</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> warnings<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> errors<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct DataTree {
-    #[serde(rename = &quot;ParamName&quot;)]
-    pub param_name: String,
-    #[serde(rename = &quot;InnerTree&quot;)]
-    pub inner_tree: HashMap&lt;String, Vec&lt;RestHopperObject&gt;&gt;,
-}
+<span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">DataTree</span> <span class="token punctuation">{</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"ParamName"</span>)]</span>
+    <span class="token keyword">pub</span> param_name<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"InnerTree"</span>)]</span>
+    <span class="token keyword">pub</span> inner_tree<span class="token punctuation">:</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">RestHopperObject</span><span class="token operator">>></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct RestHopperObject {
-    #[serde(rename = &quot;type&quot;)]
-    pub object_type: String,
-    pub data: String,
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">RestHopperObject</span> <span class="token punctuation">{</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"type"</span>)]</span>
+    <span class="token keyword">pub</span> object_type<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> data<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p><code class="language-text">algo</code> と <code class="language-text">pointer</code> は null（Rust では None）になる可能性があるので Option の Enum を使用して None または Some(T) を扱えるようにしています。</p>
 <p><code class="language-text">warnings</code> と <code class="language-text">errors</code> は文字列の配列である <code class="language-text">Vec&lt;String></code> としています。</p>
 <p><code class="language-text">values</code> は Grasshopper のツリーの情報を入れるため、別途 <code class="language-text">DataTree</code> という構造体を作成しています。
@@ -143,58 +143,58 @@ DataTree はパラメータの名前である <code class="language-text">param_
 <p>同様にして Response の構造体も作成します。
 作成した内容は以下です。
 こちらの内容は C# の Schema.cs と同様の内容を Rust の構造体に書き換えたものとなっています。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct IoResponseSchema {
-    #[serde(rename = &quot;Description&quot;)]
-    pub description: Option&lt;String&gt;,
-    #[serde(rename = &quot;CacheKey&quot;)]
-    pub cache_key: Option&lt;String&gt;,
-    #[serde(rename = &quot;InputNames&quot;)]
-    pub input_names: Vec&lt;String&gt;,
-    #[serde(rename = &quot;OutputNames&quot;)]
-    pub output_names: Vec&lt;String&gt;,
-    #[serde(rename = &quot;Icon&quot;)]
-    pub icon: Option&lt;String&gt;,
-    #[serde(rename = &quot;Inputs&quot;)]
-    pub inputs: Vec&lt;InputParamSchema&gt;,
-    #[serde(rename = &quot;Outputs&quot;)]
-    pub outputs: Vec&lt;IoParamSchema&gt;,
-}
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">IoResponseSchema</span> <span class="token punctuation">{</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Description"</span>)]</span>
+    <span class="token keyword">pub</span> description<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"CacheKey"</span>)]</span>
+    <span class="token keyword">pub</span> cache_key<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"InputNames"</span>)]</span>
+    <span class="token keyword">pub</span> input_names<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"OutputNames"</span>)]</span>
+    <span class="token keyword">pub</span> output_names<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Icon"</span>)]</span>
+    <span class="token keyword">pub</span> icon<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Inputs"</span>)]</span>
+    <span class="token keyword">pub</span> inputs<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">InputParamSchema</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Outputs"</span>)]</span>
+    <span class="token keyword">pub</span> outputs<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token class-name">IoParamSchema</span><span class="token operator">></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct InputParamSchema {
-    #[serde(rename = &quot;Description&quot;)]
-    pub description: String,
-    #[serde(rename = &quot;AtLeast&quot;)]
-    pub at_least: f64,
-    #[serde(rename = &quot;AtMost&quot;)]
-    pub at_most: f64,
-    #[serde(rename = &quot;Default&quot;)]
-    pub default: String,
-    #[serde(rename = &quot;Minimum&quot;)]
-    pub minimum: Value,
-    #[serde(rename = &quot;Maximum&quot;)]
-    pub maximum: Value,
-    #[serde(rename = &quot;Name&quot;)]
-    pub name: String,
-    #[serde(rename = &quot;Nickname&quot;)]
-    pub nickname: Option&lt;String&gt;,
-    #[serde(rename = &quot;ParamType&quot;)]
-    pub param_type: String,
-}
+<span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">InputParamSchema</span> <span class="token punctuation">{</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Description"</span>)]</span>
+    <span class="token keyword">pub</span> description<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"AtLeast"</span>)]</span>
+    <span class="token keyword">pub</span> at_least<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"AtMost"</span>)]</span>
+    <span class="token keyword">pub</span> at_most<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Default"</span>)]</span>
+    <span class="token keyword">pub</span> default<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Minimum"</span>)]</span>
+    <span class="token keyword">pub</span> minimum<span class="token punctuation">:</span> <span class="token class-name">Value</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Maximum"</span>)]</span>
+    <span class="token keyword">pub</span> maximum<span class="token punctuation">:</span> <span class="token class-name">Value</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Name"</span>)]</span>
+    <span class="token keyword">pub</span> name<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Nickname"</span>)]</span>
+    <span class="token keyword">pub</span> nickname<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"ParamType"</span>)]</span>
+    <span class="token keyword">pub</span> param_type<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = &quot;camelCase&quot;)]
-pub struct IoParamSchema {
-    #[serde(rename = &quot;Name&quot;)]
-    pub name: Option&lt;String&gt;,
-    #[serde(rename = &quot;Nickname&quot;)]
-    pub nickname: Option&lt;String&gt;,
-    #[serde(rename = &quot;ParamType&quot;)]
-    pub param_type: Option&lt;String&gt;,
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<span class="token attribute attr-name">#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]</span>
+<span class="token attribute attr-name">#[serde(rename_all = <span class="token string">"camelCase"</span>)]</span>
+<span class="token keyword">pub</span> <span class="token keyword">struct</span> <span class="token type-definition class-name">IoParamSchema</span> <span class="token punctuation">{</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Name"</span>)]</span>
+    <span class="token keyword">pub</span> name<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Nickname"</span>)]</span>
+    <span class="token keyword">pub</span> nickname<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+    <span class="token attribute attr-name">#[serde(rename = <span class="token string">"ParamType"</span>)]</span>
+    <span class="token keyword">pub</span> param_type<span class="token punctuation">:</span> <span class="token class-name">Option</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token operator">></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <h3>通信部分の作成</h3>
 <p>IO 用の構造体が作成できたので、次にそれらを Post する部分を作成していきます。
 必要な依存関係として、通信用にバイナリ（gh のファイル）を Base64 に変換する base64 と通信のための reqwest と非同期化に必要な tokio を依存関係に追加します。</p>
@@ -209,184 +209,184 @@ pub struct IoParamSchema {
 実装としては引数に &#x26;str で gh ファイルへのパスをとり、ポストした結果を Result で返すようにしています。
 また通信なので関数は非同期とするためはじめに <code class="language-text">async</code> をつけています。</p>
 <p>/io へのポストなので、algo に gh ファイルのデータが入ったものをいれ、レスポンスでそのデータへの cache_key が返ってくることを期待しています。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">use base64::encode;
-use std::fs::File;
-use std::io::Read;
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">base64<span class="token punctuation">::</span></span>encode<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>fs<span class="token punctuation">::</span></span><span class="token class-name">File</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>io<span class="token punctuation">::</span></span><span class="token class-name">Read</span><span class="token punctuation">;</span>
 
-use crate::{io, URL};
+<span class="token keyword">use</span> <span class="token keyword">crate</span><span class="token punctuation">::</span><span class="token punctuation">{</span>io<span class="token punctuation">,</span> <span class="token constant">URL</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-async fn upload_definition(
-    gh_path: &amp;str,
-) -&gt; Result&lt;io::IoResponseSchema, Box&lt;dyn std::error::Error&gt;&gt; {
-    // io の URL を作成
-    let io_url = URL.to_owned() + &quot;io&quot;;
+<span class="token keyword">async</span> <span class="token keyword">fn</span> <span class="token function-definition function">upload_definition</span><span class="token punctuation">(</span>
+    gh_path<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token class-name">Result</span><span class="token operator">&lt;</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">IoResponseSchema</span><span class="token punctuation">,</span> <span class="token class-name">Box</span><span class="token operator">&lt;</span><span class="token keyword">dyn</span> <span class="token namespace">std<span class="token punctuation">::</span>error<span class="token punctuation">::</span></span><span class="token class-name">Error</span><span class="token operator">>></span> <span class="token punctuation">{</span>
+    <span class="token comment">// io の URL を作成</span>
+    <span class="token keyword">let</span> io_url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">to_owned</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"io"</span><span class="token punctuation">;</span>
 
-    // ファイルを読み込み、Base64 にエンコード
-    let mut gh_file = File::open(gh_path).unwrap();
-    let mut buf = Vec::new();
-    let _ = gh_file.read_to_end(&amp;mut buf);
-    let encoded: &amp;str = &amp;encode(&amp;buf);
+    <span class="token comment">// ファイルを読み込み、Base64 にエンコード</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> gh_file <span class="token operator">=</span> <span class="token class-name">File</span><span class="token punctuation">::</span><span class="token function">open</span><span class="token punctuation">(</span>gh_path<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> buf <span class="token operator">=</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> _ <span class="token operator">=</span> gh_file<span class="token punctuation">.</span><span class="token function">read_to_end</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> encoded<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span> <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // body となる各値を作成し Json の文字列化
-    let io_schema = io::Schema {
-        absolutetolerance: 0.0,
-        angletolerance: 0.0,
-        algo: Some(encoded.to_owned()),
-        pointer: None,
-        cachesolve: false,
-        recursionlevel: 0,
-        values: Vec::new(),
-        warnings: Vec::new(),
-        errors: Vec::new(),
-    };
-    let io_body = serde_json::to_string(&amp;io_schema)?;
+    <span class="token comment">// body となる各値を作成し Json の文字列化</span>
+    <span class="token keyword">let</span> io_schema <span class="token operator">=</span> <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">Schema</span> <span class="token punctuation">{</span>
+        absolutetolerance<span class="token punctuation">:</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+        angletolerance<span class="token punctuation">:</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+        algo<span class="token punctuation">:</span> <span class="token class-name">Some</span><span class="token punctuation">(</span>encoded<span class="token punctuation">.</span><span class="token function">to_owned</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        pointer<span class="token punctuation">:</span> <span class="token class-name">None</span><span class="token punctuation">,</span>
+        cachesolve<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        recursionlevel<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        values<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        warnings<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        errors<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> io_body <span class="token operator">=</span> <span class="token namespace">serde_json<span class="token punctuation">::</span></span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>io_schema<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
 
-    // ポストして結果の Json をデシリアライズ
-    let client = reqwest::Client::new();
-    let res = client
-        .post(io_url)
-        .body(io_body)
-        .send()
-        .await?
-        .json::&lt;io::IoResponseSchema&gt;()
-        .await?;
+    <span class="token comment">// ポストして結果の Json をデシリアライズ</span>
+    <span class="token keyword">let</span> client <span class="token operator">=</span> <span class="token namespace">reqwest<span class="token punctuation">::</span></span><span class="token class-name">Client</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> client
+        <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>io_url<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span>io_body<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token keyword">await</span><span class="token operator">?</span>
+        <span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">::</span><span class="token operator">&lt;</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">IoResponseSchema</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token keyword">await</span><span class="token operator">?</span><span class="token punctuation">;</span>
 
-    Ok(res)
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+    <span class="token class-name">Ok</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>Rust はコンパイラが細かいと聞いたことがある方もいると思いますので、その例をここで示します。
 上で io_schema を作成している箇所で、absolutetolerance は f64 なのですが、文字列 "0.0" をいれて <code class="language-text">cargo check</code> を実行します。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">let io_schema = io::Schema {
-    absolutetolerance: &quot;0.0&quot;,</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token keyword">let</span> io_schema <span class="token operator">=</span> <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">Schema</span> <span class="token punctuation">{</span>
+    absolutetolerance<span class="token punctuation">:</span> <span class="token string">"0.0"</span><span class="token punctuation">,</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
 <p>このようにどこがどのようにダメなのかを細かくコンパイラが教えてくれます。
 基本的にはこのコンパイラの指示に素直に従っていればコードが仕上がっていきます。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">error[E0308]: mismatched types
-  --&gt; src\grasshopper.rs:15:28
-   |
-15 |         absolutetolerance: &quot;0.0&quot;,
-   |                            ^^^^^ expected `f64`, found `&amp;str`</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust">error<span class="token punctuation">[</span><span class="token constant">E0308</span><span class="token punctuation">]</span><span class="token punctuation">:</span> mismatched types
+  <span class="token operator">-</span><span class="token punctuation">-></span> src\grasshopper<span class="token punctuation">.</span>rs<span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">:</span><span class="token number">28</span>
+   <span class="token operator">|</span>
+<span class="token number">15</span> <span class="token operator">|</span>         absolutetolerance<span class="token punctuation">:</span> <span class="token string">"0.0"</span><span class="token punctuation">,</span>
+   <span class="token operator">|</span>                            <span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span><span class="token operator">^</span> expected `<span class="token keyword">f64</span>`<span class="token punctuation">,</span> found `<span class="token operator">&amp;</span><span class="token keyword">str</span>`</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>/io からのレスポンスでポストした gh ファイルの cache key が返ってくるので、それを使って実際にファイルを評価する部分を作成します。</p>
 <p>実装としては mcneel の Python の compute-rhino3d の実装に倣って、gh ファイルのパスと DataTree を受け取ってそれを使って処理する関数としています。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">pub async fn evaluate_definition(
-    gh_path: &amp;str,
-    data_tree: Vec&lt;io::DataTree&gt;,
-) -&gt; Result&lt;io::Schema, Box&lt;dyn std::error::Error&gt;&gt; {
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token keyword">pub</span> <span class="token keyword">async</span> <span class="token keyword">fn</span> <span class="token function-definition function">evaluate_definition</span><span class="token punctuation">(</span>
+    gh_path<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">,</span>
+    data_tree<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">DataTree</span><span class="token operator">></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token class-name">Result</span><span class="token operator">&lt;</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">Schema</span><span class="token punctuation">,</span> <span class="token class-name">Box</span><span class="token operator">&lt;</span><span class="token keyword">dyn</span> <span class="token namespace">std<span class="token punctuation">::</span>error<span class="token punctuation">::</span></span><span class="token class-name">Error</span><span class="token operator">>></span> <span class="token punctuation">{</span>
 
-    // 上で実装した /io へのポストを使って cache_key を取得
-    let cache_key = upload_definition(gh_path).await?.cache_key;
+    <span class="token comment">// 上で実装した /io へのポストを使って cache_key を取得</span>
+    <span class="token keyword">let</span> cache_key <span class="token operator">=</span> <span class="token function">upload_definition</span><span class="token punctuation">(</span>gh_path<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token operator">?</span><span class="token punctuation">.</span>cache_key<span class="token punctuation">;</span>
 
-    // io の URL を作成
-    let solve_url = URL.to_owned() + &quot;grasshopper&quot;;
+    <span class="token comment">// io の URL を作成</span>
+    <span class="token keyword">let</span> solve_url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">to_owned</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"grasshopper"</span><span class="token punctuation">;</span>
 
-    // body となる各値を作成し Json の文字列化
-    let solve_schema = io::Schema {
-        absolutetolerance: 0.001,
-        angletolerance: 1.0,
-        cachesolve: false,
-        algo: None,
-        pointer: cache_key,
-        recursionlevel: 0,
-        values: data_tree,
-        warnings: Vec::new(),
-        errors: Vec::new(),
-    };
-    let solve_body = serde_json::to_string(&amp;solve_schema)?;
+    <span class="token comment">// body となる各値を作成し Json の文字列化</span>
+    <span class="token keyword">let</span> solve_schema <span class="token operator">=</span> <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">Schema</span> <span class="token punctuation">{</span>
+        absolutetolerance<span class="token punctuation">:</span> <span class="token number">0.001</span><span class="token punctuation">,</span>
+        angletolerance<span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+        cachesolve<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        algo<span class="token punctuation">:</span> <span class="token class-name">None</span><span class="token punctuation">,</span>
+        pointer<span class="token punctuation">:</span> cache_key<span class="token punctuation">,</span>
+        recursionlevel<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        values<span class="token punctuation">:</span> data_tree<span class="token punctuation">,</span>
+        warnings<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        errors<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> solve_body <span class="token operator">=</span> <span class="token namespace">serde_json<span class="token punctuation">::</span></span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>solve_schema<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
 
-    // ポストして結果の Json をデシリアライズ
-    let solve_client = reqwest::Client::new();
-    let solve_res = solve_client
-        .post(solve_url)
-        .body(solve_body)
-        .send()
-        .await?
-        .json::&lt;io::Schema&gt;()
-        .await?;
+    <span class="token comment">// ポストして結果の Json をデシリアライズ</span>
+    <span class="token keyword">let</span> solve_client <span class="token operator">=</span> <span class="token namespace">reqwest<span class="token punctuation">::</span></span><span class="token class-name">Client</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> solve_res <span class="token operator">=</span> solve_client
+        <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>solve_url<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span>solve_body<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token keyword">await</span><span class="token operator">?</span>
+        <span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">::</span><span class="token operator">&lt;</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">Schema</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token keyword">await</span><span class="token operator">?</span><span class="token punctuation">;</span>
 
-    Ok(solve_res)
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+    <span class="token class-name">Ok</span><span class="token punctuation">(</span>solve_res<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>これで Grasshopper ファイルを実行して値を取得する部分の作成が完了しました。</p>
 <h3>main.rs の作成</h3>
 <p>IO の部分、通信する部分が作成できたので、これらをまとめて実際にポストするデータを作成し結果を表示する部分を作成していきます。</p>
-<div class="gatsby-highlight" data-language="rs"><pre style="counter-reset: linenumber NaN" class="language-rs line-numbers"><code class="language-rs">mod grasshopper;
-mod io;
+<div class="gatsby-highlight" data-language="rust"><pre style="counter-reset: linenumber NaN" class="language-rust line-numbers"><code class="language-rust"><span class="token keyword">mod</span> <span class="token module-declaration namespace">grasshopper</span><span class="token punctuation">;</span>
+<span class="token keyword">mod</span> <span class="token module-declaration namespace">io</span><span class="token punctuation">;</span>
 
-use std::collections::HashMap;
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>collections<span class="token punctuation">::</span></span><span class="token class-name">HashMap</span><span class="token punctuation">;</span>
 
-// ベースとなる URL 作成
-const URL: &amp;str = &quot;http://localhost:6500/&quot;;
+<span class="token comment">// ベースとなる URL 作成</span>
+<span class="token keyword">const</span> <span class="token constant">URL</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span> <span class="token operator">=</span> <span class="token string">"http://localhost:6500/"</span><span class="token punctuation">;</span>
 
-// 非同期のメイン関数であることを示すため #[tokio::main] を付ける
-#[tokio::main]
-async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+<span class="token comment">// 非同期のメイン関数であることを示すため #[tokio::main] を付ける</span>
+<span class="token attribute attr-name">#[tokio::main]</span>
+<span class="token keyword">async</span> <span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token class-name">Result</span><span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Box</span><span class="token operator">&lt;</span><span class="token keyword">dyn</span> <span class="token namespace">std<span class="token punctuation">::</span>error<span class="token punctuation">::</span></span><span class="token class-name">Error</span><span class="token operator">>></span> <span class="token punctuation">{</span>
 
-    // grasshopper のパスを入れる
-    let gh_path = &quot;definitions/sum.gh&quot;;
+    <span class="token comment">// grasshopper のパスを入れる</span>
+    <span class="token keyword">let</span> gh_path <span class="token operator">=</span> <span class="token string">"definitions/sum.gh"</span><span class="token punctuation">;</span>
 
-    // インプット用の DataTree を作成する
-    let mut input_tree: Vec&lt;io::DataTree&gt; = Vec::new();
-    let mut tree = HashMap::new();
-    tree.insert(
-        &quot;0&quot;.to_string(),
-        vec![io::RestHopperObject {
-            object_type: &quot;System.Double&quot;.to_string(),
-            data: &quot;1.0&quot;.to_string(),
-        }],
-    );
-    input_tree.push(io::DataTree {
-        param_name: &quot;A&quot;.to_string(),
-        inner_tree: tree,
-    });
+    <span class="token comment">// インプット用の DataTree を作成する</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> input_tree<span class="token punctuation">:</span> <span class="token class-name">Vec</span><span class="token operator">&lt;</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">DataTree</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token class-name">Vec</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> tree <span class="token operator">=</span> <span class="token class-name">HashMap</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>
+        <span class="token string">"0"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token macro property">vec!</span><span class="token punctuation">[</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">RestHopperObject</span> <span class="token punctuation">{</span>
+            object_type<span class="token punctuation">:</span> <span class="token string">"System.Double"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            data<span class="token punctuation">:</span> <span class="token string">"1.0"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    input_tree<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">DataTree</span> <span class="token punctuation">{</span>
+        param_name<span class="token punctuation">:</span> <span class="token string">"A"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        inner_tree<span class="token punctuation">:</span> tree<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    let mut tree = HashMap::new();
-    tree.insert(
-        &quot;0&quot;.to_string(),
-        vec![io::RestHopperObject {
-            object_type: &quot;System.Double&quot;.to_string(),
-            data: &quot;2.0&quot;.to_string(),
-        }],
-    );
-    input_tree.push(io::DataTree {
-        param_name: &quot;B&quot;.to_string(),
-        inner_tree: tree,
-    });
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> tree <span class="token operator">=</span> <span class="token class-name">HashMap</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>
+        <span class="token string">"0"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token macro property">vec!</span><span class="token punctuation">[</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">RestHopperObject</span> <span class="token punctuation">{</span>
+            object_type<span class="token punctuation">:</span> <span class="token string">"System.Double"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            data<span class="token punctuation">:</span> <span class="token string">"2.0"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    input_tree<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token class-name">DataTree</span> <span class="token punctuation">{</span>
+        param_name<span class="token punctuation">:</span> <span class="token string">"B"</span><span class="token punctuation">.</span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        inner_tree<span class="token punctuation">:</span> tree<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // RhinoCompute と通信して結果を受け取る
-    let output = grasshopper::evaluate_definition(gh_path, input_tree).await?;
+    <span class="token comment">// RhinoCompute と通信して結果を受け取る</span>
+    <span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token namespace">grasshopper<span class="token punctuation">::</span></span><span class="token function">evaluate_definition</span><span class="token punctuation">(</span>gh_path<span class="token punctuation">,</span> input_tree<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token operator">?</span><span class="token punctuation">;</span>
 
-    // 各結果を表示する
-    // エラーの結果
-    let errors = output.errors;
-    if !errors.is_empty() {
-        println!(&quot;Errors:&quot;);
-        for error in errors {
-            println!(&quot;{}&quot;, error);
-        }
-    }
+    <span class="token comment">// 各結果を表示する</span>
+    <span class="token comment">// エラーの結果</span>
+    <span class="token keyword">let</span> errors <span class="token operator">=</span> output<span class="token punctuation">.</span>errors<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>errors<span class="token punctuation">.</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"Errors:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> error <span class="token keyword">in</span> errors <span class="token punctuation">{</span>
+            <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    // ワーニングの結果
-    let warnings = output.warnings;
-    if !warnings.is_empty() {
-        println!(&quot;Warnings:&quot;);
-        for warning in warnings {
-            println!(&quot;{}&quot;, warning);
-        }
-    }
+    <span class="token comment">// ワーニングの結果</span>
+    <span class="token keyword">let</span> warnings <span class="token operator">=</span> output<span class="token punctuation">.</span>warnings<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>warnings<span class="token punctuation">.</span><span class="token function">is_empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"Warnings:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> warning <span class="token keyword">in</span> warnings <span class="token punctuation">{</span>
+            <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> warning<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    // RH_OUT で得られた結果
-    let values = output.values;
-    for value in values {
-        let name = value.param_name;
-        let inner_tree = value.inner_tree;
-        println!(&quot;{}&quot;, name);
-        for (key, value) in inner_tree {
-            println!(&quot;{}&quot;, key);
-            for v in value {
-                println!(&quot;{}&quot;, v.data);
-            }
-        }
-    }
+    <span class="token comment">// RH_OUT で得られた結果</span>
+    <span class="token keyword">let</span> values <span class="token operator">=</span> output<span class="token punctuation">.</span>values<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> value <span class="token keyword">in</span> values <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> name <span class="token operator">=</span> value<span class="token punctuation">.</span>param_name<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> inner_tree <span class="token operator">=</span> value<span class="token punctuation">.</span>inner_tree<span class="token punctuation">;</span>
+        <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token keyword">in</span> inner_tree <span class="token punctuation">{</span>
+            <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> v <span class="token keyword">in</span> value <span class="token punctuation">{</span>
+                <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> v<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    Ok(())
-}</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+    <span class="token class-name">Ok</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>すべてできたら <code class="language-text">cargo check</code> を実行して問題がないか確認しましょう。
 問題なければ RhinoCompute を起動して <code class="language-text">cargo run</code>　することで実際にコードを実行しちゃんと結果が返ってくることを確認しましょう。</p>
 <p>ここでは冒頭で出した A+B の足し算するデータに対して実行しているので結果は 3 が返ってきます。</p>
