@@ -17,7 +17,7 @@ CPython で RhinoInside を使いたくなったので、まず入門してみ�
 PYPI の [RhinoInside python](https://pypi.org/project/rhinoinside/) のサイトを見るとインストールの仕方が書いてあります。venv などの仮想環境を作らないのであれば以下でインストールできます。
 
 ```python
-pip install --user rhinoinsite
+pip install --user rhinoinside
 ```
 
 以下の環境が必要なので、私は Python 3.7 を使いました。
