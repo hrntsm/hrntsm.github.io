@@ -40,7 +40,7 @@ v0.11 以降の Hops の場合、REST API の出力が追加されており、�
 <p>例えば Last IO Request は以下のようになっています。</p>
 <p>特に目立つのが <code class="language-text">algo</code> の箇所です。
 下記では省略していますが、実際はかなり長い文字列になっていると思います。
-ここは実装を確認するとわかりますが、 Grasshopper ファイルを通信時に問題ない形式である Base64 へ変換したものになっています。</p>
+ここの内容は Grasshopper ファイルを通信時に問題ない形式である Base64 へ変換したものになっています。</p>
 <div class="gatsby-highlight" data-language="json"><pre style="counter-reset: linenumber NaN" class="language-json line-numbers"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"URL"</span><span class="token operator">:</span> <span class="token string">"http://localhost:6500/io"</span><span class="token punctuation">,</span>
   <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -57,7 +57,7 @@ v0.11 以降の Hops の場合、REST API の出力が追加されており、�
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>上記をポストした結果のレスポンスが以下です。
 Input や Output がどのような内容かや Input の設定の内訳がどうなっているかが返ってきています。</p>
-<p>ここで重要なのが、<code class="language-text">CacheKey</code> の値です。ここに先ほどポストして Grasshopper のデータがキャッシュされています。</p>
+<p>ここで重要なのが、<code class="language-text">CacheKey</code> の値です。ここに先ほどポストした Grasshopper のデータのキャッシュへのキーが入っています。</p>
 <div class="gatsby-highlight" data-language="json"><pre style="counter-reset: linenumber NaN" class="language-json line-numbers"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"Description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token property">"CacheKey"</span><span class="token operator">:</span> <span class="token string">"md5_77996BBE6275E0EA0564BF666AF66C32"</span><span class="token punctuation">,</span>
@@ -98,9 +98,9 @@ Input や Output がどのような内容かや Input の設定の内訳がど�
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>/io へポストして Grasshopper をアップロードできたので、それに対して Input をポストすることで RhinoCompute で結果を取得します。</p>
 <p>Solve へのリクエストの内容は以下です。
-ここで注目するべきな点は <code class="language-text">pointer</code> の入力です。
-IO へのレスポンスで取得した CacheKey が使われています。
-また実際に計算するため、許容差（tolerance）の指定もされています。
+ここで確認してほしい点は <code class="language-text">pointer</code> の値です。
+IO からのレスポンスで取得した CacheKey が使われています。
+実際に計算するため必要な許容差（tolerance）の値も指定されています。
 Hops 側で結果をキャッシュするという設定にしていると、<code class="language-text">cachesolve</code> の値が true になります。
 キャッシュさせたくない場合はここを false にします。</p>
 <div class="gatsby-highlight" data-language="json"><pre style="counter-reset: linenumber NaN" class="language-json line-numbers"><code class="language-json"><span class="token punctuation">{</span>
@@ -140,9 +140,9 @@ Hops 側で結果をキャッシュするという設定にしていると、<co
     <span class="token property">"errors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p>なお、pointer を使わないで algo に直接先ほどと同様に base64 化した Grasshopper データを直接送っても結果が返ってきます。
-ですがアルゴリズムの特徴上 base64 化するとファイルサイズが 4/3 倍になり、そのデータが RhinoCompute 側にどんどんキャッシュされていきます。
-同一ファイルを数回実行するだけなら良いですが、何 100 回も実行すると蓄積された Grasshopper データのメモリの占有量がかなりの割合を締め出します。
+<p>なお、pointer を使わないで algo に base64 化した Grasshopper データをいれて送っても結果が返ってきます。
+ですがアルゴリズムの特徴上 base64 化するとファイルサイズが約 4/3 倍になり、そのデータが RhinoCompute 側にどんどんキャッシュされていきます。
+同一ファイルを数回実行するだけなら良いですが、何 100 回も実行すると蓄積された Grasshopper データのメモリの占有量がかなりの割合になります。
 ですので、可能な場合は上記のように一度 /io にあげ、そのキャッシュを使う方が良いです。</p>
 <p>返ってきた結果は以下です。
 足し算をするように作成したので、RH_OUT:result には 1+1 の結果の 2 が返ってきています。</p>
@@ -169,22 +169,22 @@ Hops 側で結果をキャッシュするという設定にしていると、<co
   <span class="token property">"warnings"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"errors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p>Hops で概ねの挙動が理解できたので、次に実装を確認します。
+<p>Hops で概ねの挙動が理解できたので、次に実際の実装を確認します。
 使われているスキーマは mcneel の compute.rhino3d のリポジトリの以下にあります。</p>
 <ul>
 <li><a href="https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs">compute.rhino3d/src/compute.geometry/IO/Schema.cs</a></li>
 </ul>
 <p>今回値が返ってきていない空の配列である <code class="language-text">warnings</code> や <code class="language-text">errors</code> はどんな値が返ってくるかを確認すると文字列のリストが返ってくる実装になっています。
-<a href="https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs#L37">参照</a></p>
+（<a href="https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs#L37">参照</a>）</p>
 <p>以下は該当部分の抜粋です。</p>
 <div class="gatsby-highlight" data-language="cs"><pre style="counter-reset: linenumber NaN" class="language-cs line-numbers"><code class="language-cs"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Schema</span>
-    <span class="token punctuation">{</span>
-        <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">JsonProperty</span><span class="token attribute-arguments"><span class="token punctuation">(</span>PropertyName <span class="token operator">=</span> <span class="token string">"warnings"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
-        <span class="token keyword">public</span> <span class="token return-type class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> Warnings <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">JsonProperty</span><span class="token attribute-arguments"><span class="token punctuation">(</span>PropertyName <span class="token operator">=</span> <span class="token string">"warnings"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+  <span class="token keyword">public</span> <span class="token return-type class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> Warnings <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">JsonProperty</span><span class="token attribute-arguments"><span class="token punctuation">(</span>PropertyName <span class="token operator">=</span> <span class="token string">"errors"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
-        <span class="token keyword">public</span> <span class="token return-type class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> Errors <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+  <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">JsonProperty</span><span class="token attribute-arguments"><span class="token punctuation">(</span>PropertyName <span class="token operator">=</span> <span class="token string">"errors"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+  <span class="token keyword">public</span> <span class="token return-type class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> Errors <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>どのようなデータをポストすれば Grasshopper を実行できるか理解できたでしょうか。
 詳細な実装については後半の Rust パートで書いていきます。</p>
 <h2>Rust について</h2>
@@ -200,9 +200,9 @@ Rust には優れたドキュメント、有用なエラーメッセージを備
 </blockquote>
 <p>こういった特徴があり C/C++ に代わる言語として注目されています。
 C# や Python との大きなわかりやすい違いはガベージコレクタ(GC)がないことです。
-それらの言語では使わなかくなったメモリ領域が GC によって適宜解放されますが、Rust はないため自分で管理する必要があります。
+それらの言語では使わなかくなったメモリ領域が GC によって適宜解放されますが、Rust にはないため自分で管理する必要があります。
 この点は C/C++も同じですが、より扱いやすくするためのものとして Rust では「所有権」や「ライフタイム」といった概念が出てきています。
-ここでは細かくは触れられないので興味のある方は以下のドキュメントなどを読んで勉強してみてください。</p>
+ここでは細かくはふれられないので興味のある方は以下のドキュメントなどを読んで勉強してみてください。</p>
 <ul>
 <li><a href="https://doc.rust-jp.rs/rust-nomicon-ja/ownership.html">所有権とライフタイム</a></li>
 </ul>
@@ -341,9 +341,9 @@ DataTree はパラメータの名前である <code class="language-text">param_
     <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Default"</span>)]</span>
     <span class="token keyword">pub</span> default<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
     <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Minimum"</span>)]</span>
-    <span class="token keyword">pub</span> minimum<span class="token punctuation">:</span> <span class="token class-name">Value</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> minimum<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
     <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Maximum"</span>)]</span>
-    <span class="token keyword">pub</span> maximum<span class="token punctuation">:</span> <span class="token class-name">Value</span><span class="token punctuation">,</span>
+    <span class="token keyword">pub</span> maximum<span class="token punctuation">:</span> <span class="token keyword">f64</span><span class="token punctuation">,</span>
     <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Name"</span>)]</span>
     <span class="token keyword">pub</span> name<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
     <span class="token attribute attr-name">#[serde(rename = <span class="token string">"Nickname"</span>)]</span>
