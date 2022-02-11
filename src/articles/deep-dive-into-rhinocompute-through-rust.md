@@ -39,7 +39,7 @@ v0.11 以降の Hops の場合、REST API の出力が追加されており、�
 
 特に目立つのが `algo` の箇所です。
 下記では省略していますが、実際はかなり長い文字列になっていると思います。
-ここは実装を確認するとわかりますが、 Grasshopper ファイルを通信時に問題ない形式である Base64 へ変換したものになっています。
+ここの内容は Grasshopper ファイルを通信時に問題ない形式である Base64 へ変換したものになっています。
 
 ```json
 {
@@ -61,7 +61,7 @@ v0.11 以降の Hops の場合、REST API の出力が追加されており、�
 上記をポストした結果のレスポンスが以下です。
 Input や Output がどのような内容かや Input の設定の内訳がどうなっているかが返ってきています。
 
-ここで重要なのが、`CacheKey` の値です。ここに先ほどポストして Grasshopper のデータがキャッシュされています。
+ここで重要なのが、`CacheKey` の値です。ここに先ほどポストした Grasshopper のデータのキャッシュへのキーが入っています。
 
 ```json
 {
@@ -107,9 +107,9 @@ Input や Output がどのような内容かや Input の設定の内訳がど�
 /io へポストして Grasshopper をアップロードできたので、それに対して Input をポストすることで RhinoCompute で結果を取得します。
 
 Solve へのリクエストの内容は以下です。
-ここで注目するべきな点は `pointer` の入力です。
-IO へのレスポンスで取得した CacheKey が使われています。
-また実際に計算するため、許容差（tolerance）の指定もされています。
+ここで確認してほしい点は `pointer` の値です。
+IO からのレスポンスで取得した CacheKey が使われています。
+実際に計算するため必要な許容差（tolerance）の値も指定されています。
 Hops 側で結果をキャッシュするという設定にしていると、`cachesolve` の値が true になります。
 キャッシュさせたくない場合はここを false にします。
 
@@ -153,9 +153,9 @@ Hops 側で結果をキャッシュするという設定にしていると、`ca
 }
 ```
 
-なお、pointer を使わないで algo に直接先ほどと同様に base64 化した Grasshopper データを直接送っても結果が返ってきます。
-ですがアルゴリズムの特徴上 base64 化するとファイルサイズが 4/3 倍になり、そのデータが RhinoCompute 側にどんどんキャッシュされていきます。
-同一ファイルを数回実行するだけなら良いですが、何 100 回も実行すると蓄積された Grasshopper データのメモリの占有量がかなりの割合を締め出します。
+なお、pointer を使わないで algo に base64 化した Grasshopper データをいれて送っても結果が返ってきます。
+ですがアルゴリズムの特徴上 base64 化するとファイルサイズが約 4/3 倍になり、そのデータが RhinoCompute 側にどんどんキャッシュされていきます。
+同一ファイルを数回実行するだけなら良いですが、何 100 回も実行すると蓄積された Grasshopper データのメモリの占有量がかなりの割合になります。
 ですので、可能な場合は上記のように一度 /io にあげ、そのキャッシュを使う方が良いです。
 
 返ってきた結果は以下です。
@@ -187,25 +187,25 @@ Hops 側で結果をキャッシュするという設定にしていると、`ca
 }
 ```
 
-Hops で概ねの挙動が理解できたので、次に実装を確認します。
+Hops で概ねの挙動が理解できたので、次に実際の実装を確認します。
 使われているスキーマは mcneel の compute.rhino3d のリポジトリの以下にあります。
 
 - [compute.rhino3d/src/compute.geometry/IO/Schema.cs](https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs)
 
 今回値が返ってきていない空の配列である `warnings` や `errors` はどんな値が返ってくるかを確認すると文字列のリストが返ってくる実装になっています。
-[参照](https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs#L37)
+（[参照](https://github.com/mcneel/compute.rhino3d/blob/master/src/compute.geometry/IO/Schema.cs#L37)）
 
 以下は該当部分の抜粋です。
 
 ```cs
 public class Schema
-    {
-        [JsonProperty(PropertyName = "warnings")]
-        public List<string> Warnings { get; set; } = new List<string>();
+{
+  [JsonProperty(PropertyName = "warnings")]
+  public List<string> Warnings { get; set; } = new List<string>();
 
-        [JsonProperty(PropertyName = "errors")]
-        public List<string> Errors { get; set; } = new List<string>();
-    }
+  [JsonProperty(PropertyName = "errors")]
+  public List<string> Errors { get; set; } = new List<string>();
+}
 ```
 
 どのようなデータをポストすれば Grasshopper を実行できるか理解できたでしょうか。
@@ -228,9 +228,9 @@ Rust の特徴を[公式サイト](https://www.rust-lang.org/ja)より引用し�
 
 こういった特徴があり C/C++ に代わる言語として注目されています。
 C# や Python との大きなわかりやすい違いはガベージコレクタ(GC)がないことです。
-それらの言語では使わなかくなったメモリ領域が GC によって適宜解放されますが、Rust はないため自分で管理する必要があります。
+それらの言語では使わなかくなったメモリ領域が GC によって適宜解放されますが、Rust にはないため自分で管理する必要があります。
 この点は C/C++も同じですが、より扱いやすくするためのものとして Rust では「所有権」や「ライフタイム」といった概念が出てきています。
-ここでは細かくは触れられないので興味のある方は以下のドキュメントなどを読んで勉強してみてください。
+ここでは細かくはふれられないので興味のある方は以下のドキュメントなどを読んで勉強してみてください。
 
 - [所有権とライフタイム](https://doc.rust-jp.rs/rust-nomicon-ja/ownership.html)
 
@@ -404,9 +404,9 @@ pub struct InputParamSchema {
     #[serde(rename = "Default")]
     pub default: String,
     #[serde(rename = "Minimum")]
-    pub minimum: Value,
+    pub minimum: f64,
     #[serde(rename = "Maximum")]
-    pub maximum: Value,
+    pub maximum: f64,
     #[serde(rename = "Name")]
     pub name: String,
     #[serde(rename = "Nickname")]
