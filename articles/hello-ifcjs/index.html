@@ -62,12 +62,12 @@ rollup を使って app.js から bundle.js を作成するという中身にな
 <div class="gatsby-highlight" data-language="javascript"><pre style="counter-reset: linenumber NaN" class="language-javascript line-numbers"><code class="language-javascript"><span class="token keyword">import</span> nodeResolve <span class="token keyword">from</span> <span class="token string">"rollup-plugin-node-resolve"</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  input<span class="token operator">:</span> <span class="token string">"app.js"</span><span class="token punctuation">,</span>
-  output<span class="token operator">:</span> <span class="token punctuation">{</span>
-    file<span class="token operator">:</span> <span class="token string">"bundle.js"</span><span class="token punctuation">,</span>
-    format<span class="token operator">:</span> <span class="token string">"cjs"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">input</span><span class="token operator">:</span> <span class="token string">"app.js"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">file</span><span class="token operator">:</span> <span class="token string">"bundle.js"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">"cjs"</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">nodeResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">nodeResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <h3>html ファイルの作成</h3>
 <p>index.html を以下の内容で作成します。</p>
@@ -107,8 +107,8 @@ rollup を使って app.js から bundle.js を作成するという中身にな
 scene<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Color</span><span class="token punctuation">(</span><span class="token number">0xaaaaaa</span><span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> size <span class="token operator">=</span> <span class="token punctuation">{</span>
-  width<span class="token operator">:</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
-  height<span class="token operator">:</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">,</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
+  <span class="token literal-property property">height</span><span class="token operator">:</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">const</span> camera <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PerspectiveCamera</span><span class="token punctuation">(</span><span class="token number">75</span><span class="token punctuation">,</span> size<span class="token punctuation">.</span>width <span class="token operator">/</span> size<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
@@ -128,7 +128,7 @@ scene<span class="token punctuation">.</span><span class="token function">add</s
 scene<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>directionalLight<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> threeCanvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"three-canvas"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebGLRenderer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> canvas<span class="token operator">:</span> threeCanvas <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebGLRenderer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">canvas</span><span class="token operator">:</span> threeCanvas <span class="token punctuation">}</span><span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>size<span class="token punctuation">.</span>width<span class="token punctuation">,</span> size<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">setPixelRatio</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>devicePixelRatio<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>グリッドと座標軸を作成。</p>
@@ -191,8 +191,8 @@ input<span class="token punctuation">.</span><span class="token function">addEve
 scene<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Color</span><span class="token punctuation">(</span><span class="token number">0xaaaaaa</span><span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> size <span class="token operator">=</span> <span class="token punctuation">{</span>
-  width<span class="token operator">:</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
-  height<span class="token operator">:</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">,</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
+  <span class="token literal-property property">height</span><span class="token operator">:</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">const</span> camera <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PerspectiveCamera</span><span class="token punctuation">(</span><span class="token number">75</span><span class="token punctuation">,</span> size<span class="token punctuation">.</span>width <span class="token operator">/</span> size<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
@@ -212,7 +212,7 @@ scene<span class="token punctuation">.</span><span class="token function">add</s
 scene<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>directionalLight<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> threeCanvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"three-canvas"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebGLRenderer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> canvas<span class="token operator">:</span> threeCanvas <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebGLRenderer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">canvas</span><span class="token operator">:</span> threeCanvas <span class="token punctuation">}</span><span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>size<span class="token punctuation">.</span>width<span class="token punctuation">,</span> size<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">setPixelRatio</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>devicePixelRatio<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 

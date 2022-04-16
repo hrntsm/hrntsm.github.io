@@ -29,7 +29,7 @@
 <div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token function">git</span> clone http://github.com/mcneel/compute.rhino3d.git</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <h3>build する</h3>
 <p>クローンしたフォルダで docker bulid します。</p>
-<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">docker build --isolation process -t rhino-compute <span class="token builtin class-name">.</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token function">docker</span> build --isolation process -t rhino-compute <span class="token builtin class-name">.</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <p>多分そのままでは動かないので、Dockerfile を必要に応じて書き換えます。</p>
 <h3>使用する Windows のバージョンをそろえる</h3>
 <p>デフォルトだと Windows 10 version 1809 がインストールされますが、自分が使っている Windows のバージョンとそろえる必要があります。</p>
@@ -70,7 +70,7 @@
 <div class="gatsby-highlight" data-language="dockerfile"><pre style="counter-reset: linenumber NaN" class="language-dockerfile line-numbers"><code class="language-dockerfile"><span class="token instruction"><span class="token keyword">ENV</span> RHINO_TOKEN=<span class="token string">"TOKEN"</span></span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <h2>RhinoCompute を実行する</h2>
 <p>ビルドできたら以下で Docker で RhinoCompute が実行できます。</p>
-<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">docker run -p <span class="token number">8080</span>:80 rhino-compute</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token function">docker</span> run -p <span class="token number">8080</span>:80 rhino-compute</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <p>実行に問題がなければ以下のように表示されます。
 タイムスタンプは実行した時間によりますので、環境次第です。</p>
 <div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token punctuation">[</span><span class="token number">18</span>:19:12 INF<span class="token punctuation">]</span> Compute <span class="token number">1.0</span>.0.0, Rhino <span class="token number">7.4</span>.21067.13001
@@ -111,14 +111,14 @@
 <p>以下のコマンドで状態が確認できます。</p>
 <p>ここでは STATUS の欄にあるように 55 秒前に起動された状態で、RhinoCompute は動いたままなので、<strong>RhinoCompute の課金もアクティブなまま（注意）</strong> です。
 CONTAINER ID と NAMES は環境によって異なる値になります。</p>
-<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">docker <span class="token function">ps</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token function">docker</span> <span class="token function">ps</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
 <div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">CONTAINER ID   IMAGE           COMMAND                  CREATED              STATUS          PORTS                  NAMES
 0b3733eee521   rhino-compute   <span class="token string">"compute.geometry.exe"</span>   About a minute ago   Up <span class="token number">55</span> seconds   <span class="token number">0.0</span>.0.0:8080-<span class="token operator">></span><span class="token number">80</span>/tcp   quirky_elgamal</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
 <p>以下のコマンドで停止できます。
 {NAMES} の箇所は ps コマンドで出てくる NAMES を入れてください。</p>
 <p>停止していると ps コマンドでは表示されなくなりますが、明示的に確認したい場合は、-a オプションで確認できます。</p>
-<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">docker stop <span class="token punctuation">{</span>NAMES<span class="token punctuation">}</span>
-docker <span class="token function">ps</span> -a</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token function">docker</span> stop <span class="token punctuation">{</span>NAMES<span class="token punctuation">}</span>
+<span class="token function">docker</span> <span class="token function">ps</span> -a</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span></span></pre></div>
 <p>-a オプションでの表示は以下です。
 STATUS が Exit になっていてちゃんと終了していることがわかります。</p>
 <div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS                              PORTS     NAMES
