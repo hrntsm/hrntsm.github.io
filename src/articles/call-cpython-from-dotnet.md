@@ -13,6 +13,10 @@ C# に対して、Python は機械学習や数値計算などのライブラリ�
 
 なお、この技術は先日公開した最適化コンポーネント [Tunny](https://www.food4rhino.com/en/app/tunny) を実現するコア技術の 1 つとなっています。
 
+今回のコードの内容は以下に公開していますので、適宜参照してください。
+
+- https://github.com/hrntsm/GH-Pythonnet
+
 ### 必要な環境
 
 1. Windows
@@ -182,13 +186,15 @@ using (Py.GIL())
     ps.Set("cc", 10);
     ps.Exec(
         "def func1():\n" +
-        "    return cc + bb\n");
+        "    return cc + bb\n"
+    );
 
     using (PyModule scope = ps.NewScope())
     {
         scope.Exec(
             "def func2():\n" +
-            "    return func1() - cc - bb\n");
+            "    return func1() - cc - bb\n"
+        );
         dynamic func2 = scope.Get("func2");
 
         var result31 = func2().As<int>();
@@ -239,4 +245,55 @@ using (Py.GIL())
 
 ## Python 実行コンポーネントの作成
 
-WIP
+これまでの内容から、簡単に作れるでしょう。
+Grasshopper コンポーネント作成の基礎的な部分は省略して必要な部分だけ紹介します。
+
+まず入力は Python のコード、つまりテキストにしたいので以下になります。
+
+```cs
+protected override void RegisterInputParams(GH_InputParamManager pManager)
+{
+    pManager.AddTextParameter("Python Code", "Python Code", "Python Code", GH_ParamAccess.item);
+}
+```
+
+出力は数値計算結果にしたいので Number とします。
+
+```cs
+protected override void RegisterOutputParams(GH_OutputParamManager pManager)
+{
+    pManager.AddNumberParameter("Output", "Output", "Output", GH_ParamAccess.item);
+}
+```
+
+SolveInstance は上でやったことを考慮して以下になります。
+
+```cs
+protected override void SolveInstance(IGH_DataAccess DA)
+{
+    string pythonCode = string.Empty;
+    double result = 0;
+    if(!DA.GetData(0, ref pythonCode)) { return; }
+
+    string envPath = "Path/to/PythonXXX.dll";
+    Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", envPath, EnvironmentVariableTarget.Process);
+
+    PythonEngine.Initialize();
+    using (Py.GIL())
+    {
+        PyModule ps = Py.CreateScope();
+        ps.Exec(pythonCode);
+        result = ps.Get<double>("result");
+    }
+    PythonEngine.Shutdown();
+
+    DA.SetData(0, result);
+}
+```
+
+ここでは `result` という変数名を double で出力するようにしているので、入力する Python のコードにも必ず `result` という変数を含む必要があります。
+
+こちらでビルドすれば以下のように入力したコードを実行するコンポーネントが作成できたのではないでしょうか。
+(動画がうまく表示されない場合はリロードしてください。)
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">最近 C# で CPython を実行する方法を調べてたけど副次的に任意の Python コード実行する Grasshopper コンポーネント作れて、また Grasshopper への理解が深まった。 <a href="https://t.co/qnwqlKO3a4">pic.twitter.com/qnwqlKO3a4</a></p>&mdash; hiron (@hiron_rgkr) <a href="https://twitter.com/hiron_rgkr/status/1507538203846213634?ref_src=twsrc%5Etfw">March 26, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
