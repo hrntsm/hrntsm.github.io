@@ -19,8 +19,6 @@ const IndexPage = ({ data }) => {
         <h1>Contact</h1>
         <p>
           お気軽にお問い合わせください。
-          <br />
-          お仕事も募集しておりますので、もしご一緒にお仕事できたらとてもうれしいです。
         </p>
         <h3>Form</h3>
         <a
@@ -33,8 +31,6 @@ const IndexPage = ({ data }) => {
         <p />
         <h3>E-mail</h3>
         <p>contact(a)hrntsm.com (a) を @ に変換してください</p>
-        <h3>Twitter</h3>
-        <a href={"https://twitter.com/hiron_rgkr"}>@hiron_rgkr</a>
       </Content>
     </Layout>
   )

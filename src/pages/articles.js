@@ -53,18 +53,13 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO
         title="技術記事たち"
-        description="技術記事です。構造とデジタル というブログや Qiita、Zenn.dev などにこれまで書いてきた記事をこちらにまとめました。"
+        description="技術記事です。"
       />
       <Content>
         <h1>Technical Articles</h1>
         <hr></hr>
         <p>
           技術記事です。
-          <br />
-          "構造とデジタル" というブログや Qiita、Zenn.dev
-          などにこれまで書いてきた記事をこちらにまとめました。
-          <br />
-          各媒体での記事をお探しの場合は、下記タグページから過去掲載していたサービスのタグを参照してください。
         </p>
         <hr></hr>
         <TagsHeader>
