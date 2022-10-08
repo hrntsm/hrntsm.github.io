@@ -9,8 +9,11 @@ article-tags: ["Grasshopper", "Tunny"]
 ## はじめに
 
 Grasshopper で使用できる最適化コンポーネント Tunny を開発しています。
+- [food 4 Rhino - Tunny](https://www.food4rhino.com/en/app/tunny)
+
 その中でベイズ最適化や進化戦略、準モンテカルロなどこれまでの Grasshopper の最適化コンポーネントでなじみのないアルゴリズムがあります。
 それらを使うにあたってざっくりとしたアルゴリズムへの理解があるとより使いやすくなるため、簡単な紹介をします。
+
 ここでの内容は Tunny の公式ドキュメントの [Technical Info](https://tunny-docs.deno.dev/docs/technical-info) を翻訳したものがベースになります。
 
 この記事では TPE という手法について紹介します。
