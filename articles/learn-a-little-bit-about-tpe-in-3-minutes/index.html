@@ -61,7 +61,7 @@
 <p>得られたサンプリング点を <code class="language-text">l(x)</code> と <code class="language-text">g(x)</code> の 2 つに分割します。
 Tunny は分割するとき、<code class="language-text">y*</code> というある値で分割します。
 <code class="language-text">y*</code> は上位 10％ の個体または 25 個体の小さい方で分割する値になります。</p>
-<p>次の例では <code class="language-text">y*=-0.83</code> となり <code class="language-text">l(x)</code> と <code class="language-text">g(x)</code>。</p>
+<p>次の例では <code class="language-text">y*=-0.83</code> となり、この値を使ってサンプリングされた点を <code class="language-text">l(x)</code> と <code class="language-text">g(x)</code> に 2 分します。</p>
 <img src="https://tunny-docs.deno.dev/docs/technical-info/tpe2.png">
 <h4>ステップ 3</h4>
 <p>次に、l(x) と g(x) のそれぞれに対してカーネル密度推定 (KernelDensityEstimator, KDE) を実行します。
