@@ -1,7 +1,7 @@
 ---
 title: "3分でちょっとだけわかる CMA-ES"
 date: "2022-10-08"
-draft: true
+draft: false
 path: "/articles/learn-a-little-bit-about-cmaes-in-3-minutes"
 article-tags: ["Grasshopper", "Tunny"]
 ---
