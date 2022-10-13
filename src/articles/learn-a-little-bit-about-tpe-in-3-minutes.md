@@ -1,5 +1,5 @@
 ---
-title: "3分でちょっとだけわかるTPE"
+title: "3分でちょっとだけわかる TPE"
 date: "2022-10-08"
 draft: false
 path: "/articles/learn-a-little-bit-about-tpe-in-3-minutes"
