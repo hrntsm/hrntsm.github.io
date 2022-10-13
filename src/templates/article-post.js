@@ -73,6 +73,7 @@ export default ({ data }) => {
         }
       />
       <Content>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
         <MarkedHeader>{post.frontmatter.title}</MarkedHeader>
         <HeaderDate>
           {post.frontmatter.date} - {post.fields.readingTime.text} - Tags:{" "}
