@@ -44,14 +44,18 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-reading-time`, {
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            aliases: { sh: "bash", js: "javascript" },
-            showLineNumbers: true,
-            additionalLangs: [`language-rust`],
-          }
-        }, {
+        plugins: [
+          `gatsby-remark-reading-time`,
+          `gatsby-remark-mathjax`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases: { sh: "bash", js: "javascript" },
+              showLineNumbers: true,
+              additionalLangs: [`language-rust`],
+            }
+          },
+          {
             resolve: `gatsby-remark-og-image`,
             options: {
               output: {
@@ -96,7 +100,8 @@ module.exports = {
               iconFile: require.resolve('./static/twittercard/image.png'),
               timeout: 10000,
             },
-          }],
+          },
+        ],
       },
     },
     {

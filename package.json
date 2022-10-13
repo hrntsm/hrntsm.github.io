@@ -20,6 +20,7 @@
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-plugin-sitemap": "^2.12.0",
+    "gatsby-remark-mathjax": "^1.0.0",
     "gatsby-remark-prismjs": "^3.13.0",
     "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-source-filesystem": "^2.11.1",
