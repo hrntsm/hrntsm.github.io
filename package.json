@@ -18,7 +18,7 @@
     "gatsby-plugin-netlify": "^2.11.1",
     "gatsby-plugin-offline": "^3.10.2",
     "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-remark-mathjax": "^1.0.0",
     "gatsby-remark-prismjs": "^3.13.0",
