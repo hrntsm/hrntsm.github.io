@@ -1,5 +1,5 @@
 # .github/workflows/deploy.yml
-name: GitHub Pages
+name: Deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - source
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
