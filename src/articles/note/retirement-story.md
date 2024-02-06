@@ -1,7 +1,7 @@
 ---
 title: "設計事務所を退職した話"
 date: "2019-12-29"
-draft: false
+draft: true
 path: "/articles/retirement-story"
 article-tags: ["poem", "note"]
 ---
